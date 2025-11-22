@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>AriasMind — Aprender es mi reto. Inspirar es mi propósito.</title>
+<style>
+:root{--bg:#0A0A0A;--smoke:#2E2E2E;--muted:#8E8E8E;--neon:#4DAEFF;--white:#F2F2F2;--card:#0F0F10}
+body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;background:var(--bg);color:var(--white);-webkit-font-smoothing:antialiased}
+.container{max-width:1100px;margin:28px auto;padding:24px}
+.preview{border-radius:14px;overflow:hidden;border:1px solid rgba(255,255,255,0.04);margin-bottom:28px}
+.header{display:flex;align-items:center;gap:16px}
+.logo{width:64px;height:64px;border-radius:12px;background:linear-gradient(180deg,var(--smoke),#111);display:flex;align-items:center;justify-content:center}
+.hint{color:var(--muted);font-size:13px}
+/* Hero */
+.hero{position:relative;height:340px;background:#070707;display:flex;align-items:center;justify-content:center}
+.hero video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0.25}
+.hero .overlay{position:relative;z-index:2;text-align:center;padding:24px}
+.hero h1{font-size:34px;margin:0;color:var(--neon)}
+.hero p{margin:10px 0;color:var(--muted);max-width:780px}
+.btn{display:inline-block;margin-top:10px;padding:10px 16px;border-radius:10px;background:var(--neon);color:#041424;text-decoration:none;font-weight:700}
+.section{padding:22px;background:var(--card);border-top:1px solid rgba(255,255,255,0.02)}
+.grid{display:grid;grid-template-columns:1fr 320px;gap:20px}
+.card{background:#0B0B0C;border-radius:12px;padding:16px;border:1px solid rgba(255,255,255,0.03)}
+.small{font-size:14px;color:var(--muted)}
+.list{padding-left:18px}
+.badge{display:inline-block;padding:6px 10px;border-radius:999px;background:rgba(77,174,255,0.12);color:var(--neon);font-weight:700;margin-right:8px}
+.hidden{opacity:0.14;font-style:italic}
+.spacer{height:18px}
+.podcast-links a{display:inline-block;margin-right:8px;padding:8px 10px;border-radius:8px;background:rgba(255,255,255,0.03);text-decoration:none;color:var(--white);font-weight:600}
+.video-card video{width:100%;height:220px;object-fit:cover;border-radius:8px;border:1px solid rgba(255,255,255,0.03)}
+@media (max-width:880px){.grid{grid-template-columns:1fr}.hero{height:260px}.hero h1{font-size:24px}.video-card video{height:160px}}
+</style>
+</head>
+<body>
+<div class="container">
+<!-- PREVIEW A -->
+<div class="preview">
+  <div class="hero" style="background:linear-gradient(90deg, rgba(10,10,10,1), rgba(8,8,12,0.6));">
+    <!-- Video background (ejemplo) -->
+    <video autoplay muted loop playsinline src="/mnt/data/invideo-ai-1080-The 3.5-Second AriasMind Breath-In-2025-11-20T17_53_10.mp4"></video>
+    <div class="overlay">
+      <h1>AriasMind — Aprender es mi reto. Inspirar es mi propósito.</h1>
+      <p style="text-align:center;margin:10px auto;max-width:780px;">Proyecto latino de aprendizaje autodidacta basado en retos reales.</p>
+      <a class="btn" href="#reto-actual">Ver el reto actual</a>
+    </div>
+  </div>
+  <div class="section grid">
+    <div>
+      <div class="card">
+        <h3 style="margin-top:0;color:var(--neon)">¿Qué es AriasMind?</h3>
+        <p class="small"><strong>AriasMind</strong> es un laboratorio público de aprendizaje autodidacta. Aprender, documentar e inspirar.</p>
+        <div class="spacer"></div>
+        <div style="display:flex;gap:10px;margin-top:12px">
+          <div class="card" style="flex:1;background:transparent;border:0;padding:0">
+            <h4 style="color:var(--neon);margin:0">Propósito</h4>
+            <p class="small">Demostrar que cualquiera puede aprender cualquier cosa.</p>
+          </div>
+          <div class="card" style="flex:1;background:transparent;border:0;padding:0">
+            <h4 style="color:var(--neon);margin:0">Misión</h4>
+            <p class="small">Aprender y documentar retos reales.</p>
+          </div>
+          <div class="card" style="flex:1;background:transparent;border:0;padding:0">
+            <h4 style="color:var(--neon);margin:0">Visión</h4>
+            <p class="small">Ser referente latino de aprendizaje autodidacta.</p>
+          </div>
+        </div>
+        <hr style="border:none;border-top:1px solid rgba(255,255,255,0.03);margin:16px 0">
+        <h4 style="margin:0;color:var(--neon)">Filosofía</h4>
+        <ul class="list small">
+          <li>Todos pueden aprender lo que se propongan.</li>
+          <li>La disciplina se entrena paso a paso.</li>
+          <li>El progreso es más importante que la perfección.</li>
+          <li>Documentar el proceso inspira a otros.</li>
+        </ul>
+      </div>
+      <!-- Video card (espacio marcado en tu screenshot) -->
+      <div class="card video-card" style="margin-top:16px">
+        <h4 style="color:var(--neon);margin:0">Intro AriasMind</h4>
+        <p class="small">Video de introducción: logo y presentación breve.</p>
+        <video autoplay muted loop playsinline src="/mnt/data/invideo-ai-1080-The 3.5-Second AriasMind Breath-In-2025-11-20T17_53_10.mp4"></video>
+      </div>
+      <!-- Reto actual (tarjeta cuadrada) -->
+      <div class="card" style="margin-top:16px">
+        <h4 style="color:var(--neon);margin:0">Reto actual — Inglés (15 días)</h4>
+        <p class="small">Sigue el proceso real: grabaciones diarias, comparaciones y resultados reales documentados. Objetivo: mejorar vocabulario, fluidez básica y confianza con práctica diaria (20–40 min).</p>
+        <div style="margin-top:10px"><span class="badge">Día 3</span><span class="small">Progreso: grabaciones privadas subidas — liberación diaria programada</span></div>
+        <div style="margin-top:12px" id="reto-actual"><a class="btn" href="#">Seguir el reto</a></div>
+      </div>
+    </div>
+    <aside>
+      <div class="card">
+        <h4 style="color:var(--neon);margin:0">Biblioteca de Retos</h4>
+        <p class="small">Repositorio modular donde cada reto tendrá su página con día a día, videos y resultados.</p>
+        <ul class="list small">
+          <li>Inglés — 15 días (actual)</li>
+          <li>Japonés — 30 días (próximo)</li>
+          <li>Lectura — 30 días</li>
+          <li>Memoria — 7 días</li>
+        </ul>
+        <p class="small hidden">Estado: privado — contenido subido y programado para liberación gradual.</p>
+      </div>
+      <div class="card" style="margin-top:14px">
+        <h4 style="color:var(--neon);margin:0">Historia</h4>
+        <p class="small">Yo no era bueno para estudiar, odiaba hacerlo y llegué incluso a dejar la escuela… hasta que un día...</p>
+        <a class="btn" href="/mnt/data/AriasMind_Base_Proyecto_Extendido.pdf" style="display:inline-block;margin-top:10px;text-decoration:none">Leer historia completa</a>
+      </div>
+      <div class="card" style="margin-top:14px">
+        <h4 style="color:var(--neon);margin:0">Podcasts</h4>
+        <p class="small">Episodios. Espacio para conversaciones sobre disciplina, hábitos, mentalidad y lecciones prácticas.</p>
+        <div style="margin-top:10px" class="podcast-links">
+          <a href="#" class="podlink">Spotify</a>
+          <a href="#" class="podlink">YouTube</a>
+          <a href="#" class="podlink">Episodios en la web</a>
+        </div>
+      </div>
+      <div class="card" style="margin-top:14px">
+        <h4 style="color:var(--neon);margin:0">Landing & Lanzamiento</h4>
+        <p class="small">Recomendación: incluir una landing page dedicada al lanzamiento público (página de espera/registro) que capture correos y genere expectativa. Puede coexistir con la página principal y activarse en el lanzamiento oficial.</p>
+        <p class="small">Estado sugerido: <em>Landing separada + CTA en home</em>.</p>
+      </div>
+    </aside>
+  </div>
+<!-- PREVIEW: COMBINACIÓN FINAL -->
+<div class="preview">
+  <div class="section">
+    <h3 style="color:var(--neon);text-align:center;margin-top:0">Únete a la comunidad AriasMind</h3>
+    <p class="small" style="text-align:center;opacity:0.8;margin-top:-6px;margin-bottom:14px;color:var(--neon);">Sé parte del proceso</p>
+    <p class="small" style="text-align:center;max-width:780px;margin:0 auto 14px auto;">
+      Hace años una pequeña victoria cambió mi vida. Hoy documento todo el proceso —errores, avances y aprendizajes reales— y si querés acompañar este camino de cerca, aquí es donde comparto lo más valioso.
+    </p>
+    <p class="small" style="text-align:center;max-width:780px;margin:0 auto 18px auto;">
+      Si querés ver el proceso completo —sin filtros— únete y recibe lo que no publico en redes.
+    </p>
+    <ul class="list small" style="max-width:420px;margin:0 auto 14px auto;">
+      <li>Videos exclusivos solo para suscriptores</li>
+      <li>PDF inmediato con cinco hábitos aplicables</li>
+      <li>Contenido para mejorar hábitos y aprendizaje</li>
+    </ul>
+    <div style="text-align:center;"><a class="btn" href="#">Quiero acceso exclusivo</a></div>
+    <p class="small" style="text-align:center;margin-top:10px;opacity:0.6">Sin spam — solo materiales esenciales. Unirse es gratis y no implica ningún cobro.</p>
+  </div>
+</div>
+<!-- PREVIEW B (secundario) -->
+<div class="preview">
+  <div class="hero" style="height:260px;">
+    <div style="position:absolute;inset:0;background:linear-gradient(180deg, rgba(0,0,0,0.55), rgba(0,0,0,0.3));"></div>
+    <div class="overlay" style="padding:18px">
+      <h1 style="font-size:28px">Reto actual: ¿Cuánto puedo mejorar mi inglés en 15 días?</h1>
+      <p class="small" style="max-width:780px">Sigue el proceso real: grabaciones diarias, comparaciones y resultados. Contenido privado, liberación programada.</p>
+      <a class="btn" href="#biblioteca">Seguir el reto</a>
+    </div>
+  </div>
+  <div class="section grid">
+    <div>
+      <div class="card">
+        <h3 style="color:var(--neon);margin:0">El Proyecto — resumen</h3>
+        <p class="small">AriasMind nace para demostrar que cualquiera puede aprender. Documentamos errores, victorias y progreso real como motor de inspiración.</p>
+        <div style="margin-top:10px">
+          <strong class="small">Valores:</strong>
+          <ul class="list small"><li>Autenticidad</li><li>Disciplina progresiva</li><li>Humildad</li></ul>
+        </div>
+        <div style="margin-top:12px"><a class="btn" href="/mnt/data/AriasMind_Base_Proyecto_Extendido.pdf">Leer proyecto completo</a></div>
+      </div>
+      <div class="card" style="margin-top:16px">
+        <h4 style="color:var(--neon);margin:0">Publicación controlada</h4>
+        <p class="small">Modo privado: subes todo el contenido y lo mantienes sólo visible para ti. Programa liberaciones diarias automáticas para redes y web.</p>
+        <p class="small">Beneficios: preparar lotes, corregir errores y generar expectativa antes del lanzamiento público.</p>
+      </div>
+    </div>
+    <aside>
+      <div class="card">
+        <h4 style="color:var(--neon);margin:0">Biblioteca (vista rápida)</h4>
+        <div id="biblioteca" style="margin-top:8px">
+          <div class="small"><strong>Inglés — 15 días</strong><div class="small">Estado: privado • 15 videos preparados</div></div>
+          <div class="small" style="margin-top:8px"><strong>Japonés — 30 días</strong><div class="small">Estado: planeado</div></div>
+          <div class="small" style="margin-top:8px"><strong>Lectura — 30 días</strong><div class="small">Estado: planeado</div></div>
+        </div>
+        <a class="btn" href="/mnt/data/AriasMind_Retos_2025_Oficial.pdf" style="display:inline-block;margin-top:12px">Ver sistema de retos</a>
+      </div>
+      </div>
+    </aside>
+  </div>
+</div>
+<div style="color:var(--muted);font-size:13px;margin-top:8px">Nota: los links a los PDFs usan las rutas locales cargadas en el proyecto. Puedes usar estos archivos para poblar la biblioteca (/mnt/data/).</div>
+</div>
+</body>
+</html>
