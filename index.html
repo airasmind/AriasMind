@@ -1,8 +1,9 @@
-<!doctype html>
+<!DOCTYPE html>
+
 <html lang="es">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
 <title>AriasMind — Aprender es mi reto. Inspirar es mi propósito.</title>
 <style>
 :root{--bg:#0A0A0A;--smoke:#2E2E2E;--muted:#8E8E8E;--neon:#4DAEFF;--white:#F2F2F2;--card:#0F0F10}
@@ -30,108 +31,512 @@ body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetic
 .podcast-links a{display:inline-block;margin-right:8px;padding:8px 10px;border-radius:8px;background:rgba(255,255,255,0.03);text-decoration:none;color:var(--white);font-weight:600}
 .video-card video{width:100%;height:220px;object-fit:cover;border-radius:8px;border:1px solid rgba(255,255,255,0.03)}
 @media (max-width:880px){.grid{grid-template-columns:1fr}.hero{height:260px}.hero h1{font-size:24px}.video-card video{height:160px}}
+
+
+/* Fixes responsivos para evitar espacios grandes en móvil */
+@media (max-width:880px){
+  .hero{height:auto !important;min-height:120px !important;padding:18px !important;align-items:flex-start !important}
+  .hero .overlay{padding:8px !important}
+  .preview{padding:12px !important;margin-bottom:18px !important}
+  .section{padding:16px !important}
+  .video-card{display:none !important}
+  .video-card + div, .video-card ~ * {margin-top:0 !important}
+  .grid{grid-template-columns:1fr !important;gap:12px !important}
+  [style*="height:340px"], [style*="height:260px"]{height:auto !important}
+  .spacer{display:block;height:14px !important}
+}
+@media (max-width:880px){
+  .desktop-only{display:none !important}
+}
+@media (max-width:460px){
+  .btn{width:92% !important;display:block;margin-left:auto;margin-right:auto}
+  .hero h1{font-size:1.25rem !important;line-height:1.2 !important}
+  .hero p{font-size:0.95rem !important}
+}
+
+
+/* ============================
+   ARIASMIND PREMIUM OFFICIAL
+   ============================ */
+
+:root{
+  --bg:#0A0A0A;
+  --bg-soft:#0D0D0F;
+  --bg-card:#111115;
+  --stroke:rgba(255,255,255,0.07);
+  --stroke-light:rgba(255,255,255,0.03);
+  --muted:#8E8E8E;
+  --text:#F2F2F2;
+  --accent:#4DAEFF;
+  --accent-soft:rgba(77,174,255,0.16);
+  --shadow:0 4px 18px rgba(0,0,0,0.35);
+}
+
+/* Smooth global */
+body{
+  background:var(--bg);
+  color:var(--text);
+  font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,sans-serif;
+  -webkit-font-smoothing:antialiased;
+  margin:0;
+}
+
+/* Header */
+header{
+  background:rgba(10,10,10,0.72);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--stroke);
+  box-shadow:var(--shadow);
+}
+
+/* Logo */
+header img{
+  height:52px;
+  filter:drop-shadow(0 0 4px rgba(77,174,255,0.4));
+}
+
+/* Navigation */
+header a{
+  color:var(--accent);
+  text-decoration:none;
+  font-weight:600;
+}
+header a:hover{
+  opacity:0.8;
+}
+
+/* Cards */
+.card{
+  background:var(--bg-card) !important;
+  border:1px solid var(--stroke-light) !important;
+  border-radius:14px !important;
+  box-shadow:var(--shadow);
+  padding:18px !important;
+}
+
+/* Buttons */
+.btn{
+  background:var(--accent);
+  color:#04131F;
+  border-radius:12px;
+  padding:12px 20px;
+  font-weight:700;
+  text-decoration:none;
+  box-shadow:0 4px 12px rgba(77,174,255,0.25);
+}
+.btn:hover{
+  filter:brightness(1.1);
+}
+
+/* Titles */
+h1,h2,h3,h4{
+  color:var(--text);
+  letter-spacing:-0.3px;
+}
+h2{ color:var(--accent);}
+
+/* Sections */
+.section{
+  background:var(--bg-soft) !important;
+  border:1px solid var(--stroke-light) !important;
+  border-radius:14px;
+  padding:24px !important;
+  box-shadow:var(--shadow);
+}
+
+/* Responsive refinements */
+@media(max-width:880px){
+  .grid{grid-template-columns:1fr !important;}
+  header{padding:10px 0;}
+}
+
+
+/* Fix overflow and grid cut-off on mobile */
+body{overflow-x:hidden !important;}
+.container{padding-left:16px !important; padding-right:16px !important;}
+.preview{overflow:hidden !important;}
+.card{box-sizing:border-box !important;min-width:0 !important;}
+.grid{grid-auto-rows:auto !important;}
+/* Force single column on small screens and ensure cards do not overflow */
+@media (max-width:880px){
+  .grid{grid-template-columns:1fr !important; gap:16px !important;}
+  .card{width:100% !important; max-width:100% !important; margin-left:0 !important; margin-right:0 !important;}
+  .section{padding-left:16px !important; padding-right:16px !important;}
+  .preview{padding-left:8px !important; padding-right:8px !important;}
+  header nav ul{flex-wrap:wrap; gap:12px;}
+}
+/* Ensure nested flex children can shrink */
+.card *{min-width:0 !important;}
+
+
+/* GLOBAL RESET FOR RESPONSIVE SAFETY */
+*{box-sizing:border-box!important;min-width:0!important}
+html,body{width:100%!important;overflow-x:hidden!important;margin:0;padding:0}
+img,video,iframe{max-width:100%!important;height:auto!important;display:block!important}
+.container{max-width:1100px!important;width:100%!important;padding-left:16px!important;padding-right:16px!important;margin:20px auto!important;}
+.preview{overflow:visible!important;padding-left:0!important;padding-right:0!important}
+/* Ensure no element pushes wider than screen */
+.card{overflow:hidden!important;word-wrap:break-word!important;hyphens:auto!important}
+.grid{grid-template-columns:1fr 320px;gap:20px;align-items:start}
+/* Prevent fixed-width causing overflow on very narrow screens */
+@media (max-width:980px){
+  .grid{grid-template-columns:1fr !important;gap:16px !important}
+  .hero{height:auto !important;min-height:140px !important;padding:20px !important;align-items:flex-start}
+  header nav ul{flex-wrap:wrap;gap:12px}
+  .card{padding:14px!important}
+  .preview{margin-left:8px!important;margin-right:8px!important}
+}
+/* Extra small screens */
+@media (max-width:460px){
+  .container{padding-left:12px!important;padding-right:12px!important}
+  .btn{width:92% !important;display:block;margin-left:auto;margin-right:auto}
+  .card{border-radius:12px;padding:12px!important}
+  .section{padding:16px!important}
+  header img{height:44px!important}
+  h1{font-size:1.4rem!important}
+  h2{font-size:1.05rem!important}
+  /* remove any accidental large top/bottom margins that can create overflow */
+  body>*{max-width:100%!important}
+}
+/* Defensive: hide any leftover desktop-only container */
+.desktop-only{display:none!important}
+/* Ensure left/right safe area on iOS */
+body{padding-left:env(safe-area-inset-left);padding-right:env(safe-area-inset-right);}
+
+
+/* Espaciado y estilo visual amplio - AriasMind layout breathing room */
+.container{padding-top:28px !important; padding-bottom:28px !important;}
+.preview{padding:22px !important;}
+.section{padding:28px !important; margin-bottom:22px !important; border-radius:16px !important;}
+.card{padding:22px !important; border-radius:16px !important; margin-bottom:14px !important;}
+.grid{gap:26px !important;}
+.card .small{line-height:1.65 !important; font-size:15px !important; color:var(--muted) !important;}
+h1{margin-bottom:14px !important; line-height:1.15 !important; font-size:1.6rem !important;}
+h2{margin-bottom:12px !important; font-size:1.15rem !important;}
+h3,h4{margin-bottom:10px !important;}
+.list li{margin-bottom:8px !important;}
+
+/* Make the three mini-cards (Propósito/Misión/Visión) more separated and stacked nicely on mobile */
+.card > .spacer{height:18px !important;}
+.card > div[style*="display:flex"]{gap:18px !important; align-items:flex-start !important;}
+.card > div[style*="display:flex"] .card{padding:16px !important; border-radius:12px !important;}
+
+/* Emphasize section spacing */
+.hero .overlay{padding-bottom:18px !important;}
+.hero .overlay .btn{margin-top:18px !important; margin-bottom:12px !important;}
+
+/* Desktop: slightly larger cards and softer rounded corners */
+@media(min-width:881px){
+  .card{padding:26px !important; border-radius:18px !important;}
+  .grid{gap:30px !important;}
+  .container{padding-left:40px !important; padding-right:40px !important;}
+}
+
+/* Mobile: ensure comfortable paddings and stacked layout */
+@media(max-width:880px){
+  .container{padding-left:18px !important; padding-right:18px !important;}
+  .preview{padding:16px !important;}
+  .card{padding:18px !important;}
+  .grid{grid-template-columns:1fr !important; gap:18px !important;}
+  .card > div[style*="display:flex"]{flex-direction:column !important; gap:12px !important;}
+  h1{font-size:1.45rem !important;}
+  .card .small{font-size:15px !important; line-height:1.7 !important;}
+  .btn{padding:12px 18px !important;}
+}
+
+/* Ensure no horizontal cutoffs */
+*{box-sizing:border-box!important;min-width:0!important}
+body{overflow-x:hidden!important}
+
+
+/* ================= COLUMN SYSTEM ================= */
+/* Desktop: 3 columns */
+@media(min-width:1025px){
+  .grid{grid-template-columns:repeat(3, 1fr) !important; gap:26px !important;}
+}
+
+/* Tablet: 2 columns */
+@media(min-width:640px) and (max-width:1024px){
+  .grid{grid-template-columns:repeat(2, 1fr) !important; gap:22px !important;}
+}
+
+/* Mobile: 1 column */
+@media(max-width:639px){
+  .grid{grid-template-columns:1fr !important; gap:18px !important;}
+}
+
+
+/* Móvil: mostrar las mini-cards (Propósito/Misión/Visión) en fila horizontal desplazable */
+@media (max-width:639px){
+  /* Selecciona el contenedor que tiene las 3 mini-cards (es un div interno con display:flex) */
+  .card > div[style*="display:flex"]{
+    display:flex !important;
+    flex-direction:row !important;
+    overflow-x:auto !important;
+    -webkit-overflow-scrolling:touch !important;
+    gap:14px !important;
+    padding-bottom:6px !important;
+    margin-left:-8px !important;
+    padding-left:8px !important;
+  }
+  /* Cada mini-card interna debe ser un bloque con ancho fijo para poder deslizar */
+  .card > div[style*="display:flex"] .card{
+    flex:0 0 220px !important;
+    width:220px !important;
+    min-width:220px !important;
+    max-width:220px !important;
+    margin:0 !important;
+    border-radius:12px !important;
+  }
+  /* ocultar scrollbar en la medida de lo posible */
+  .card > div[style*="display:flex"]::-webkit-scrollbar{height:6px}
+  .card > div[style*="display:flex"]::-webkit-scrollbar-thumb{background:rgba(255,255,255,0.06);border-radius:6px}
+  /* Ajustes adicionales para que el resto mantenga espaciado */
+  .card .small{line-height:1.6 !important}
+}
+
+
+/* WIDEN TEXT AREA AT BOTTOM SECTIONS */
+.section, .card{
+  max-width: 900px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+/* Mobile: reduce side padding but widen content area */
+@media(max-width:639px){
+  .section, .card{
+    max-width: 95% !important;
+    width: 95% !important;
+    padding-left: 18px !important;
+    padding-right: 18px !important;
+  }
+  .container{
+    padding-left: 12px !important;
+    padding-right: 12px !important;
+  }
+}
+
+
+/* WIDEN HERO TEXT AREA */
+.hero .overlay{
+    max-width: 900px !important;
+    width: 90% !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    padding-left: 22px !important;
+    padding-right: 22px !important;
+}
+
+/* Mobile: make hero text wider and breathing */
+@media(max-width:639px){
+  .hero .overlay{
+      max-width: 95% !important;
+      width: 95% !important;
+      padding-left: 18px !important;
+      padding-right: 18px !important;
+  }
+  .hero h1{
+      line-height: 1.22 !important;
+      font-size: 1.55rem !important;
+  }
+  .hero p{
+      font-size: 1rem !important;
+      line-height: 1.55 !important;
+  }
+}
+
+
+/* WIDEN FILOSOFÍA SECTION */
+.card h4, h4[style*="Filosofía"], h4:contains("Filosofía"){
+    max-width: 900px !important;
+}
+.card:has(h4:contains("Filosofía")){
+    max-width: 900px !important;
+    width: 90% !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    padding-left: 24px !important;
+    padding-right: 24px !important;
+}
+
+/* Mobile */
+@media(max-width:639px){
+    .card:has(h4:contains("Filosofía")){
+        max-width: 95% !important;
+        width: 95% !important;
+        padding-left: 18px !important;
+        padding-right: 18px !important;
+    }
+}
+
+
+/* WIDEN '¿Qué es AriasMind?' SECTION */
+.card:has(h3:contains("¿Qué es AriasMind?")){
+    max-width: 900px !important;
+    width: 90% !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    padding-left: 26px !important;
+    padding-right: 26px !important;
+}
+
+/* Mobile */
+@media(max-width:639px){
+  .card:has(h3:contains("¿Qué es AriasMind?")){
+      max-width: 95% !important;
+      width: 95% !important;
+      padding-left: 18px !important;
+      padding-right: 18px !important;
+  }
+}
+
+
+/* Podcast section styles */
+.podcast-section .section{padding:20px; border-radius:14px; background:var(--bg-card); border:1px solid rgba(255,255,255,0.03);}
+.podcast-section .btn{padding:10px 16px;border-radius:10px;font-weight:700;color:#04131F;box-shadow:0 6px 18px rgba(77,174,255,0.12);}
+@media(max-width:639px){
+  .podcast-section .section{padding:16px}
+  .podcast-section .btn{width:30%;min-width:100px}
+  .podcast-section div[style*="display:flex"]{justify-content:flex-start;overflow-x:auto;-webkit-overflow-scrolling:touch;padding-bottom:6px}
+}
+
+html{scroll-behavior:smooth;}
+
+
+/* Scroll offset fix: ensure anchored sections appear slightly higher than default so they are not hidden by the header */
+:root{--header-height:72px;}
+/* Apply smooth scroll padding for the viewport */
+html{scroll-behavior:smooth;scroll-padding-top:calc(var(--header-height) + 8px);}
+
+/* For each main section/card ensure an anchor offset */
+#inicio, #que-es, #reto-actual, #comunidad, #proyecto, .section, .card {
+  scroll-margin-top: calc(var(--header-height) + 8px) !important;
+}
+
+/* Slightly smaller header on narrow screens */
+@media (max-width:640px){
+  :root{--header-height:64px;}
+  html{scroll-padding-top:calc(var(--header-height) + 6px);}
+  #inicio, #que-es, #reto-actual, #comunidad, #proyecto, .section, .card {
+    scroll-margin-top: calc(var(--header-height) + 6px) !important;
+  }
+}
+
+
+/* Widen project section */
+#proyecto, .section:has(h3:contains("Proyecto")), .section:has(h2:contains("Proyecto")){
+    max-width: 900px !important;
+    width: 90% !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    padding-left: 26px !important;
+    padding-right: 26px !important;
+}
+
+/* Mobile expand */
+@media(max-width:639px){
+  #proyecto, .section:has(h3:contains("Proyecto")), .section:has(h2:contains("Proyecto")){
+      max-width: 95% !important;
+      width: 95% !important;
+      padding-left: 18px !important;
+      padding-right: 18px !important;
+  }
+}
 </style>
 </head>
-<body>
+<body><header style="width:100%;padding:14px 0;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid rgba(255,255,255,0.06);margin-bottom:24px;"><div><img alt="AriasMind Logo" src="/mnt/data/Logo oficial.PNG" style="height:52px;width:auto;display:block;margin-left:16px;"/></div><nav style="margin-right:16px;"><ul style="list-style:none;margin:0;padding:0;display:flex;gap:22px;"><li><a href="#inicio" style="color:#4DAEFF;text-decoration:none;font-weight:600;font-size:15px;">Inicio</a></li><li><a href="#que-es" style="color:#4DAEFF;text-decoration:none;font-weight:600;font-size:15px;">¿Qué es AriasMind?</a></li><li><a href="#reto-actual" style="color:#4DAEFF;text-decoration:none;font-weight:600;font-size:15px;">Reto Actual</a></li><li><a href="#comunidad" style="color:#4DAEFF;text-decoration:none;font-weight:600;font-size:15px;">Comunidad</a></li><li><a href="#proyecto" style="color:#4DAEFF;text-decoration:none;font-weight:600;font-size:15px;">Proyecto</a></li></ul></nav></header>
 <div class="container">
 <!-- PREVIEW A -->
 <div class="preview">
-  <div class="hero" style="background:linear-gradient(90deg, rgba(10,10,10,1), rgba(8,8,12,0.6));">
-    <!-- Video background (ejemplo) -->
-    <video autoplay muted playsinline loop preload="auto" poster="assets/3A1A5B42-2A31-4910-8699-7D9889F650EA.PNG" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0.25"><source src="assets/invideo-ai-1080-The 3.5‑Second AriasMind Breath-In-2025-11-20T17_53_10.mp4" type="video/mp4">Tu navegador no soporta video.</video>
-    <div class="overlay">
-      <h1>AriasMind — Aprender es mi reto. Inspirar es mi propósito.</h1>
-      <p style="text-align:center;margin:10px auto;max-width:780px;">Proyecto latino de aprendizaje autodidacta basado en retos reales.</p>
-      <a class="btn" href="#reto-actual">Ver el reto actual</a>
-    </div>
-  </div>
-  <div class="section grid">
-    <div>
-      <div class="card">
-        <h3 style="margin-top:0;color:var(--neon)">¿Qué es AriasMind?</h3>
-        <p class="small"><strong>AriasMind</strong> es un laboratorio público de aprendizaje autodidacta. Aprender, documentar e inspirar.</p>
-        <div class="spacer"></div>
-        <div style="display:flex;gap:10px;margin-top:12px">
-          <div class="card" style="flex:1;background:transparent;border:0;padding:0">
-            <h4 style="color:var(--neon);margin:0">Propósito</h4>
-            <p class="small">Demostrar que cualquiera puede aprender cualquier cosa.</p>
-          </div>
-          <div class="card" style="flex:1;background:transparent;border:0;padding:0">
-            <h4 style="color:var(--neon);margin:0">Misión</h4>
-            <p class="small">Aprender y documentar retos reales.</p>
-          </div>
-          <div class="card" style="flex:1;background:transparent;border:0;padding:0">
-            <h4 style="color:var(--neon);margin:0">Visión</h4>
-            <p class="small">Ser referente latino de aprendizaje autodidacta.</p>
-          </div>
-        </div>
-        <hr style="border:none;border-top:1px solid rgba(255,255,255,0.03);margin:16px 0">
-        <h4 style="margin:0;color:var(--neon)">Filosofía</h4>
-        <ul class="list small">
-          <li>Todos pueden aprender lo que se propongan.</li>
-          <li>La disciplina se entrena paso a paso.</li>
-          <li>El progreso es más importante que la perfección.</li>
-          <li>Documentar el proceso inspira a otros.</li>
-        </ul>
-      </div>
-      <!-- Video card (espacio marcado en tu screenshot) -->
-      <div class="card video-card" style="margin-top:16px">
-        <h4 style="color:var(--neon);margin:0">Intro AriasMind</h4>
-        <p class="small">Video de introducción: logo y presentación breve.</p>
-        <video autoplay muted playsinline loop preload="auto" poster="assets/3A1A5B42-2A31-4910-8699-7D9889F650EA.PNG" style="width:100%;height:220px;object-fit:cover;border-radius:8px;border:1px solid rgba(255,255,255,0.03)"><source src="assets/invideo-ai-1080-The 3.5‑Second AriasMind Breath-In-2025-11-20T17_53_10.mp4" type="video/mp4">Tu navegador no soporta video.</video>
-      </div>
-      <!-- Reto actual (tarjeta cuadrada) -->
-      
-        <div style="margin-top:12px" id="reto-actual"><a class="btn" href="#">Seguir el reto</a></div>
-      </div>
-    </div>
-    
-  </div>
+<div class="hero" id="inicio" style="background:linear-gradient(90deg, rgba(10,10,10,1), rgba(8,8,12,0.6));">
+<!-- Video background (ejemplo) -->
+<video autoplay="" loop="" muted="" playsinline="" src="assets/invideo-ai-1080-The 3.5‑Second AriasMind Breath-In-2025-11-20T17_53_10.mp4"></video>
+<div class="overlay" id="reto-actual">
+<h1>AriasMind — Aprender es mi reto. Inspirar es mi propósito.</h1>
+<p style="text-align:center;margin:10px auto;max-width:780px;">Proyecto latino de aprendizaje autodidacta basado en retos reales.</p>
+<a class="btn" href="#reto-actual">Ver el reto actual</a>
+</div>
+</div>
+<div class="section grid">
+<div>
+<div class="card" id="que-es">
+<h3 style="margin-top:0;color:var(--neon)">¿Qué es AriasMind?</h3>
+<p class="small"><strong>AriasMind</strong> es un laboratorio público de aprendizaje autodidacta. Aprender, documentar e inspirar.</p>
+<div class="spacer"></div>
+<div style="display:flex;gap:10px;margin-top:12px">
+<div class="card" style="flex:1;background:transparent;border:0;padding:0">
+<h4 style="color:var(--neon);margin:0">Propósito</h4>
+<p class="small">Demostrar que cualquiera puede aprender cualquier cosa.</p>
+</div>
+<div class="card" style="flex:1;background:transparent;border:0;padding:0">
+<h4 style="color:var(--neon);margin:0">Misión</h4>
+<p class="small">Aprender y documentar retos reales.</p>
+</div>
+<div class="card" style="flex:1;background:transparent;border:0;padding:0">
+<h4 style="color:var(--neon);margin:0">Visión</h4>
+<p class="small">Ser referente latino de aprendizaje autodidacta.</p>
+</div>
+</div>
+<hr style="border:none;border-top:1px solid rgba(255,255,255,0.03);margin:16px 0"/>
+<h4 style="margin:0;color:var(--neon)">Filosofía</h4>
+<ul class="list small">
+<li>Todos pueden aprender lo que se propongan.</li>
+<li>La disciplina se entrena paso a paso.</li>
+<li>El progreso es más importante que la perfección.</li>
+<li>Documentar el proceso inspira a otros.</li>
+</ul>
+</div><div class="preview podcast-section">
+<div class="section">
+<h3 style="color:var(--accent);text-align:left;margin-top:0;margin-bottom:8px">Podcast</h3>
+<p class="small" style="color:var(--muted);margin-bottom:14px;max-width:900px;">hábitos de aprendizaje,  entrevistas con autodidactas, estrategias de enfoque y reseñas de recursos.</p>
+<div style="display:flex;gap:12px;flex-wrap:wrap;align-items:center">
+<a class="btn" href="https://open.spotify.com" rel="noopener" style="background:linear-gradient(180deg,var(--accent),#2f9fe6);" target="_blank">Spotify</a>
+<a class="btn" href="https://www.youtube.com" rel="noopener" style="background:linear-gradient(180deg,var(--accent),#2f9fe6);" target="_blank">YouTube</a>
+<a class="btn" href="#podcasts" style="background:linear-gradient(180deg,var(--accent),#2f9fe6);">Contenido en la web</a>
+</div>
+</div>
+</div>
+<!-- Video card (espacio marcado en tu screenshot) -->
+<!-- Reto actual (tarjeta cuadrada) -->
+</div>
+</div>
+</div>
 <!-- PREVIEW: COMBINACIÓN FINAL -->
 <div class="preview">
-  <div class="section">
-    <h3 style="color:var(--neon);text-align:center;margin-top:0">Únete a la comunidad AriasMind</h3>
-    <p class="small" style="text-align:center;opacity:0.8;margin-top:-6px;margin-bottom:14px;color:var(--neon);">Sé parte del proceso</p>
-    <p class="small" style="text-align:center;max-width:780px;margin:0 auto 14px auto;">
+<div class="section" id="comunidad">
+<h3 style="color:var(--neon);text-align:center;margin-top:0">Únete a la comunidad AriasMind</h3>
+<p class="small" style="text-align:center;opacity:0.8;margin-top:-6px;margin-bottom:14px;color:var(--neon);">Sé parte del proceso</p>
+<p class="small" style="text-align:center;max-width:780px;margin:0 auto 14px auto;">
       Hace años una pequeña victoria cambió mi vida. Hoy documento todo el proceso —errores, avances y aprendizajes reales— y si querés acompañar este camino de cerca, aquí es donde comparto lo más valioso.
     </p>
-    <p class="small" style="text-align:center;max-width:780px;margin:0 auto 18px auto;">
+<p class="small" style="text-align:center;max-width:780px;margin:0 auto 18px auto;">
       Si querés ver el proceso completo —sin filtros— únete y recibe lo que no publico en redes.
     </p>
-    <ul class="list small" style="max-width:420px;margin:0 auto 14px auto;">
-      <li>Videos exclusivos solo para suscriptores</li>
-      <li>PDF inmediato con cinco hábitos aplicables</li>
-      <li>Contenido para mejorar hábitos y aprendizaje</li>
-    </ul>
-    <div style="text-align:center;"><a class="btn" href="#">Quiero acceso exclusivo</a></div>
-    <p class="small" style="text-align:center;margin-top:10px;opacity:0.6">Sin spam — solo materiales esenciales. Unirse es gratis y no implica ningún cobro.</p>
-  </div>
+<ul class="list small" style="max-width:420px;margin:0 auto 14px auto;">
+<li>Videos exclusivos solo para suscriptores</li>
+<li>PDF inmediato con cinco hábitos aplicables</li>
+<li>Contenido para mejorar hábitos y aprendizaje</li>
+</ul>
+<div style="text-align:center;"><a class="btn" href="https://subscribepage.io/mXUHpy" target="_blank" rel="noopener">Quiero acceso exclusivo</a></div>
+<p class="small" style="text-align:center;margin-top:10px;opacity:0.6">Sin spam — solo materiales esenciales. Unirse es gratis y no implica ningún cobro.</p>
+</div>
 </div>
 <!-- PREVIEW B (secundario) -->
 <div class="preview">
-  <div class="hero" style="height:260px;">
-    <div style="position:absolute;inset:0;background:linear-gradient(180deg, rgba(0,0,0,0.55), rgba(0,0,0,0.3));"></div>
-    <div class="overlay" style="padding:18px">
-      <h1 style="font-size:28px">Reto actual: ¿Cuánto puedo mejorar mi inglés en 15 días?</h1>
-      <p class="small" style="max-width:780px">Sigue el proceso real: grabaciones diarias, comparaciones y resultados. Contenido privado, liberación programada.</p>
-      <a class="btn" href="#biblioteca">Seguir el reto</a>
-    </div>
-  </div>
-  <div class="section grid">
-    <div>
-      <div class="card">
-        <h3 style="color:var(--neon);margin:0">El Proyecto — resumen</h3>
-        <p class="small">AriasMind nace para demostrar que cualquiera puede aprender. Documentamos errores, victorias y progreso real como motor de inspiración.</p>
-        <div style="margin-top:10px">
-          <strong class="small">Valores:</strong>
-          <ul class="list small"><li>Autenticidad</li><li>Disciplina progresiva</li><li>Humildad</li></ul>
-        </div>
-        <div style="margin-top:12px"><a class="btn" href="assets/AriasMind_Base_Proyecto_Extendido.pdf">Leer proyecto completo</a></div>
-      </div>
-      
-    </div>
-    
-  </div>
+<div class="section grid" id="proyecto">
+<div>
+<div class="card">
+<h3 style="color:var(--neon);margin:0">El Proyecto</h3>
+<p class="small">AriasMind nace para demostrar que cualquiera puede aprender. Documentamos errores, victorias y progreso real como motor de inspiración.</p>
+<div style="margin-top:10px">
+<strong class="small">Valores:</strong>
+<ul class="list small"><li>Autenticidad</li><li>Disciplina progresiva</li><li>Humildad</li></ul>
+</div>
+<div style="margin-top:12px"></div>
+</div>
+</div>
+</div>
 </div>
 <div style="color:var(--muted);font-size:13px;margin-top:8px"></div>
 </div>
