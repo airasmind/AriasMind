@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -25,84 +26,107 @@ linear-gradient(90deg, rgba(0, 243, 255, 0.03) 1px, transparent 1px);
 background-size: 40px 40px;
 }
 
-/* Efecto de líneas de escaneo */
+/* Líneas de escaneo */
+
 body::after {
 content: "";
 position: fixed;
 top: 0; left: 0; width: 100%; height: 100%;
-background: repeating-linear-gradient(0deg, rgba(0,0,0,0.1), rgba(0,0,0,0.1) 1px, transparent 1px, transparent 2px);
+background: repeating-linear-gradient(0deg, rgba(0,0,0,0.15), rgba(0,0,0,0.15) 1px, transparent 1px, transparent 2px);
+
 pointer-events: none; z-index: 999;
 }
 
 header {
-padding: 20px 5%;
+padding: 15px 5%;
+
 display: flex;
 justify-content: space-between;
 align-items: center;
 border-bottom: 2px solid var(--cian);
-background: rgba(0,0,0,0.8);
-box-shadow: 0 0 15px var(--cian);
+background: rgba(0,0,0,0.9);
+box-shadow: 0 0 20px rgba(0, 243, 255, 0.3);
+position: sticky;
+top: 0;
+z-index: 1000;
 }
 
-/* LOGO ESTILO CIRCUITO */
-.logo-container { display: flex; align-items: center; gap: 15px; }
+/* DISEÑO DEL LOGO EXACTO (SVG) */
+.logo-wrapper {
 
-.circuit-a {
-width: 50px; height: 50px;
-border: 2px solid var(--cian);
-display: flex; justify-content: center; align-items: center;
-font-family: 'Orbitron'; font-weight: 900; color: var(--cian);
-position: relative;
-box-shadow: 0 0 10px var(--cian), inset 0 0 10px var(--cian);
+display: flex;
+align-items: center;
+gap: 15px;
+}
+
+.svg-logo {
+width: 45px;
+height: 45px;
+filter: drop-shadow(0 0 8px var(--cian));
+}
+
+.logo-texto {
+font-family: 'Orbitron';
+font-weight: 700;
+font-size: 1.2rem;
+letter-spacing: 1px;
+color: white;
+
 }
 
 /* HERO CON CIRCUITOS LATERALES */
 .hero {
-padding: 100px 5%;
+padding: 120px 5% 80px;
 text-align: center;
 position: relative;
-overflow: hidden;
+
 }
 
 .hero::before, .hero::after {
 content: "";
 position: absolute;
-top: 50%; width: 200px; height: 2px;
+top: 55%; width: 15%; height: 2px;
 background: var(--cian);
-box-shadow: 0 0 10px var(--cian);
+box-shadow: 0 0 15px var(--cian);
 }
-.hero::before { left: 5%; transform: translateY(-50%); }
-.hero::after { right: 5%; transform: translateY(-50%); }
+.hero::before { left: 5%; }
+.hero::after { right: 5%; }
 
 .hero h1 {
-font-family: 'Orbitron'; font-size: clamp(2rem, 8vw, 4rem);
-text-shadow: 0 0 20px var(--cian);
+font-family: 'Orbitron';
+font-weight: 900;
+font-size: clamp(2.5rem, 8vw, 4.5rem);
+text-shadow: 0 0 25px var(--cian);
 margin-bottom: 10px;
 }
 
-/* TARJETAS CON EFECTO DE FLOTACIÓN (HOVER) */
+/* TARJETAS CON FLOTACIÓN */
 .grid {
 display: grid;
-grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-gap: 25px; padding: 50px 10%;
+
+grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+gap: 30px;
+padding: 40px 10%;
 }
 
 .card {
-background: rgba(15, 15, 15, 0.9);
-padding: 30px;
+background: rgba(10, 10, 10, 0.95);
+padding: 35px;
 border: 1px solid rgba(255,255,255,0.1);
-clip-path: polygon(0 0, 90% 0, 100% 15%, 100% 100%, 10% 100%, 0 85%);
-transition: all 0.4s ease; /* Aquí está el secreto de la flotación */
+clip-path: polygon(0 0, 92% 0, 100% 15%, 100% 100%, 8% 100%, 0 85%);
+transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 cursor: pointer;
+position: relative;
 }
 
 .card:hover {
-transform: translateY(-15px) scale(1.02); /* Flota y crece un poquito */
-box-shadow: 0 15px 30px rgba(0, 243, 255, 0.2);
+transform: translateY(-20px);
 border-color: var(--cian);
+box-shadow: 0 20px 40px rgba(0, 243, 255, 0.15);
 }
 
-.card h3 { font-family: 'Orbitron'; margin-bottom: 15px; }
+.card h3 { font-family: 'Orbitron'; margin-bottom: 15px; font-size: 1.3rem; }
+
 
 .cian-node { border-left: 5px solid var(--cian); }
 .cian-node h3 { color: var(--cian); }
@@ -114,26 +138,46 @@ border-color: var(--cian);
 .green-node h3 { color: var(--verde); }
 
 .btn {
-display: inline-block; padding: 15px 40px;
+display: inline-block; padding: 18px 50px;
+
 color: var(--cian); border: 1px solid var(--cian);
 text-decoration: none; font-family: 'Orbitron';
-clip-path: polygon(10% 0, 100% 0, 90% 100%, 0 100%);
-transition: 0.3s; margin-top: 30px;
+clip-path: polygon(15% 0, 100% 0, 85% 100%, 0 100%);
+transition: 0.4s; margin-top: 40px;
+font-weight: 700;
+
 }
 
-.btn:hover { background: var(--cian); color: #000; box-shadow: 0 0 30px var(--cian); }
+.btn:hover {
+background: var(--cian);
+color: #000;
+box-shadow: 0 0 40px var(--cian);
+transform: scale(1.05);
+}
 
-footer { text-align: center; padding: 60px; border-top: 1px solid rgba(0,243,255,0.2); }
+footer {
+text-align: center;
+padding: 80px 5%;
+border-top: 1px solid rgba(0,243,255,0.1);
+margin-top: 50px;
+}
 </style>
 </head>
 <body>
 
 <header>
-<div class="logo-container">
-<div class="circuit-a">A</div>
-<div style="font-family:'Orbitron'; font-weight:700;">ARIASMIND | LAB</div>
+<div class="logo-wrapper">
+<svg class="svg-logo" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M50 10L85 85H70L50 40L30 85H15L50 10Z" stroke="#00f3ff" stroke-width="4" stroke-linejoin="round"/>
+<path d="M38 65H62" stroke="#00f3ff" stroke-width="4" stroke-linecap="round"/>
+<circle cx="50" cy="40" r="3" fill="#00f3ff"/>
+<circle cx="30" cy="85" r="3" fill="#00f3ff"/>
+<circle cx="70" cy="85" r="3" fill="#00f3ff"/>
+</svg>
+<div class="logo-texto">ARIASMIND | LAB</div>
 </div>
-<nav style="display: flex; gap: 20px; font-family:'Orbitron'; font-size: 0.8rem;">
+<nav style="display: flex; gap: 25px; font-family:'Orbitron'; font-size: 0.8rem;">
+
 <a href="#" style="color:white; text-decoration:none;">INICIO</a>
 <a href="#" style="color:white; text-decoration:none;">HISTORIA</a>
 <a href="#" style="color:white; text-decoration:none;">RECURSOS</a>
@@ -141,29 +185,38 @@ footer { text-align: center; padding: 60px; border-top: 1px solid rgba(0,243,255
 </header>
 
 <section class="hero">
-<p style="color: var(--cian); font-size: 0.7rem; letter-spacing: 5px;">MODO: LABORATORIO ACTIVO</p>
+<p style="color: var(--cian); font-size: 0.75rem; letter-spacing: 6px; margin-bottom: 10px;">SISTEMA DE APRENDIZAJE ACTIVO</p>
 <h1>ARIASMIND | LAB</h1>
-<p style="letter-spacing: 2px; color: #888;">TESTEANDO MÉTODOS. DESTRUYENDO MITOS.<br>DOCUMENTANDO EL APRENDIZAJE REAL.</p>
+<p style="letter-spacing: 2px; color: #aaa; font-weight: 400;">TESTEANDO MÉTODOS. DESTRUYENDO MITOS.<br>DOCUMENTANDO EL APRENDIZAJE REAL.</p>
+
 <a href="#" class="btn">UNIRSE AL LAB</a>
 </section>
 
 <div class="grid">
 <div class="card cian-node">
 <h3>MÉTODOS DE PRUEBA</h3>
-<p>Análisis técnico de sistemas de retención y productividad aplicados al mundo real.</p>
+<p>Análisis técnico de sistemas de retención y productividad aplicados al mundo real bajo condiciones de estrés controlado.</p>
+
 </div>
 <div class="card mag-node">
 <h3>MI HISTORIA</h3>
-<p>De dejar la escuela a los 13 años a liderar un sistema de aprendizaje autodidacta.</p>
+<p>De abandonar el sistema tradicional a los 13 años a liderar una metodología autodidacta basada en evidencia.</p>
+
 </div>
 <div class="card green-node">
 <h3>RECURSOS ÚTILES</h3>
-<p>Acceso a la biblioteca de herramientas y experimentos documentados.</p>
+<p>Base de datos de herramientas, bibliografía técnica y bitácoras de experimentos disponibles para la comunidad.</p>
 </div>
 </div>
 
 <footer>
-<p style="font-family:'Orbitron'; color: #444;">ARIASMIND | MENTALIDAD AUTODIDACTA © 2026</p>
+<p style="font-family:'Orbitron'; color: #555; letter-spacing: 2px;">MI BIOGRAFÍA: MENTALIDAD AUTODIDACTA</p>
+<div style="margin-top: 20px; display: flex; justify-content: center; gap: 30px;">
+<a href="#" style="color:var(--cian); text-decoration:none; font-family:'Orbitron'; font-size:0.8rem;">YOUTUBE</a>
+<a href="#" style="color:var(--cian); text-decoration:none; font-family:'Orbitron'; font-size:0.8rem;">TIKTOK</a>
+<a href="#" style="color:var(--cian); text-decoration:none; font-family:'Orbitron'; font-size:0.8rem;">INSTAGRAM</a>
+</div>
+<p style="margin-top: 40px; font-size: 0.7rem; color: #333; font-family: monospace;">STATUS: EN LÍNEA | © 2026 ARIASMIND LABORATORIO</p>
 </footer>
 
 </body>
