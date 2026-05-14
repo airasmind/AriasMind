@@ -1,1 +1,170 @@
-<!DOCTYPE html> <html lang="es"> <head> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0"> <title>ARIASMIND | LABORATORIO</title> <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;500;700&display=swap" rel="stylesheet"> <style> :root { --negro-absoluto: #050505; --cian-neon: #00f3ff; --magenta-neon: #bc13fe; --verde-neon: #39ff14; --fuente-titulos: 'Orbitron', sans-serif; --fuente-cuerpo: 'Rajdhani', sans-serif; --transicion: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); } * { margin: 0; padding: 0; box-sizing: border-box; } body { background-color: var(--negro-absoluto); color: #ffffff; font-family: var(--fuente-cuerpo); line-height: 1.6; overflow-x: hidden; /* Rejilla técnica de fondo */ background-image: linear-gradient(var(--cian-neon) 0.1px, transparent 0.1px), linear-gradient(90deg, var(--cian-neon) 0.1px, transparent 0.1px); background-size: 50px 50px; background-attachment: fixed; opacity: 0.98; } /* Overlay de líneas de escaneo (Scanlines) */ body::before { content: ""; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: repeating-linear-gradient( 0deg, rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.15) 1px, transparent 1px, transparent 2px ); pointer-events: none; z-index: 1000; } /* Encabezado Translúcido */ header { position: sticky; top: 0; z-index: 100; background: rgba(5, 5, 5, 0.85); backdrop-filter: blur(10px); padding: 1.2rem 5%; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--cian-neon); box-shadow: 0 4px 15px rgba(0, 243, 255, 0.3); } .logo-box { display: flex; align-items: center; gap: 12px; } .icono-a { width: 35px; height: 35px; border: 2px solid var(--cian-neon); display: flex; justify-content: center; align-items: center; font-family: var(--fuente-titulos); font-weight: 900; color: var(--cian-neon); box-shadow: inset 0 0 8px var(--cian-neon), 0 0 8px var(--cian-neon); } .logo-texto { font-family: var(--fuente-titulos); font-weight: 700; font-size: 1.1rem; letter-spacing: 2px; color: #fff; } nav a { color: #fff; text-decoration: none; margin-left: 2rem; font-family: var(--fuente-titulos); font-size: 0.8rem; text-transform: uppercase; transition: var(--transicion); } nav a:hover { color: var(--cian-neon); text-shadow: 0 0 10px var(--cian-neon); } /* Sección Hero */ .hero { padding: 150px 10%; text-align: center; background: radial-gradient(circle, rgba(0, 243, 255, 0.05) 0%, transparent 70%); } .hero h1 { font-family: var(--fuente-titulos); font-weight: 900; font-size: clamp(2rem, 8vw, 4.5rem); color: #fff; text-shadow: 0 0 20px var(--cian-neon), 0 0 40px rgba(0, 243, 255, 0.4); margin-bottom: 1rem; letter-spacing: 5px; } .hero p { font-size: 1.2rem; letter-spacing: 4px; color: #aaa; text-transform: uppercase; margin-bottom: 2.5rem; } .boton-lab { display: inline-block; padding: 1.2rem 3rem; color: var(--cian-neon); border: 1px solid var(--cian-neon); font-family: var(--fuente-titulos); font-weight: 700; text-decoration: none; clip-path: polygon(15% 0%, 100% 0%, 85% 100%, 0% 100%); transition: var(--transicion); background: transparent; } .boton-lab:hover { background: var(--cian-neon); color: var(--negro-absoluto); box-shadow: 0 0 30px var(--cian-neon); transform: scale(1.05); } /* Grid de Tarjetas */ .contenedor-tarjetas { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; padding: 50px 10%; } .tarjeta { background: rgba(15, 15, 15, 0.9); padding: 40px 30px; position: relative; /* Corte irregular Cyberpunk */ clip-path: polygon(0% 0%, 90% 0%, 100% 10%, 100% 100%, 10% 100%, 0% 90%); transition: var(--transicion); border: 1px solid rgba(255, 255, 255, 0.05); } .tarjeta::after { content: "ID_NODE: ONLINE"; position: absolute; top: 15px; right: 20px; font-family: var(--fuente-titulos); font-size: 0.6rem; opacity: 0.4; } .tarjeta h3 { font-family: var(--fuente-titulos); font-size: 1.2rem; margin-bottom: 1rem; letter-spacing: 1px; } .tarjeta p { font-weight: 300; color: #ccc; } /* Variantes de color */ .cian { border-left: 4px solid var(--cian-neon); } .cian h3 { color: var(--cian-neon); } .magenta { border-left: 4px solid var(--magenta-neon); } .magenta h3 { color: var(--magenta-neon); } .verde { border-left: 4px solid var(--verde-neon); } .verde h3 { color: var(--verde-neon); } .tarjeta:hover { transform: translateY(-5px); background: rgba(25, 25, 25, 0.9); box-shadow: 0 0 20px rgba(255, 255, 255, 0.05); } /* Footer */ footer { padding: 80px 10% 40px; text-align: center; border-top: 1px solid rgba(0, 243, 255, 0.2); } .bio { font-family: var(--fuente-titulos); font-size: 0.9rem; letter-spacing: 3px; color: #888; margin-bottom: 2rem; } .redes { display: flex; justify-content: center; gap: 40px; margin-bottom: 3rem; } .redes a { color: var(--cian-neon); text-decoration: none; font-family: var(--fuente-titulos); font-size: 0.75rem; transition: var(--transicion); } .redes a:hover { text-shadow: 0 0 15px var(--cian-neon); letter-spacing: 2px; } .copyright { font-family: monospace; font-size: 0.7rem; color: #444; } @media (max-width: 768px) { .hero h1 { font-size: 2.5rem; } header { padding: 1rem 5%; } nav { display: none; } /* En móvil sugeriría menú hamburguesa, pero para landing simple ocultamos */ } </style> </head> <body> <header> <div class="logo-box"> <div class="icono-a">A</div> <div class="logo-texto">ARIASMIND | LABORATORIO</div> </div> <nav> <a href="#">Inicio</a> <a href="#">Misión</a> <a href="#">Experimentos</a> <a href="#">Contacto</a> </nav> </header> <section class="hero"> <h1>ARIASMIND | LABORATORIO</h1> <p>TESTEANDO MÉTODOS. DESTRUYENDO MITOS. DOCUMENTANDO EL APRENDIZAJE REAL.</p> <a href="#unete" class="boton-lab">UNIRSE AL LAB</a> </section> <main class="contenedor-tarjetas"> <div class="tarjeta cian"> <h3>MÉTODOS DE PRUEBA</h3> <p>Análisis exhaustivo de sistemas de aprendizaje, productividad y retención de información bajo condiciones de estrés real.</p> </div> <div class="tarjeta magenta"> <h3>MI HISTORIA</h3> <p>La transición de un sistema educativo tradicional a una formación autodidacta radical. El experimento humano detrás del conocimiento.</p> </div> <div class="tarjeta verde"> <h3>RECURSOS ÚTILES</h3> <p>Acceso a la base de datos de herramientas, bibliografía técnica y plantillas optimizadas para el estudio independiente.</p> </div> </main> <footer> <div class="bio">MI BIOGRAFÍA: MENTALIDAD AUTODIDACTA</div> <div class="redes"> <a href="https://youtube.com/@ariasmind" target="_blank">YOUTUBE</a> <a href="https://tiktok.com/@ariasmind.oficial" target="_blank">TIKTOK</a> <a href="https://instagram.com/ariasmind_" target="_blank">INSTAGRAM</a> </div> <div class="copyright"> ESTADO DEL SISTEMA: ONLINE | © 2026 ARIASMIND </div> </footer> </body> </html>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ARIASMIND | LABORATORIO</title>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;500;700&display=swap" rel="stylesheet">
+<style>
+:root {
+--cian: #00f3ff;
+--magenta: #bc13fe;
+--verde: #39ff14;
+--fondo: #050505;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+background-color: var(--fondo);
+color: #fff;
+font-family: 'Rajdhani', sans-serif;
+background-image:
+linear-gradient(rgba(0, 243, 255, 0.03) 1px, transparent 1px),
+linear-gradient(90deg, rgba(0, 243, 255, 0.03) 1px, transparent 1px);
+background-size: 40px 40px;
+}
+
+/* Efecto de líneas de escaneo */
+body::after {
+content: "";
+position: fixed;
+top: 0; left: 0; width: 100%; height: 100%;
+background: repeating-linear-gradient(0deg, rgba(0,0,0,0.1), rgba(0,0,0,0.1) 1px, transparent 1px, transparent 2px);
+pointer-events: none; z-index: 999;
+}
+
+header {
+padding: 20px 5%;
+display: flex;
+justify-content: space-between;
+align-items: center;
+border-bottom: 2px solid var(--cian);
+background: rgba(0,0,0,0.8);
+box-shadow: 0 0 15px var(--cian);
+}
+
+/* LOGO ESTILO CIRCUITO */
+.logo-container { display: flex; align-items: center; gap: 15px; }
+
+.circuit-a {
+width: 50px; height: 50px;
+border: 2px solid var(--cian);
+display: flex; justify-content: center; align-items: center;
+font-family: 'Orbitron'; font-weight: 900; color: var(--cian);
+position: relative;
+box-shadow: 0 0 10px var(--cian), inset 0 0 10px var(--cian);
+}
+
+/* HERO CON CIRCUITOS LATERALES */
+.hero {
+padding: 100px 5%;
+text-align: center;
+position: relative;
+overflow: hidden;
+}
+
+.hero::before, .hero::after {
+content: "";
+position: absolute;
+top: 50%; width: 200px; height: 2px;
+background: var(--cian);
+box-shadow: 0 0 10px var(--cian);
+}
+.hero::before { left: 5%; transform: translateY(-50%); }
+.hero::after { right: 5%; transform: translateY(-50%); }
+
+.hero h1 {
+font-family: 'Orbitron'; font-size: clamp(2rem, 8vw, 4rem);
+text-shadow: 0 0 20px var(--cian);
+margin-bottom: 10px;
+}
+
+/* TARJETAS CON EFECTO DE FLOTACIÓN (HOVER) */
+.grid {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+gap: 25px; padding: 50px 10%;
+}
+
+.card {
+background: rgba(15, 15, 15, 0.9);
+padding: 30px;
+border: 1px solid rgba(255,255,255,0.1);
+clip-path: polygon(0 0, 90% 0, 100% 15%, 100% 100%, 10% 100%, 0 85%);
+transition: all 0.4s ease; /* Aquí está el secreto de la flotación */
+cursor: pointer;
+}
+
+.card:hover {
+transform: translateY(-15px) scale(1.02); /* Flota y crece un poquito */
+box-shadow: 0 15px 30px rgba(0, 243, 255, 0.2);
+border-color: var(--cian);
+}
+
+.card h3 { font-family: 'Orbitron'; margin-bottom: 15px; }
+
+.cian-node { border-left: 5px solid var(--cian); }
+.cian-node h3 { color: var(--cian); }
+
+.mag-node { border-left: 5px solid var(--magenta); }
+.mag-node h3 { color: var(--magenta); }
+
+.green-node { border-left: 5px solid var(--verde); }
+.green-node h3 { color: var(--verde); }
+
+.btn {
+display: inline-block; padding: 15px 40px;
+color: var(--cian); border: 1px solid var(--cian);
+text-decoration: none; font-family: 'Orbitron';
+clip-path: polygon(10% 0, 100% 0, 90% 100%, 0 100%);
+transition: 0.3s; margin-top: 30px;
+}
+
+.btn:hover { background: var(--cian); color: #000; box-shadow: 0 0 30px var(--cian); }
+
+footer { text-align: center; padding: 60px; border-top: 1px solid rgba(0,243,255,0.2); }
+</style>
+</head>
+<body>
+
+<header>
+<div class="logo-container">
+<div class="circuit-a">A</div>
+<div style="font-family:'Orbitron'; font-weight:700;">ARIASMIND | LAB</div>
+</div>
+<nav style="display: flex; gap: 20px; font-family:'Orbitron'; font-size: 0.8rem;">
+<a href="#" style="color:white; text-decoration:none;">INICIO</a>
+<a href="#" style="color:white; text-decoration:none;">HISTORIA</a>
+<a href="#" style="color:white; text-decoration:none;">RECURSOS</a>
+</nav>
+</header>
+
+<section class="hero">
+<p style="color: var(--cian); font-size: 0.7rem; letter-spacing: 5px;">MODO: LABORATORIO ACTIVO</p>
+<h1>ARIASMIND | LAB</h1>
+<p style="letter-spacing: 2px; color: #888;">TESTEANDO MÉTODOS. DESTRUYENDO MITOS.<br>DOCUMENTANDO EL APRENDIZAJE REAL.</p>
+<a href="#" class="btn">UNIRSE AL LAB</a>
+</section>
+
+<div class="grid">
+<div class="card cian-node">
+<h3>MÉTODOS DE PRUEBA</h3>
+<p>Análisis técnico de sistemas de retención y productividad aplicados al mundo real.</p>
+</div>
+<div class="card mag-node">
+<h3>MI HISTORIA</h3>
+<p>De dejar la escuela a los 13 años a liderar un sistema de aprendizaje autodidacta.</p>
+</div>
+<div class="card green-node">
+<h3>RECURSOS ÚTILES</h3>
+<p>Acceso a la biblioteca de herramientas y experimentos documentados.</p>
+</div>
+</div>
+
+<footer>
+<p style="font-family:'Orbitron'; color: #444;">ARIASMIND | MENTALIDAD AUTODIDACTA © 2026</p>
+</footer>
+
+</body>
+</html>
