@@ -1,1 +1,682 @@
-<!DOCTYPE html> <html lang="es"> <head> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0"> <title>ARIASMIND | LABORATORIO</title> <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@400;600;700&display=swap" rel="stylesheet"> <style> :root { --cian: #00f3ff; --magenta: #bc13fe; --verde: #39ff14; --fondo: #050505; --gris: #888888; } html, body { margin: 0; padding: 0; width: 100%; min-height: 100vh; background-color: var(--fondo); color: #ffffff; font-family: 'Rajdhani', sans-serif; overflow-x: hidden; -webkit-tap-highlight-color: transparent; } body::before { content: ""; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-image: linear-gradient(rgba(0, 243, 255, 0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(0, 243, 255, 0.03) 1px, transparent 1px); background-size: 30px 30px; pointer-events: none; z-index: 0; } header { width: 100%; padding: 20px 5%; display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid var(--cian); background: rgba(0, 0, 0, 0.9); box-shadow: 0 0 15px rgba(0, 243, 255, 0.3); position: sticky; top: 0; z-index: 100; box-sizing: border-box; } .logo { font-family: 'Orbitron', sans-serif; font-weight: 900; color: var(--cian); font-size: 1.2rem; text-shadow: 0 0 10px var(--cian); } nav { display: flex; gap: 20px; } nav a { color: white; text-decoration: none; font-family: 'Orbitron', sans-serif; font-size: 0.75rem; letter-spacing: 1px; transition: 0.3s; } nav a:hover { color: var(--cian); text-shadow: 0 0 8px var(--cian); } .hero { padding: 120px 5%; text-align: center; position: relative; } /* El h1 ahora contiene spans por letra para la animación */ .hero h1 { font-family: 'Orbitron', sans-serif; font-weight: 900; font-size: clamp(1.8rem, 6vw, 4rem); display: inline-block; position: relative; padding: 0 40px; text-shadow: 0 0 20px var(--cian); } .hero h1::before, .hero h1::after { content: ""; position: absolute; top: 50%; width: 80px; height: 2px; background: var(--cian); box-shadow: 0 0 15px var(--cian); } .hero h1::before { left: -80px; } .hero h1::after { right: -80px; } /* Cada línea del título: nunca se parte */ .hero h1 .bloque-titulo { display: block; white-space: nowrap; } /* Spans de cada letra para la ola */ .hero h1 .letra { display: inline-block; transition: none; } @keyframes letraOla { 0% { transform: translateY(0) scale(1); color: inherit; text-shadow: 0 0 20px var(--cian); } 30% { transform: translateY(-18px) scale(1.3); color: var(--cian); text-shadow: 0 0 30px var(--cian), 0 0 60px var(--cian); } 60% { transform: translateY(6px) scale(0.95); color: #fff; } 100% { transform: translateY(0) scale(1); color: inherit; text-shadow: 0 0 20px var(--cian); } } .hero h1 .letra.animando { animation: letraOla 0.6s ease forwards; } /* Líneas laterales animadas al activar inicio */ @keyframes lineaFlash { 0% { box-shadow: 0 0 15px var(--cian); background: var(--cian); } 40% { box-shadow: 0 0 40px var(--cian), 0 0 80px var(--cian); background: #fff; } 100% { box-shadow: 0 0 15px var(--cian); background: var(--cian); } } .hero h1.titulo-animando::before, .hero h1.titulo-animando::after { animation: lineaFlash 1s ease; } .descripcion-hero { color: var(--gris); font-size: 1.1rem; margin-top: 20px; letter-spacing: 3px; text-transform: uppercase; } .grid-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; padding: 60px 10%; position: relative; z-index: 1; } .card { background: rgba(20, 20, 20, 0.6); padding: 40px; border: 1px solid rgba(255, 255, 255, 0.1); position: relative; transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1); cursor: pointer; clip-path: polygon(0% 0%, 90% 0%, 100% 15%, 100% 100%, 10% 100%, 0% 85%); backdrop-filter: blur(5px); outline: none; } .card:hover, .card:active, .card:focus { transform: translateY(-20px) scale(1.02); border-color: var(--cian); box-shadow: 0 15px 40px rgba(0, 243, 255, 0.2); background: rgba(0, 243, 255, 0.08); } .card.historia:hover, .card.historia:active, .card.historia:focus { background: rgba(188, 19, 254, 0.08); border-color: var(--magenta); } .card.recursos:hover, .card.recursos:active, .card.recursos:focus { background: rgba(57, 255, 20, 0.08); border-color: var(--verde); } .card h3 { font-family: 'Orbitron', sans-serif; font-size: 1.2rem; margin-bottom: 15px; color: var(--cian); } .card.historia h3 { color: var(--magenta); } .card.recursos h3 { color: var(--verde); } .card p { color: var(--gris); line-height: 1.6; font-weight: 400; } .btn-lab { display: inline-block; margin-top: 50px; padding: 15px 40px; border: 1px solid var(--cian); color: var(--cian); text-decoration: none; font-family: 'Orbitron', sans-serif; font-weight: bold; font-size: 0.8rem; clip-path: polygon(10% 0, 100% 0, 90% 100%, 0 100%); transition: 0.3s; } .btn-lab:hover { background: var(--cian); color: black; box-shadow: 0 0 25px var(--cian); } .btn-proximamente { display: inline-block; margin-top: 25px; padding: 12px 30px; border: 1px solid var(--verde); color: var(--verde); text-decoration: none; font-family: 'Orbitron', sans-serif; font-weight: bold; font-size: 0.7rem; letter-spacing: 2px; clip-path: polygon(10% 0, 100% 0, 90% 100%, 0 100%); transition: 0.3s; cursor: default; opacity: 0.7; } footer { padding: 80px 10% 40px; text-align: center; border-top: 1px solid rgba(255, 255, 255, 0.05); } .redes-sociales { display: flex; justify-content: center; flex-wrap: wrap; gap: 30px; margin-bottom: 30px; } .redes-sociales a { color: var(--cian); text-decoration: none; font-family: 'Orbitron', sans-serif; font-size: 0.8rem; transition: all 0.4s ease; letter-spacing: 0px; } .redes-sociales a:hover, .redes-sociales a:focus { text-shadow: 0 0 10px var(--cian); letter-spacing: 4px; color: #fff; } .status-pie { color: #444; font-size: 0.7rem; font-family: monospace; letter-spacing: 2px; } /* ── DESTACADO: aplica en móvil y desktop ── */ @keyframes destacarCian { 0% { transform: translateY(0) scale(1); border-color: rgba(255,255,255,0.1); box-shadow: none; } 20% { transform: translateY(-28px) scale(1.04); border-color: var(--cian); box-shadow: 0 0 50px rgba(0,243,255,0.5), 0 20px 60px rgba(0,243,255,0.3); background: rgba(0,243,255,0.12); } 70% { transform: translateY(-28px) scale(1.04); border-color: var(--cian); box-shadow: 0 0 50px rgba(0,243,255,0.5), 0 20px 60px rgba(0,243,255,0.3); background: rgba(0,243,255,0.12); } 100% { transform: translateY(0) scale(1); border-color: rgba(255,255,255,0.1); box-shadow: none; background: rgba(20,20,20,0.6); } } @keyframes destacarMagenta { 0% { transform: translateY(0) scale(1); border-color: rgba(255,255,255,0.1); box-shadow: none; } 20% { transform: translateY(-28px) scale(1.04); border-color: var(--magenta); box-shadow: 0 0 50px rgba(188,19,254,0.5), 0 20px 60px rgba(188,19,254,0.3); background: rgba(188,19,254,0.12); } 70% { transform: translateY(-28px) scale(1.04); border-color: var(--magenta); box-shadow: 0 0 50px rgba(188,19,254,0.5), 0 20px 60px rgba(188,19,254,0.3); background: rgba(188,19,254,0.12); } 100% { transform: translateY(0) scale(1); border-color: rgba(255,255,255,0.1); box-shadow: none; background: rgba(20,20,20,0.6); } } @keyframes destacarVerde { 0% { transform: translateY(0) scale(1); border-color: rgba(255,255,255,0.1); box-shadow: none; } 20% { transform: translateY(-28px) scale(1.04); border-color: var(--verde); box-shadow: 0 0 50px rgba(57,255,20,0.5), 0 20px 60px rgba(57,255,20,0.3); background: rgba(57,255,20,0.12); } 70% { transform: translateY(-28px) scale(1.04); border-color: var(--verde); box-shadow: 0 0 50px rgba(57,255,20,0.5), 0 20px 60px rgba(57,255,20,0.3); background: rgba(57,255,20,0.12); } 100% { transform: translateY(0) scale(1); border-color: rgba(255,255,255,0.1); box-shadow: none; background: rgba(20,20,20,0.6); } } .card.highlight-metodo1 { animation: destacarCian 2s ease; } .card.highlight-metodo2 { animation: destacarMagenta 2s ease 0.15s; } .card.highlight-recursos { animation: destacarVerde 2s ease; } </style> </head> <body> <header> <div class="logo">ARIASMIND | LAB</div> <nav> <a href="#inicio" onclick="accionInicio(event)">INICIO</a> <a href="#metodos" onclick="accionMetodos(event)">MÉTODOS</a> <a href="#recursos" onclick="accionRecursos(event)">RECURSOS</a> </nav> </header> <section class="hero" id="inicio"> <h1 id="titulo-principal"> <span class="bloque-titulo" id="bloque1">ARIASMIND&nbsp;|</span> <span class="bloque-titulo" id="bloque2">LABORATORIO</span> </h1> <p class="descripcion-hero">Testeando métodos. Destruyendo mitos. Documentando el aprendizaje real.</p> <a href="http://subscribepage.io/mXUHpy" target="_blank" class="btn-lab" id="btn-unirse">UNIRSE AL PROYECTO</a> </section> <div class="grid-cards"> <div class="card" id="metodos" tabindex="0"> <h3>DESAFÍA LAS REGLAS DEL APRENDIZAJE TRADICIONAL.</h3> <p>El cerebro humano es como la plastilina: cambia de forma según cómo la uses. Eso se llama neuroplasticidad. Las escuelas nos enseñaron a memorizar para un examen y luego olvidar todo. Aquí rompemos ese molde. No necesitas pasar años encerrado en un aula para dominar un idioma, un instrumento o una tecnología. Si entiendes cómo funciona tu mente, tú decides qué aprender y hasta dónde llegar. El sistema educativo se quedó en el pasado; tu cerebro no.</p> </div> <div class="card historia" id="card-historia" tabindex="0"> <h3>HACKEA LA CURVA DE APRENDIZAJE: DE CERO A COMPETENTE EN 20 HORAS.</h3> <p>Nadie se vuelve un genio en 20 horas, y quien te diga lo contrario, miente. Pero la ciencia demuestra que 20 horas de práctica enfocada y dirigida son suficientes para romper la barrera de la frustración. Desarmamos una habilidad gigante en piezas pequeñas, atacamos lo más importante primero y construimos autopistas de información en tu cerebro. No vas a dominar el mundo, pero vas a aprender a defenderte con éxito en tiempo récord. El reloj ya está corriendo.</p> </div> <div class="card recursos" id="recursos" tabindex="0"> <h3>SINTONIZA LA FRECUENCIA DEL AUTODESARROLLO.</h3> <p>Conversaciones crudas, directas al grano y sin anestesia. Analizamos cómo aprende la gente en el resto del mundo y te damos las herramientas mentales para que no te conformes con el promedio. Es el combustible diario para tu cerebro, explicado de tú a tú.</p> <p>El primer experimento del laboratorio está en camino. Únete y serás el primero en escucharlo.</p> <div> <span class="btn-proximamente">// CONTENIDO DISPONIBLE PRONTO</span> </div> </div> </div> <footer> <div class="redes-sociales"> <a href="https://youtube.com/@ariasmind" target="_blank">YOUTUBE</a> <a href="https://tiktok.com/@ariasmind.oficial" target="_blank">TIKTOK</a> <a href="https://www.instagram.com/arias.mind?igsh=OHJjN2kxdWxyaHht&utm_source=qr" target="_blank">INSTAGRAM</a> <a href="https://open.spotify.com/show/3nUcoMN8dW7m1lV95yKejh?si=FYJqWl-kRTeCOP0shuNR5A" target="_blank">SPOTIFY</a> <a href="https://www.facebook.com/share/16iB9dUkoB/?mibextid=wwXIfr" target="_blank">FACEBOOK</a> </div> <div class="status-pie"> ARIASMIND LABORATORIO © 2026 | SISTEMA OPERATIVO: ONLINE </div> </footer> <script> var esMovil = window.innerWidth < 768; window.addEventListener('resize', function() { esMovil = window.innerWidth < 768; }); /* ── Convierte cada bloque del h1 en letras individuales (spans) ── */ function inicializarTitulo() { ['bloque1', 'bloque2'].forEach(function(id) { var bloque = document.getElementById(id); var texto = bloque.textContent; bloque.textContent = ''; for (var i = 0; i < texto.length; i++) { var span = document.createElement('span'); span.className = 'letra'; span.textContent = texto[i] === ' ' ? '\u00A0' : texto[i]; bloque.appendChild(span); } }); } inicializarTitulo(); /* ── Scroll suave ── */ function scrollToSection(id) { var target = document.getElementById(id); if (!target) return; var headerHeight = document.querySelector('header').offsetHeight; var top = target.getBoundingClientRect().top + window.pageYOffset - headerHeight; window.scrollTo({ top: top, behavior: 'smooth' }); } /* ── Animación ola en el título + glow en botón al terminar ── */ function animarTituloOla() { var h1 = document.getElementById('titulo-principal'); var letras = h1.querySelectorAll('.letra'); var duracionOla = letras.length * 55 + 600; h1.classList.add('titulo-animando'); letras.forEach(function(letra, i) { setTimeout(function() { letra.classList.remove('animando'); void letra.offsetWidth; letra.classList.add('animando'); setTimeout(function() { letra.classList.remove('animando'); }, 600); }, i * 55); }); setTimeout(function() { h1.classList.remove('titulo-animando'); }, duracionOla + 100); /* Glow en el botón justo al terminar la ola */ setTimeout(function() { var btn = document.querySelector('.btn-lab'); if (!btn) return; btn.style.transition = 'all 0.3s ease'; btn.style.background = '#00f3ff'; btn.style.color = '#000000'; btn.style.boxShadow = '0 0 35px #00f3ff, 0 0 70px rgba(0,243,255,0.5)'; setTimeout(function() { btn.style.background = ''; btn.style.color = ''; btn.style.boxShadow = ''; setTimeout(function() { btn.style.transition = ''; }, 400); }, 900); }, duracionOla); } /* ── Destacar una sola tarjeta (glow + float) ── */ function destacarTarjeta(id, tipo) { var el = document.getElementById(id); if (!el) return; var colores = { cian: { border: '#00f3ff', shadow: '0 15px 40px rgba(0,243,255,0.4), 0 0 60px rgba(0,243,255,0.3)', bg: 'rgba(0,243,255,0.08)' }, magenta: { border: '#bc13fe', shadow: '0 15px 40px rgba(188,19,254,0.4), 0 0 60px rgba(188,19,254,0.3)', bg: 'rgba(188,19,254,0.08)' }, verde: { border: '#39ff14', shadow: '0 15px 40px rgba(57,255,20,0.4), 0 0 60px rgba(57,255,20,0.3)', bg: 'rgba(57,255,20,0.08)' } }; var c = colores[tipo]; var clipOriginal = 'polygon(0% 0%, 90% 0%, 100% 15%, 100% 100%, 10% 100%, 0% 85%)'; /* Quitar clip-path para que transform sea visible */ el.style.clipPath = 'none'; el.style.webkitClipPath = 'none'; requestAnimationFrame(function() { requestAnimationFrame(function() { el.style.transition = 'transform 0.45s cubic-bezier(0.23,1,0.32,1), box-shadow 0.45s ease, border-color 0.45s ease, background 0.45s ease'; el.style.transform = 'translateY(-20px) scale(1.02)'; el.style.borderColor = c.border; el.style.boxShadow = c.shadow; el.style.background = c.bg; /* Vuelve */ setTimeout(function() { el.style.transform = 'translateY(0) scale(1)'; el.style.borderColor = ''; el.style.boxShadow = ''; el.style.background = ''; setTimeout(function() { el.style.transition = ''; el.style.transform = ''; el.style.clipPath = clipOriginal; el.style.webkitClipPath = clipOriginal; }, 500); }, 1600); }); }); } /* ── Destacar tarjetas ── */ function destacarTarjetas(clases) { var tarjeta1 = document.getElementById('metodos'); var tarjeta2 = document.getElementById('card-historia'); var tarjeta3 = document.getElementById('recursos'); [tarjeta1, tarjeta2, tarjeta3].forEach(function(t) { t.classList.remove('highlight-metodo1', 'highlight-metodo2', 'highlight-recursos'); void t.offsetWidth; }); clases.forEach(function(item) { var el = document.getElementById(item.id); if (!el) return; void el.offsetWidth; el.classList.add(item.clase); setTimeout(function() { el.classList.remove(item.clase); }, 2200); }); } /* ── Botón INICIO ── */ function accionInicio(e) { e.preventDefault(); scrollToSection('inicio'); animarTituloOla(); } /* ── Botón MÉTODOS ── */ function accionMetodos(e) { e.preventDefault(); var movil = window.innerWidth < 768; if (movil) { /* Móvil: secuencia — tarjeta 1 luego tarjeta 2 */ scrollToSection('metodos'); setTimeout(function() { destacarTarjeta('metodos', 'cian'); }, 600); setTimeout(function() { scrollToSection('card-historia'); }, 2400); setTimeout(function() { destacarTarjeta('card-historia', 'magenta'); }, 3000); } else { /* Desktop: ambas al mismo tiempo */ scrollToSection('metodos'); setTimeout(function() { destacarTarjetas([ { id: 'metodos', clase: 'highlight-metodo1' }, { id: 'card-historia', clase: 'highlight-metodo2' } ]); }, 600); } } /* ── Botón RECURSOS ── */ function accionRecursos(e) { e.preventDefault(); scrollToSection('recursos'); setTimeout(function() { destacarTarjetas([ { id: 'recursos', clase: 'highlight-recursos' } ]); }, 600); } </script> </body> </html>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ARIASMIND | LABORATORIO</title>
+    
+    <meta name="description" content="AriasMind | Laboratorio. El centro de análisis donde destruimos mitos de aprendizaje, auditamos métodos de estudio y documentamos el proceso real de la autoeducación.">
+    <meta name="keywords" content="AriasMind, Laboratorio, Aprendizaje Autodidacta, Neuroplasticidad, Productividad, Disciplina, Podcast">
+    <meta name="author" content="Josue Arias">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --cian: #00f3ff;
+            --magenta: #bc13fe;
+            --verde: #39ff14;
+            --fondo: #050505;
+            --gris: #888888;
+        }
+
+        html, body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            min-height: 100vh;
+            background-color: var(--fondo);
+            color: #ffffff;
+            font-family: 'Rajdhani', sans-serif;
+            overflow-x: hidden;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-image: 
+                linear-gradient(rgba(0, 243, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 243, 255, 0.03) 1px, transparent 1px);
+            background-size: 30px 30px;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        header {
+            width: 100%;
+            padding: 20px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid var(--cian);
+            background: rgba(0, 0, 0, 0.9);
+            box-shadow: 0 0 15px rgba(0, 243, 255, 0.3);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-sizing: border-box;
+        }
+
+        .logo {
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 900;
+            color: var(--cian);
+            font-size: 1.2rem;
+            text-shadow: 0 0 10px var(--cian);
+        }
+
+        nav {
+            display: flex;
+            gap: 20px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.75rem;
+            letter-spacing: 1px;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--cian);
+            text-shadow: 0 0 8px var(--cian);
+        }
+
+        .hero {
+            padding: 120px 5%;
+            text-align: center;
+            position: relative;
+        }
+
+        .hero h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 900;
+            font-size: clamp(1.8rem, 6vw, 4rem);
+            display: inline-block;
+            position: relative;
+            padding: 0 40px;
+            text-shadow: 0 0 20px var(--cian);
+        }
+
+        .hero h1::before, .hero h1::after {
+            content: "";
+            position: absolute;
+            top: 50%;
+            width: 80px;
+            height: 2px;
+            background: var(--cian);
+            box-shadow: 0 0 15px var(--cian);
+        }
+        .hero h1::before { left: -80px; }
+        .hero h1::after { right: -80px; }
+
+        .hero h1 .bloque-titulo {
+            display: block;
+            white-space: nowrap;
+        }
+
+        .hero h1 .letra {
+            display: inline-block;
+            transition: none;
+        }
+
+        @keyframes letraOla {
+            0%   { transform: translateY(0) scale(1);   color: inherit; text-shadow: 0 0 20px var(--cian); }
+            30%  { transform: translateY(-18px) scale(1.3); color: var(--cian); text-shadow: 0 0 30px var(--cian), 0 0 60px var(--cian); }
+            60%  { transform: translateY(6px) scale(0.95); color: #fff; }
+            100% { transform: translateY(0) scale(1);   color: inherit; text-shadow: 0 0 20px var(--cian); }
+        }
+
+        .hero h1 .letra.animando {
+            animation: letraOla 0.6s ease forwards;
+        }
+
+        @keyframes lineaFlash {
+            0%   { box-shadow: 0 0 15px var(--cian); background: var(--cian); }
+            40%  { box-shadow: 0 0 40px var(--cian), 0 0 80px var(--cian); background: #fff; }
+            100% { box-shadow: 0 0 15px var(--cian); background: var(--cian); }
+        }
+
+        .hero h1.titulo-animando::before,
+        .hero h1.titulo-animando::after {
+            animation: lineaFlash 1s ease;
+        }
+
+        .descripcion-hero {
+            color: var(--gris);
+            font-size: 1.1rem;
+            margin-top: 20px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+        .grid-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            padding: 60px 10%;
+            position: relative;
+            z-index: 1;
+        }
+
+        .card-wrapper {
+            position: relative;
+            transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+
+        .card {
+            background: rgba(20, 20, 20, 0.6);
+            padding: 40px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            clip-path: polygon(0% 0%, 90% 0%, 100% 15%, 100% 100%, 10% 100%, 0% 85%);
+            backdrop-filter: blur(5px);
+            outline: none;
+            height: 100%;
+            box-sizing: border-box;
+            transition: border-color 0.5s, background 0.5s;
+        }
+
+        .card-wrapper:hover, .card-wrapper:active, .card-wrapper:focus-within {
+            transform: translateY(-20px) scale(1.02);
+        }
+
+        .card-wrapper.cian-glow:hover { box-shadow: 0 15px 40px rgba(0, 243, 255, 0.2); }
+        .card-wrapper.cian-glow:hover .card { border-color: var(--cian); background: rgba(0, 243, 255, 0.08); }
+
+        .card-wrapper.magenta-glow:hover { box-shadow: 0 15px 40px rgba(188, 19, 254, 0.2); }
+        .card-wrapper.magenta-glow:hover .card { border-color: var(--magenta); background: rgba(188, 19, 254, 0.08); }
+        
+        .card-wrapper.verde-glow:hover { box-shadow: 0 15px 40px rgba(57, 255, 20, 0.2); }
+        .card-wrapper.verde-glow:hover .card { border-color: var(--verde); background: rgba(57, 255, 20, 0.08); }
+
+        .card h3 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            color: var(--cian);
+        }
+        .card-wrapper.magenta-glow h3 { color: var(--magenta); }
+        .card-wrapper.verde-glow h3 { color: var(--verde); }
+
+        .card p {
+            color: var(--gris);
+            line-height: 1.6;
+            font-weight: 400;
+        }
+
+        .lab-console {
+            background: rgba(0, 0, 0, 0.4);
+            border: 1px dashed rgba(57, 255, 20, 0.3);
+            padding: 15px;
+            font-family: monospace;
+            font-size: 0.8rem;
+            color: var(--verde);
+            margin: 20px 0;
+            text-align: left;
+            line-height: 1.5;
+        }
+
+        .console-line {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .btn-lab {
+            display: inline-block;
+            margin-top: 50px;
+            padding: 15px 40px;
+            border: 1px solid var(--cian);
+            color: var(--cian);
+            text-decoration: none;
+            font-family: 'Orbitron', sans-serif;
+            font-weight: bold;
+            font-size: 0.8rem;
+            clip-path: polygon(10% 0, 100% 0, 90% 100%, 0 100%);
+            transition: 0.3s;
+        }
+
+        .btn-lab:hover {
+            background: var(--cian);
+            color: black;
+            box-shadow: 0 0 25px var(--cian);
+        }
+
+        .btn-proximamente {
+            display: inline-block;
+            margin-top: 25px;
+            padding: 12px 30px;
+            border: 1px solid var(--verde);
+            color: var(--verde);
+            text-decoration: none;
+            font-family: 'Orbitron', sans-serif;
+            font-weight: bold;
+            font-size: 0.7rem;
+            letter-spacing: 2px;
+            clip-path: polygon(10% 0, 100% 0, 90% 100%, 0 100%);
+            transition: 0.3s;
+            cursor: default;
+            opacity: 0.7;
+        }
+
+        /* BOTÓN SPOTIFY */
+        .btn-spotify-action {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            padding: 14px 20px;
+            background: rgba(0, 0, 0, 0.8);
+            border: 2px solid var(--verde);
+            color: var(--verde);
+            text-decoration: none;
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 900;
+            font-size: 0.8rem;
+            letter-spacing: 1px;
+            border-radius: 12px;
+            box-shadow: 0 0 15px rgba(57, 255, 20, 0.3);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            user-select: none;
+            -webkit-user-select: none;
+        }
+
+        .btn-spotify-action:hover, .btn-spotify-action:active {
+            background: var(--verde);
+            color: #000000;
+            box-shadow: 0 0 30px var(--verde);
+            transform: scale(1.02);
+        }
+
+        /* PLAYER CONTAINER */
+        .spotify-embed-container {
+            display: none;
+            margin-top: 16px;
+            width: 100%;
+            border-radius: 12px;
+            overflow: hidden;
+            background: #121212;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.6);
+            opacity: 0;
+            transform: translateY(10px);
+            transition: opacity 0.4s ease, transform 0.4s ease;
+        }
+
+        .spotify-embed-container.visible {
+            display: block;
+        }
+
+        .spotify-embed-container.animado {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        footer {
+            padding: 80px 10% 40px;
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .redes-sociales {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .redes-sociales a {
+            color: var(--cian);
+            text-decoration: none;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.8rem;
+            transition: all 0.4s ease;
+            letter-spacing: 0px;
+        }
+
+        .redes-sociales a:hover, .redes-sociales a:focus {
+            text-shadow: 0 0 10px var(--cian);
+            letter-spacing: 4px;
+            color: #fff;
+        }
+
+        .status-pie {
+            color: #444;
+            font-size: 0.7rem;
+            font-family: monospace;
+            letter-spacing: 2px;
+        }
+
+        @keyframes destacarCian {
+            0%   { transform: translateY(0) scale(1); }
+            20%  { transform: translateY(-28px) scale(1.04); box-shadow: 0 0 50px rgba(0,243,255,0.5); }
+            70%  { transform: translateY(-28px) scale(1.04); box-shadow: 0 0 50px rgba(0,243,255,0.5); }
+            100% { transform: translateY(0) scale(1); box-shadow: none; }
+        }
+        @keyframes destacarCianInner {
+            0%   { border-color: rgba(255,255,255,0.1); background: rgba(20, 20, 20, 0.6); }
+            20%  { border-color: var(--cian); background: rgba(0, 243, 255, 0.12); }
+            70%  { border-color: var(--cian); background: rgba(0, 243, 255, 0.12); }
+            100% { border-color: rgba(255,255,255,0.1); background: rgba(20, 20, 20, 0.6); }
+        }
+
+        @keyframes destacarMagenta {
+            0%   { transform: translateY(0) scale(1); }
+            20%  { transform: translateY(-28px) scale(1.04); box-shadow: 0 0 50px rgba(188,19,254,0.5); }
+            70%  { transform: translateY(-28px) scale(1.04); box-shadow: 0 0 50px rgba(188,19,254,0.5); }
+            100% { transform: translateY(0) scale(1); box-shadow: none; }
+        }
+        @keyframes destacarMagentaInner {
+            0%   { border-color: rgba(255,255,255,0.1); background: rgba(20, 20, 20, 0.6); }
+            20%  { border-color: var(--magenta); background: rgba(188, 19, 254, 0.12); }
+            70%  { border-color: var(--magenta); background: rgba(188, 19, 254, 0.12); }
+            100% { border-color: rgba(255,255,255,0.1); background: rgba(20, 20, 20, 0.6); }
+        }
+
+        @keyframes destacarVerde {
+            0%   { transform: translateY(0) scale(1); }
+            20%  { transform: translateY(-28px) scale(1.04); box-shadow: 0 0 50px rgba(57,255,20,0.5); }
+            70%  { transform: translateY(-28px) scale(1.04); box-shadow: 0 0 50px rgba(57,255,20,0.5); }
+            100% { transform: translateY(0) scale(1); box-shadow: none; }
+        }
+        @keyframes destacarVerdeInner {
+            0%   { border-color: rgba(255,255,255,0.1); background: rgba(20, 20, 20, 0.6); }
+            20%  { border-color: var(--verde); background: rgba(57, 255, 20, 0.12); }
+            70%  { border-color: var(--verde); background: rgba(57, 255, 20, 0.12); }
+            100% { border-color: rgba(255,255,255,0.1); background: rgba(20, 20, 20, 0.6); }
+        }
+
+        .card-wrapper.highlight-metodo1 { animation: destacarCian 2s ease; }
+        .card-wrapper.highlight-metodo1 .card { animation: destacarCianInner 2s ease; }
+
+        .card-wrapper.highlight-metodo2 { animation: destacarMagenta 2s ease 0.15s; }
+        .card-wrapper.highlight-metodo2 .card { animation: destacarMagentaInner 2s ease 0.15s; }
+
+        .card-wrapper.highlight-recursos { animation: destacarVerde 2s ease; }
+        .card-wrapper.highlight-recursos .card { animation: destacarVerdeInner 2s ease; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">ARIASMIND | LAB</div>
+        <nav>
+            <a href="#inicio" onclick="accionInicio(event)">INICIO</a>
+            <a href="#metodos" onclick="accionMetodos(event)">MÉTODOS</a>
+            <a href="#recursos" onclick="accionRecursos(event)">RECURSOS</a>
+        </nav>
+    </header>
+
+    <section class="hero" id="inicio">
+        <h1 id="titulo-principal">
+            <span class="bloque-titulo" id="bloque1">ARIASMIND |</span>
+            <span class="bloque-titulo" id="bloque2">LABORATORIO</span>
+        </h1>
+        <p class="descripcion-hero">Testeando métodos. Destruyendo mitos. Documentando el aprendizaje real.</p>
+        <a href="http://subscribepage.io/mXUHpy" target="_blank" class="btn-lab" id="btn-unirse">UNIRSE AL PROYECTO</a>
+    </section>
+
+    <div class="grid-cards">
+        
+        <div class="card-wrapper cian-glow" id="wrapper-metodos">
+            <div class="card" id="metodos" tabindex="0">
+                <h3>DESAFÍA LAS REGLAS DEL APRENDIZAJE TRADICIONAL.</h3>
+                <p>El cerebro humano es como la plastilina: cambia de forma según cómo la uses. Eso se llama neuroplasticidad. Las escuelas nos enseñaron a memorizar para un examen y luego olvidar todo. Aquí rompemos ese molde. No necesitas pasar años encerrado en un aula para dominar un idioma, un instrumento o una tecnología. Si entiendes cómo funciona tu mente, tú decides qué aprender y hasta dónde llegar. El sistema educativo se quedó en el pasado; tu cerebro no.</p>
+            </div>
+        </div>
+        
+        <div class="card-wrapper magenta-glow" id="wrapper-historia">
+            <div class="card" id="card-historia" tabindex="0">
+                <h3>HACKEA LA CURVA DE APRENDIZAJE: DE CERO A COMPETENTE EN 20 HORAS.</h3>
+                <p>Nadie se vuelve un genio en 20 horas, y quien te diga lo contrario, miente. Pero la ciencia demuestra que 20 horas de práctica enfocada y dirigida son suficientes para romper la barrera de la frustración. Desarmamos una habilidad gigante en piezas pequeñas, atacamos lo más importante primero y construimos autopistas de información en tu cerebro. No vas a dominar el mundo, pero vas a aprender a defenderte con éxito en tiempo récord. El reloj ya está corriendo.</p>
+            </div>
+        </div>
+        
+        <div class="card-wrapper verde-glow" id="wrapper-recursos">
+            <div class="card" id="recursos" tabindex="0">
+                <h3>SINTONIZA LA FRECUENCIA DEL AUTODESARROLLO.</h3>
+                <p>Conversaciones crudas, directas al grano y sin anestesia. Analizamos cómo aprende la gente en el resto del mundo y te damos las herramientas mentales para que no te conformes con el promedio. Es el combustible diario para tu cerebro, explicado de tú a tú.</p>
+                
+                <div class="lab-console">
+                    <span class="console-line">> [EXP_001]: Grabación Tráiler Oficial ... STATUS: ONLINE</span>
+                    <span class="console-line">> [EXP_002]: Auditoría Método 20 Horas ... STATUS: EN PROCESO</span>
+                    <span class="console-line">> [SISTEMA]: Transmisión del laboratorio establecida con éxito.</span>
+                </div>
+
+                <div id="player-nativo" style="display:none; margin-top:16px;">
+                    <audio id="audio-trailer"
+                           src="trailer.mp3"
+                           preload="none"></audio>
+
+                    <div style="background:rgba(0,0,0,0.5); border:1px solid rgba(57,255,20,0.25); border-radius:12px; padding:16px;">
+                        <div style="display:flex; align-items:center; gap:12px; margin-bottom:14px;">
+                            <img src="https://i.scdn.co/image/ab6765630000ba8a5fe3c1d8f629054039e0eaaa"
+                                 alt="AriasMind"
+                                 style="width:48px; height:48px; border-radius:8px; border:1px solid rgba(57,255,20,0.3); flex-shrink:0;">
+                            <div>
+                                <div style="font-family:'Orbitron',sans-serif; font-size:0.65rem; color:var(--verde); margin-bottom:2px; letter-spacing:1px;">TRÁILER OFICIAL</div>
+                                <div style="font-family:'Rajdhani',sans-serif; font-size:0.9rem; color:#fff; font-weight:600;">AriasMind | Laboratorio 🔬</div>
+                            </div>
+                        </div>
+
+                        <div id="barra-bg"
+                             onclick="saltarAudio(event)"
+                             style="width:100%; height:4px; background:rgba(255,255,255,0.1); border-radius:2px; margin-bottom:10px; cursor:pointer; position:relative;">
+                            <div id="barra-fill"
+                                 style="height:100%; width:0%; background:var(--verde); border-radius:2px; transition:width 0.1s linear; pointer-events:none;"></div>
+                        </div>
+
+                        <div style="display:flex; align-items:center; justify-content:space-between; gap:10px;">
+                            <span id="t-actual" style="font-family:monospace; font-size:0.7rem; color:var(--gris); min-width:32px;">0:00</span>
+
+                            <button id="btn-play"
+                                    onclick="toggleAudio()"
+                                    style="background:var(--verde); border:none; border-radius:50%; width:40px; height:40px; cursor:pointer; display:flex; align-items:center; justify-content:center; font-size:1.1rem; flex-shrink:0; box-shadow:0 0 14px rgba(57,255,20,0.5); transition:all 0.2s;">
+                                ▶
+                            </button>
+
+                            <span id="t-total" style="font-family:monospace; font-size:0.7rem; color:var(--gris); min-width:32px; text-align:right;">0:34</span>
+                        </div>
+
+                        <div style="text-align:center; margin-top:12px;">
+                            <span style="font-family:monospace; font-size:0.6rem; color:#555; letter-spacing:1px;">AUDIO NATIVO · </span>
+                            <a href="https://open.spotify.com/episode/2NDYRTfYCNEXUvNcKoKQ18"
+                               target="_blank" rel="noopener noreferrer"
+                               style="font-family:monospace; font-size:0.6rem; color:var(--verde); letter-spacing:1px; text-decoration:none;">
+                                EPISODIO COMPLETO EN SPOTIFY ↗
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="btn-spotify-handler"
+                     class="btn-spotify-action"
+                     onclick="togglePlayer()">
+                    🔊 REPRODUCIR TRÁILER
+                </div>
+
+                <div>
+                    <span class="btn-proximamente">// RECURSOS EN DESARROLLO</span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <footer>
+        <div class="redes-sociales">
+            <a href="https://youtube.com/@ariasmind" target="_blank">YOUTUBE</a>
+            <a href="https://tiktok.com/@ariasmind.oficial" target="_blank">TIKTOK</a>
+            <a href="https://www.instagram.com/arias.mind?igsh=OHJjN2kxdWxyaHht&utm_source=qr" target="_blank">INSTAGRAM</a>
+            <a href="https://open.spotify.com/show/5hUcoMN8dW7m1IV95yKejh" target="_blank">SPOTIFY</a>
+            <a href="https://www.facebook.com/share/16iB9dUkoB/?mibextid=wwXIfr" target="_blank">FACEBOOK</a>
+        </div>
+        <div class="status-pie">
+            ARIASMIND LABORATORIO © 2026 | SISTEMA OPERATIVO: ONLINE
+        </div>
+    </footer>
+
+    <script>
+        // ─── ESTADO ─────────────────────────────────────────────────────────────
+        var playerVisible = false;
+        var reproduciendo = false;
+
+        // ─── TOGGLE PLAYER ───────────────────────────────────────────────────────
+        function togglePlayer() {
+            var btn = document.getElementById('btn-spotify-handler');
+            var player = document.getElementById('player-nativo');
+            var audio = document.getElementById('audio-trailer');
+
+            if (!playerVisible) {
+                player.style.display = 'block';
+                player.style.opacity = '0';
+                player.style.transform = 'translateY(8px)';
+                player.style.transition = 'opacity 0.35s ease, transform 0.35s ease';
+                setTimeout(function() {
+                    player.style.opacity = '1';
+                    player.style.transform = 'translateY(0)';
+                }, 10);
+                btn.innerHTML = '⏹ CERRAR PLAYER';
+                playerVisible = true;
+            } else {
+                audio.pause();
+                reproduciendo = false;
+                document.getElementById('btn-play').innerHTML = '▶';
+                player.style.opacity = '0';
+                player.style.transform = 'translateY(8px)';
+                setTimeout(function() { player.style.display = 'none'; }, 350);
+                btn.innerHTML = '🔊 REPRODUCIR TRÁILER';
+                playerVisible = false;
+            }
+        }
+
+        // ─── PLAY / PAUSE ────────────────────────────────────────────────────────
+        function toggleAudio() {
+            var audio = document.getElementById('audio-trailer');
+            var btn = document.getElementById('btn-play');
+            if (reproduciendo) {
+                audio.pause();
+                btn.innerHTML = '▶';
+                reproduciendo = false;
+            } else {
+                audio.play().then(function() {
+                    btn.innerHTML = '⏸';
+                    reproduciendo = true;
+                }).catch(function(e) { console.log('Audio error:', e); });
+            }
+        }
+
+        // ─── SALTAR POSICIÓN ─────────────────────────────────────────────────────
+        function saltarAudio(event) {
+            var audio = document.getElementById('audio-trailer');
+            if (!audio.duration) return;
+            var rect = document.getElementById('barra-bg').getBoundingClientRect();
+            audio.currentTime = ((event.clientX - rect.left) / rect.width) * audio.duration;
+        }
+
+        // ─── FORMATO TIEMPO ──────────────────────────────────────────────────────
+        function fmt(s) {
+            return Math.floor(s/60) + ':' + (Math.floor(s%60) < 10 ? '0' : '') + Math.floor(s%60);
+        }
+
+        // ─── INIT ────────────────────────────────────────────────────────────────
+        window.addEventListener('DOMContentLoaded', function() {
+            inicializarTitulo();
+
+            var audio = document.getElementById('audio-trailer');
+
+            audio.addEventListener('timeupdate', function() {
+                if (!audio.duration) return;
+                document.getElementById('barra-fill').style.width = (audio.currentTime / audio.duration * 100) + '%';
+                document.getElementById('t-actual').textContent = fmt(audio.currentTime);
+            });
+
+            audio.addEventListener('loadedmetadata', function() {
+                document.getElementById('t-total').textContent = fmt(audio.duration);
+            });
+
+            audio.addEventListener('ended', function() {
+                document.getElementById('btn-play').innerHTML = '▶';
+                document.getElementById('barra-fill').style.width = '0%';
+                document.getElementById('t-actual').textContent = '0:00';
+                reproduciendo = false;
+                audio.currentTime = 0;
+            });
+        });
+
+        // ─── TÍTULO OLA ──────────────────────────────────────────────────────────
+        function inicializarTitulo() {
+            ['bloque1', 'bloque2'].forEach(function(id) {
+                var bloque = document.getElementById(id);
+                if (!bloque) return;
+                var texto = bloque.textContent;
+                bloque.textContent = '';
+                for (var i = 0; i < texto.length; i++) {
+                    var span = document.createElement('span');
+                    span.className = 'letra';
+                    span.textContent = texto[i] === ' ' ? ' ' : texto[i];
+                    bloque.appendChild(span);
+                }
+            });
+        }
+
+        function scrollToSection(id) {
+            var target = document.getElementById(id);
+            if (!target) return;
+            var headerHeight = document.querySelector('header').offsetHeight;
+            window.scrollTo({ top: target.getBoundingClientRect().top + window.pageYOffset - headerHeight, behavior: 'smooth' });
+        }
+
+        function animarTituloOla() {
+            var h1 = document.getElementById('titulo-principal');
+            var letras = h1.querySelectorAll('.letra');
+            var dur = letras.length * 55 + 600;
+            h1.classList.add('titulo-animando');
+            letras.forEach(function(l, i) {
+                setTimeout(function() {
+                    l.classList.remove('animando'); void l.offsetWidth; l.classList.add('animando');
+                    setTimeout(function() { l.classList.remove('animando'); }, 600);
+                }, i * 55);
+            });
+            setTimeout(function() { h1.classList.remove('titulo-animando'); }, dur + 100);
+        }
+
+        function destacarTarjetas(items) {
+            items.forEach(function(item) {
+                var el = document.getElementById(item.id);
+                if (!el) return;
+                el.classList.remove(item.clase); void el.offsetWidth; el.classList.add(item.clase);
+                setTimeout(function() { el.classList.remove(item.clase); }, 2200);
+            });
+        }
+
+        function accionInicio(e) { e.preventDefault(); scrollToSection('inicio'); animarTituloOla(); }
+
+        function accionMetodos(e) {
+            e.preventDefault();
+            if (window.innerWidth < 768) {
+                scrollToSection('metodos');
+                destacarTarjetas([{ id: 'wrapper-metodos', clase: 'highlight-metodo1' }]);
+                setTimeout(function() {
+                    scrollToSection('card-historia');
+                    destacarTarjetas([{ id: 'wrapper-historia', clase: 'highlight-metodo2' }]);
+                }, 2400);
+            } else {
+                scrollToSection('metodos');
+                setTimeout(function() {
+                    destacarTarjetas([{ id: 'wrapper-metodos', clase: 'highlight-metodo1' }, { id: 'wrapper-historia', clase: 'highlight-metodo2' }]);
+                }, 600);
+            }
+        }
+
+        function accionRecursos(e) {
+            e.preventDefault();
+            scrollToSection('recursos');
+            setTimeout(function() { destacarTarjetas([{ id: 'wrapper-recursos', clase: 'highlight-recursos' }]); }, 600);
+        }
+    </script>
+</body>
+</html>
+
