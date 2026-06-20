@@ -992,7 +992,7 @@ Te invitamos a explorar nuestro contenido, elegir el tema que más te interese y
                 <span class="red-social-label">INSTAGRAM</span>
             </a>
 
-            <a href="https://open.spotify.com/show/5hUcoMN8dW7m1IV95yKejh" target="_blank" class="red-social-btn" aria-label="Spotify">
+            <a href="https://open.spotify.com/show/3nUcoMN8dW7m1lV95yKejh" target="_blank" class="red-social-btn" aria-label="Spotify">
                 <div class="red-social-icono">
                     <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.7 0 12 0zm5.5 17.3c-.2.4-.7.5-1.1.2-3-1.8-6.7-2.2-11.1-1.2-.4.1-.9-.2-1-.6-.1-.4.2-.9.6-1 4.8-1.1 8.9-.6 12.2 1.4.5.3.6.8.4 1.2zm1.5-3.3c-.3.5-.9.6-1.4.3-3.4-2.1-8.5-2.7-12.5-1.5-.5.2-1.1-.1-1.3-.6s.1-1.1.6-1.3c4.5-1.4 10.1-.7 14 1.7.5.3.6.9.6 1.4zm.1-3.4C15.5 8.1 9 7.9 5.4 9c-.6.2-1.2-.2-1.4-.7-.2-.6.2-1.2.7-1.4 4.2-1.3 11.2-1 15.6 1.5.5.3.7 1 .4 1.5-.3.5-1 .7-1.6.4v-.4z"/></svg>
                 </div>
@@ -1012,6 +1012,8 @@ Te invitamos a explorar nuestro contenido, elegir el tema que más te interese y
         </div>
     </footer>
 
+    <audio id="audio-musica-fondo" src="Musica.mp3" preload="auto" loop style="display:none;"></audio>
+
     <script>
         var playerVisible = false;
         var reproduciendo = false;
@@ -1021,7 +1023,7 @@ Te invitamos a explorar nuestro contenido, elegir el tema que más te interese y
         var BASE_DATOS_ARTICULOS = {
             'art_001': {
                 titulo: '[ART_001]: Cómo Aprender de Verdad: El Arte de Entrenar tu Cerebro',
-                meta: '> ENTENDIENDO TU MENTE<br>> FECHA: Julio • 2026<br>> AUTOR: Josué Arias',
+                meta: '> ENTENDIENDO TU MENTE<br>> FECHA: Junio • 2026<br>> AUTOR: Josué Arias',
                 cuerpo: `
                     <p>¿Alguna vez has intentado memorizar algo repitiéndolo una y otra vez, solo para darte cuenta de que, al poco tiempo, se te olvidó? No es que tengas mala memoria; es que tu cerebro está diseñado para ahorrar energía y filtrar lo que considera <strong>"ruido"</strong>.
 Aquí te explico cómo funciona realmente nuestra mente y cómo podemos "hackearla" para aprender mejor.</p>
@@ -1062,7 +1064,7 @@ Aquí te explico cómo funciona realmente nuestra mente y cómo podemos "hackear
             },
             'art_002': {
                 titulo: '[ART_002]: Adiós al mito de los "estilos de aprendizaje": Cómo aprender mejor de verdad',
-                meta: '> ANÁLISIS PROFUNDO DE LAS IDEAS<br>> FECHA: Julio • 2026<br>> AUTOR: Josué Arias',
+                meta: '> ANÁLISIS PROFUNDO DE LAS IDEAS<br>> FECHA: Junio • 2026<br>> AUTOR: Josué Arias',
                 cuerpo: `
                     <p>Seguramente has escuchado frases como: <strong>"Yo soy un estudiante visual", "a mí me entra mejor la información si la escucho"</strong> o <strong>"yo aprendo haciendo"</strong>. Existe una idea muy popular que dice que cada persona tiene una forma única y fija de aprender, y que si no nos enseñan adaptándose a esa forma, no aprenderemos bien.</p>
 <p>La verdad es que esto es solo un mito.
@@ -1120,6 +1122,58 @@ Aquí te explico cómo funciona realmente nuestra mente y cómo podemos "hackear
             }
         };
 
+        // ===== MÚSICA DE FONDO AUTOMÁTICA AL ABRIR UN ARTÍCULO =====
+        // Se activa solo cuando se carga un artículo completo (gesto de tap ya ocurrió antes,
+        // al entrar a la Biblioteca), con fade in al iniciar y fade out al salir del artículo.
+        var musicaFondoIntervalo = null;
+        var MUSICA_FONDO_VOLUMEN_MAX = 0.4;
+        var MUSICA_FONDO_DURACION_FADE_IN = 1800;
+        var MUSICA_FONDO_DURACION_FADE_OUT = 1000;
+
+        function reproducirMusicaFondo() {
+            var audio = document.getElementById('audio-musica-fondo');
+            if (!audio) return;
+            clearInterval(musicaFondoIntervalo);
+            audio.currentTime = 0;
+            audio.volume = 0;
+            var intento = audio.play();
+            if (intento !== undefined) {
+                intento.catch(function(e) { console.log('Música de fondo bloqueada por el navegador:', e); });
+            }
+            var pasos = 30;
+            var pasoActual = 0;
+            var incremento = MUSICA_FONDO_VOLUMEN_MAX / pasos;
+            var intervaloMs = MUSICA_FONDO_DURACION_FADE_IN / pasos;
+            musicaFondoIntervalo = setInterval(function() {
+                pasoActual++;
+                var nuevoVolumen = incremento * pasoActual;
+                audio.volume = nuevoVolumen >= MUSICA_FONDO_VOLUMEN_MAX ? MUSICA_FONDO_VOLUMEN_MAX : nuevoVolumen;
+                if (pasoActual >= pasos) clearInterval(musicaFondoIntervalo);
+            }, intervaloMs);
+        }
+
+        function detenerMusicaFondo() {
+            var audio = document.getElementById('audio-musica-fondo');
+            if (!audio) return;
+            clearInterval(musicaFondoIntervalo);
+            if (audio.paused) return;
+            var volumenInicial = audio.volume;
+            var pasos = 20;
+            var pasoActual = 0;
+            var decremento = volumenInicial / pasos;
+            var intervaloMs = MUSICA_FONDO_DURACION_FADE_OUT / pasos;
+            musicaFondoIntervalo = setInterval(function() {
+                pasoActual++;
+                var nuevoVolumen = volumenInicial - (decremento * pasoActual);
+                audio.volume = nuevoVolumen <= 0 ? 0 : nuevoVolumen;
+                if (pasoActual >= pasos) {
+                    clearInterval(musicaFondoIntervalo);
+                    audio.pause();
+                    audio.currentTime = 0;
+                }
+            }, intervaloMs);
+        }
+
         // FIX 3: Lógica de ocultarTodasLasVistas() corregida para manejar
         // correctamente display del home sin romper el flujo de navegación
         // (incluye también vista-origen y vista-proyecto, tomado del código de los botones)
@@ -1162,9 +1216,12 @@ Aquí te explico cómo funciona realmente nuestra mente y cómo podemos "hackear
             var seccionArticulo = document.getElementById('vista-articulo-completo');
             seccionArticulo.classList.add('active');
             window.scrollTo({ top: 0 });
+
+            reproducirMusicaFondo();
         }
 
         function regresarAMenuArticulos() {
+            detenerMusicaFondo();
             ocultarTodasLasVistas();
             document.getElementById('main-header').classList.add('ocultar-menu');
             document.getElementById('vista-menu-articulos').classList.add('active');
@@ -1172,6 +1229,7 @@ Aquí te explico cómo funciona realmente nuestra mente y cómo podemos "hackear
         }
 
         function regresarAHome() {
+            detenerMusicaFondo();
             document.getElementById('vista-home').style.display = 'block';
             document.getElementById('main-header').classList.remove('ocultar-menu');
             document.getElementById('vista-menu-articulos').classList.remove('active');
