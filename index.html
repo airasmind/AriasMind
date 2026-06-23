@@ -1226,6 +1226,21 @@
         }
 
         window.addEventListener('DOMContentLoaded', function() {
+            // ── Leer parámetro ?ir= cuando se llega desde un artículo ──
+            var params = new URLSearchParams(window.location.search);
+            var destino = params.get('ir');
+            if (destino) {
+                // Limpiar la URL sin recargar
+                history.replaceState(null, '', window.location.pathname);
+                if (destino === 'biblioteca') {
+                    setTimeout(function() { navegarAVistaArticulos(null); }, 100);
+                } else if (destino === 'principios') {
+                    setTimeout(function() { accionMetodos({ preventDefault: function(){} }); }, 200);
+                } else if (destino === 'recursos') {
+                    setTimeout(function() { accionRecursos({ preventDefault: function(){} }); }, 200);
+                }
+                return; // no ejecutar animación de título en estos casos
+            }
             inicializarTitulo();
             setTimeout(function() { animarTituloOla(); }, 300);
             mostrarFechaActualizacion();
