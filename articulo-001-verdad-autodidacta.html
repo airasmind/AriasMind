@@ -56,14 +56,14 @@
         <hr class="nav-divider">
         <nav>
             <a href="index.html">INICIO</a>
-            <a href="index.html#metodos">PRINCIPIOS</a>
-            <a href="index.html#recursos">RECURSOS</a>
-            <a href="index.html" class="amarillo" onclick="sessionStorage.setItem('irBiblioteca','1')">BIBLIOTECA</a>
+            <a href="index.html?ir=principios">PRINCIPIOS</a>
+            <a href="index.html?ir=recursos">RECURSOS</a>
+            <a href="index.html?ir=biblioteca" class="amarillo">BIBLIOTECA</a>
         </nav>
     </header>
     <main>
         <div class="nav-controls">
-            <a href="index.html" class="btn-control btn-amarillo" onclick="sessionStorage.setItem('irBiblioteca','1')">← VOLVER A TEMAS</a>
+            <a href="index.html?ir=biblioteca" class="btn-control btn-amarillo">← VOLVER A TEMAS</a>
             
         </div>
         <div class="article-container">
@@ -108,7 +108,7 @@
             </div>
         </div>
         <div class="nav-controls nav-bottom">
-            <a href="index.html" class="btn-control btn-amarillo" onclick="sessionStorage.setItem('irBiblioteca','1')">← VOLVER A TEMAS</a>
+            <a href="index.html?ir=biblioteca" class="btn-control btn-amarillo">← VOLVER A TEMAS</a>
             <a href="index.html" class="btn-control btn-cian">HUB PRINCIPAL ⌂</a>
         </div>
     </main>
@@ -122,5 +122,35 @@
         </div>
         <div class="status-pie">ARIASMIND © 2026 | SISTEMA OPERATIVO: ONLINE</div>
     </footer>
+
+    <!-- Música de fondo igual que en la página principal -->
+    <audio id="audio-musica-fondo" src="Musica.mp3" preload="auto" loop style="display:none;"></audio>
+    <script>
+        (function() {
+            var audio = document.getElementById('audio-musica-fondo');
+            if (!audio) return;
+            audio.volume = 0;
+            var intento = audio.play();
+            if (intento !== undefined) {
+                intento.then(function() {
+                    var pasos = 30;
+                    var pasoActual = 0;
+                    var volMax = 0.4;
+                    var intervalo = setInterval(function() {
+                        pasoActual++;
+                        var v = (volMax / pasos) * pasoActual;
+                        audio.volume = v >= volMax ? volMax : v;
+                        if (pasoActual >= pasos) clearInterval(intervalo);
+                    }, 60);
+                }).catch(function(e) {
+                    // El navegador bloqueó el autoplay — intentar al primer clic del usuario
+                    document.addEventListener('click', function iniciarMusica() {
+                        audio.play().catch(function(){});
+                        document.removeEventListener('click', iniciarMusica);
+                    }, { once: true });
+                });
+            }
+        })();
+    </script>
 </body>
 </html>
