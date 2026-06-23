@@ -812,7 +812,6 @@
                 <span class="bloque-titulo" id="bloque2">LABORATORIO</span>
             </h1>
             <p class="descripcion-hero">Testeando métodos. Destruyendo mitos. Documentando el aprendizaje real.</p>
-            <a href="http://subscribepage.io/mXUHpy" target="_blank" class="btn-lab" id="btn-unirse">UNIRSE AL PROYECTO</a>
         </section>
 
         <div class="grid-cards">
@@ -1234,6 +1233,8 @@
                 history.replaceState(null, '', window.location.pathname);
                 if (destino === 'biblioteca') {
                     setTimeout(function() { navegarAVistaArticulos(null); }, 100);
+                } else if (destino === 'tarjeta-articulos') {
+                    setTimeout(function() { accionArticulosHome({ preventDefault: function(){} }); }, 200);
                 } else if (destino === 'principios') {
                     setTimeout(function() { accionMetodos({ preventDefault: function(){} }); }, 200);
                 } else if (destino === 'recursos') {
@@ -1321,11 +1322,7 @@
                 }, i * 55);
             });
             setTimeout(function() { h1.classList.remove('titulo-animando'); }, dur + 100);
-            setTimeout(function() {
-                var btn = document.getElementById('btn-unirse');
-                btn.classList.remove('pulsando'); void btn.offsetWidth; btn.classList.add('pulsando');
-                setTimeout(function() { btn.classList.remove('pulsando'); }, 900);
-            }, dur + 150);
+
         }
 
         function destacarTarjetas(items) {
