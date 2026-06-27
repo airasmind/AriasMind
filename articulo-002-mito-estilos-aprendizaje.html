@@ -285,7 +285,7 @@
   </div>
 </section>
 
-<div class="content rv">
+<div class="content">
   <div class="article-body">
     <p>Seguramente has escuchado frases como: <strong>"Yo soy un estudiante visual"</strong>, <strong>"a mí me entra mejor la información si la escucho"</strong> o <strong>"yo aprendo haciendo"</strong>. Existe una idea muy popular que dice que cada persona tiene una forma única y fija de aprender, y que si no nos enseñan adaptándose a esa forma, no aprenderemos bien.</p>
                 <p>La verdad es que esto es solo un mito. Las investigaciones más modernas sobre cómo funciona nuestro cerebro han demostrado que esa clasificación clásica no tiene una base científica sólida. Nuestro cerebro no está diseñado para aprender de una sola forma. Aprender no se trata de nuestra <strong>"preferencia"</strong> personal, sino de lo que estamos intentando aprender.</p>
@@ -297,11 +297,7 @@
 <hr class="glow-rule"><h2 class="ch-title">2. El gimnasio del cerebro</h2>
                 <p>Si siempre estudias de la forma que te resulta <strong>"más cómoda"</strong>, tu cerebro se vuelve perezoso. Por el contrario, cuando te obligas a cambiar de modalidad, estás fortaleciendo tu memoria. A esto le llamamos Flexibilidad Sináptica.</p>
                 <p>Imagina que tu cerebro es como un músculo. Si siempre levantas la misma pesa liviana, nunca ganarás fuerza real. Pero si un día levantas pesas, otro día haces estiramientos y otro corres, tu cuerpo se vuelve más atlético y resistente.</p>
-                <div class="apply-box"><p><strong>Cómo aplicarlo:</strong> Si estás estudiando un tema complejo, no te limites a leer. <strong></p>
-<p>1.</strong> Primero, lee el texto. <strong></p>
-<p>2.</strong> Luego, trata de explicarlo en voz alta como si se lo enseñaras a otra persona. <strong></p>
-<p>3.</strong> Finalmente, dibuja un esquema o resumen con tus propias palabras.</p>
-<p>Al pasar una misma idea por diferentes rutas de tu cerebro, estás creando múltiples caminos de acceso hacia esa información.</p> <strong>¡Es mucho más difícil olvidar algo que has procesado de tantas formas distintas!</strong></p></div>
+                <div class="apply-box"><p><strong>Cómo aplicarlo:</strong> Si estás estudiando un tema complejo, no te limites a leer. <strong>1.</strong> Primero, lee el texto. <strong>2.</strong> Luego, trata de explicarlo en voz alta como si se lo enseñaras a otra persona. <strong>3.</strong> Finalmente, dibuja un esquema o resumen con tus propias palabras. Al pasar una misma idea por diferentes rutas de tu cerebro, estás creando múltiples caminos de acceso hacia esa información. <strong>¡Es mucho más difícil olvidar algo que has procesado de tantas formas distintas!</strong></p></div>
                 <blockquote class="pull-q">Si siempre estudias de la forma más cómoda, le estás diciendo a tu cerebro que puede ser perezoso.</blockquote>
 <hr class="glow-rule"><h2 class="ch-title">3. ¿Por qué nos aferramos al mito?</h2>
                 <p>A veces, preferimos creer en los <strong>"estilos de aprendizaje"</strong> porque nos da una salida fácil. Si no aprendemos algo, es más fácil culpar al método que aceptar que aprender requiere esfuerzo.</p>
@@ -340,7 +336,7 @@
         <span class="s-ico"><svg viewBox="0 0 24 24"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31.4 31.4 0 0 0 0 12a31.4 31.4 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31.4 31.4 0 0 0 24 12a31.4 31.4 0 0 0-.5-5.8zM9.7 15.5V8.5l6.3 3.5-6.3 3.5z"/></svg></span>
         <span class="s-lbl">YouTube</span>
       </a>
-      <a href="https://tiktok.com/@ariasmind.oficial" target="_blank" class="social-btn" style="--sc:#00f2ea;--sr:0,242,234">
+      <a href="https://tiktok.com/@ariasmind.oficial" target="_blank" class="social-btn" style="--sc:#f0f4ff;--sr:220,230,255">
         <span class="s-ico"><svg viewBox="0 0 24 24"><path d="M19.6 3a5.6 5.6 0 0 1-3.5-1.3A5.6 5.6 0 0 1 14.4 0h-3.7v15.7a2.6 2.6 0 0 1-2.6 2.3 2.6 2.6 0 0 1-2.6-2.6 2.6 2.6 0 0 1 2.6-2.6c.3 0 .5 0 .7.1V9.1a6.4 6.4 0 0 0-.7 0 6.3 6.3 0 0 0-6.3 6.3A6.3 6.3 0 0 0 8.1 21.6a6.3 6.3 0 0 0 6.3-6.3V8.1a9.2 9.2 0 0 0 5.2 1.6V6.1A5.6 5.6 0 0 1 19.6 3z"/></svg></span>
         <span class="s-lbl">TikTok</span>
       </a>
@@ -362,7 +358,7 @@
 
 </div>
 <script>
-  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.1});
+  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:0,rootMargin:"0px 0px -40px 0px"});
   document.querySelectorAll('.rv').forEach(el=>io.observe(el));
   const bar=document.getElementById('progress');
   window.addEventListener('scroll',()=>{
