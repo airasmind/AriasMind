@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sobre el origen | ARIASMIND</title>
+<meta name="description" content="La historia detrás del laboratorio.">
+<meta name="author" content="Josué Arias">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&family=Rajdhani:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ac:#00f3ff;--ac-rgb:0,243,255;
+    --cian:#00f3ff;--magenta:#bc13fe;--verde:#39ff14;--amarillo:#fffb00;
+    --fondo:#050505;--panel:#0b0c0e;--gris:#8a8a90;
+    --linea:rgba(0,243,255,.18);
+    --display:'Orbitron',sans-serif;--body:'Rajdhani',sans-serif;
+    --mono:'Space Mono',ui-monospace,monospace;
+    --pad:clamp(1.25rem,5vw,6rem);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{background:var(--fondo);color:#fff;font-family:var(--body);line-height:1.5;overflow-x:hidden;-webkit-font-smoothing:antialiased;-webkit-tap-highlight-color:transparent}
+  body::before{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;
+    background-image:linear-gradient(rgba(0,243,255,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(0,243,255,.025) 1px,transparent 1px);
+    background-size:32px 32px}
+  a{color:inherit;text-decoration:none}
+  ::selection{background:var(--cian);color:#000}
+  :focus-visible{outline:2px solid var(--amarillo);outline-offset:3px}
+  .wrap{position:relative;z-index:1}
+
+  /* ── PROGRESS BAR NEÓN LÍQUIDO ── */
+  .prog-track{position:fixed;top:0;left:0;right:0;height:6px;background:rgba(255,255,255,.04);z-index:199;pointer-events:none}
+  .progress{
+    position:fixed;top:0;left:0;height:6px;width:0;z-index:200;pointer-events:none;
+    background:linear-gradient(90deg,var(--ac) 0%,rgba(255,255,255,.55) 28%,var(--ac) 48%,rgba(255,255,255,.2) 68%,var(--ac) 100%);
+    background-size:300% 100%;animation:progFlow 1.8s linear infinite;
+    box-shadow:0 0 8px var(--ac),0 0 18px rgba(0,243,255,.45),0 0 32px rgba(0,243,255,.2);
+    transition:width .08s linear;
+  }
+  .progress::after{
+    content:"";position:absolute;right:-5px;top:50%;transform:translateY(-50%);
+    width:14px;height:14px;border-radius:50%;background:rgba(255,255,255,.92);
+    box-shadow:0 0 7px 2px var(--ac),0 0 14px 4px rgba(0,243,255,.7),0 0 26px 6px rgba(0,243,255,.35);
+    animation:progOrb 1.1s ease-in-out infinite;
+  }
+  @keyframes progFlow{0%{background-position:200% 0}100%{background-position:-200% 0}}
+  @keyframes progOrb{0%,100%{transform:translateY(-50%) scale(1)}50%{transform:translateY(-50%) scale(1.4)}}
+
+  /* ── TOPBAR ── */
+  .topbar{position:sticky;top:0;z-index:100;background:rgba(5,5,5,.92);backdrop-filter:blur(12px);
+    border-bottom:1px solid var(--linea);display:flex;align-items:center;justify-content:space-between;padding:.9rem var(--pad)}
+  .logo{font-family:var(--display);font-weight:900;font-size:1rem;color:var(--cian);text-shadow:0 0 12px rgba(0,243,255,.7);letter-spacing:1px}
+  .back-link{font-family:var(--display);font-weight:700;font-size:.62rem;letter-spacing:1.5px;color:var(--ac);
+    border:1px solid var(--ac);padding:.5rem .95rem;text-transform:uppercase;transition:.25s;
+    clip-path:polygon(8% 0,100% 0,92% 100%,0 100%)}
+  .back-link:hover,.back-link:active{background:var(--ac);color:#000;box-shadow:0 0 18px rgba(0,243,255,.5)}
+
+  /* ── HERO ── */
+  .eyebrow{font-family:var(--mono);font-size:.7rem;letter-spacing:.28em;color:var(--ac);text-transform:uppercase}
+  .article-hero{position:relative;padding:clamp(3rem,7vw,5rem) var(--pad) clamp(1.5rem,3vw,2.5rem);overflow:hidden}
+  .article-hero::after{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;
+    background:radial-gradient(70% 60% at 80% 0%,rgba(0,243,255,.14),transparent 60%),
+               radial-gradient(60% 50% at 0% 110%,rgba(0,243,255,.08),transparent 55%)}
+  .article-hero .inner{position:relative;z-index:2;max-width:880px;margin:0 auto}
+  .article-hero h1{font-family:var(--display);font-weight:900;line-height:.95;letter-spacing:-.01em;
+    font-size:clamp(2.2rem,7vw,4.8rem);margin-top:1.2rem;color:var(--ac);
+    text-shadow:0 0 28px rgba(0,243,255,.45);text-transform:uppercase}
+  .article-hero .sub{font-family:var(--mono);color:var(--gris);letter-spacing:.18em;margin-top:1.2rem;font-size:.78rem;text-transform:uppercase}
+
+  /* ── DOSSIER ── */
+  .dossier{position:relative;max-width:880px;margin:0 auto;border-left:3px solid var(--ac);
+    background:linear-gradient(90deg,rgba(0,243,255,.05),transparent 70%);padding:2rem clamp(1.2rem,4vw,3rem);overflow:hidden}
+  .dscan{position:absolute;left:0;right:0;top:0;height:60px;pointer-events:none;
+    background:linear-gradient(to bottom,rgba(0,243,255,.14),transparent);animation:dScan 6s linear infinite}
+  @keyframes dScan{0%{transform:translateY(-60px)}100%{transform:translateY(700px)}}
+  .dmeta{position:relative;font-family:var(--mono);color:var(--ac);font-size:.78rem;line-height:2}
+  .dlead{position:relative;font-style:italic;color:var(--gris);font-size:1.05rem;line-height:1.8;margin-top:1.4rem;max-width:58ch}
+  .read-time{font-family:var(--mono);font-size:.65rem;color:var(--gris);letter-spacing:.16em;margin-top:.55rem}
+  .read-time b{color:var(--ac)}
+
+  /* ── CAPÍTULOS ── */
+  .content{max-width:760px;margin:0 auto;padding:clamp(2.5rem,6vw,4.5rem) var(--pad) clamp(2rem,4vw,3rem)}
+  .chapter{margin-bottom:0;position:relative}
+  .ch-index{font-family:var(--mono);font-size:.68rem;letter-spacing:.3em;color:var(--magenta);text-transform:uppercase;display:block;margin-bottom:.6rem}
+  .chapter h2{font-family:var(--display);font-weight:700;font-size:clamp(1.3rem,4vw,2rem);line-height:1.05;
+    letter-spacing:-.01em;color:var(--ac);text-shadow:0 0 16px rgba(0,243,255,.4);margin-bottom:1.2rem}
+  .chapter p{font-size:1.08rem;line-height:1.85;color:#d7d7da;font-weight:500;margin-bottom:1.2rem;max-width:62ch}
+  .chapter p strong{color:#fff;font-weight:700}
+  .hl{color:var(--ac);font-weight:600}
+  .hl-m{color:var(--magenta);font-weight:600}
+  .hl-c{color:var(--cian);font-weight:600}
+
+  /* ── PULL QUOTE ── */
+  .pull-q{border-left:4px solid var(--ac);padding:1.1rem 1.6rem;margin:2rem 0;
+    font-family:var(--display);font-size:clamp(.9rem,2.4vw,1.2rem);font-weight:700;
+    color:var(--ac);line-height:1.35;text-shadow:0 0 18px rgba(0,243,255,.3);
+    background:linear-gradient(90deg,rgba(0,243,255,.07),transparent 80%)}
+
+  /* ── GLOW RULE ── */
+  .glow-rule{height:1px;border:0;background:linear-gradient(90deg,transparent,rgba(0,243,255,.38),transparent);margin:2rem 0}
+
+  /* ── TAKEAWAYS ── */
+  .takeaways{border:1px solid rgba(0,243,255,.28);
+    background:linear-gradient(135deg,rgba(0,243,255,.05),transparent 60%);
+    padding:1.8rem clamp(1.2rem,4vw,2.2rem) 1.4rem;margin:2.5rem 0;
+    clip-path:polygon(0 0,97% 0,100% 5%,100% 100%,3% 100%,0 95%)}
+  .tw-hdr{font-family:var(--mono);color:var(--ac);font-size:.66rem;letter-spacing:.3em;
+    text-transform:uppercase;margin-bottom:1.3rem;display:flex;align-items:center;gap:.8rem}
+  .tw-hdr::before{content:"";display:block;width:20px;height:2px;background:var(--ac);flex-shrink:0}
+  .tw-list{list-style:none;padding:0;counter-reset:tw;margin:0}
+  .tw-list li{counter-increment:tw;display:flex;gap:1rem;align-items:flex-start;
+    padding:.75rem 0;border-bottom:1px solid rgba(0,243,255,.1);
+    font-size:1.02rem;color:#d7d7da;font-weight:500;line-height:1.6}
+  .tw-list li:last-child{border-bottom:none;padding-bottom:0}
+  .tw-list li::before{content:counter(tw,decimal-leading-zero);font-family:var(--mono);
+    color:var(--ac);font-size:.7rem;font-weight:700;min-width:2rem;padding-top:.25rem;flex-shrink:0}
+
+  /* ── CLOSING / CTA ── */
+  .closing{max-width:880px;margin:0 auto clamp(3rem,6vw,5rem);
+    border:1px solid var(--linea);background:linear-gradient(135deg,rgba(0,243,255,.06),transparent 60%);
+    padding:clamp(2rem,5vw,3.5rem);text-align:center;
+    clip-path:polygon(0 0,97% 0,100% 6%,100% 100%,3% 100%,0 94%)}
+  .pulse{font-family:var(--display);font-weight:900;font-size:clamp(1.3rem,4vw,2.2rem);line-height:1.1;color:#fff}
+  .pulse .ac{color:var(--ac);text-shadow:0 0 18px rgba(0,243,255,.6)}
+  .closing p{color:var(--gris);max-width:48ch;margin:1.2rem auto 0;font-size:1rem;line-height:1.7;font-weight:500}
+  .cta-row{display:flex;gap:.8rem;flex-wrap:wrap;justify-content:center;margin-top:2rem}
+  .btn{font-family:var(--display);font-weight:700;font-size:.68rem;letter-spacing:1.5px;text-transform:uppercase;
+    padding:.9rem 1.6rem;cursor:pointer;transition:.25s;clip-path:polygon(6% 0,100% 0,94% 100%,0 100%)}
+  .btn-fill{background:var(--ac);color:#000;border:1px solid var(--ac)}
+  .btn-fill:hover,.btn-fill:active{box-shadow:0 0 24px rgba(0,243,255,.6);transform:translateY(-2px)}
+  .btn-line{border:1px solid var(--magenta);color:var(--magenta)}
+  .btn-line:hover,.btn-line:active{background:var(--magenta);color:#000;box-shadow:0 0 22px rgba(188,19,254,.5);transform:translateY(-2px)}
+
+  /* ── FOOTER ── */
+  footer{padding:3rem var(--pad) 2.5rem;border-top:1px solid var(--linea);position:relative;z-index:1}
+  .foot-inner{max-width:880px;margin:0 auto;display:flex;flex-direction:column;align-items:center;gap:1.8rem}
+  .foot-mark{font-family:var(--display);font-weight:900;font-size:1.2rem;color:var(--cian);text-shadow:0 0 12px rgba(0,243,255,.5)}
+  .socials{display:flex;gap:.6rem;flex-wrap:wrap;justify-content:center}
+  .social-btn{display:flex;flex-direction:column;align-items:center;gap:.4rem;transition:.25s;cursor:pointer;text-decoration:none}
+  .social-btn:hover,.social-btn:active{transform:translateY(-5px)}
+  .s-ico{width:50px;height:50px;border-radius:11px;border:1.5px solid var(--sc);
+    display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,.5);
+    box-shadow:0 0 10px rgba(var(--sr),.28);transition:.25s;color:var(--sc)}
+  .social-btn:hover .s-ico,.social-btn:active .s-ico{box-shadow:0 0 20px rgba(var(--sr),.65),inset 0 0 10px rgba(var(--sr),.08);background:rgba(var(--sr),.07)}
+  .s-ico svg{width:23px;height:23px;filter:drop-shadow(0 0 4px var(--sc));transition:.25s}
+  .social-btn:hover .s-ico svg,.social-btn:active .s-ico svg{filter:drop-shadow(0 0 9px var(--sc))}
+  .s-lbl{font-family:var(--mono);font-size:.52rem;color:var(--sc);letter-spacing:1.8px;text-transform:uppercase}
+  .foot-status{font-family:var(--mono);font-size:.66rem;color:#3a3d42;letter-spacing:2px}
+
+  /* ── REVEAL ── */
+  .rv{opacity:0;transform:translateY(20px);transition:opacity .8s,transform .8s}
+  .rv.in{opacity:1;transform:none}
+  @media(prefers-reduced-motion:reduce){*{animation:none!important;scroll-behavior:auto}.rv{opacity:1;transform:none;transition:none}}
+</style>
+</head>
+<body>
+<div class="prog-track"></div>
+<div class="progress" id="progress"></div>
+<div class="wrap">
+
+<div class="topbar">
+  <div class="logo">ARIASMIND</div>
+  <a href="index.html#origen" class="back-link">&larr; Volver al inicio</a>
+</div>
+
+<header class="article-hero">
+  <div class="inner rv in">
+    <span class="eyebrow">// Archivo personal · OP_ORIGEN</span>
+    <h1>Sobre el<br>origen</h1>
+    <p class="sub">La historia detrás del laboratorio.</p>
+  </div>
+</header>
+
+<section style="padding:0 0 clamp(1.5rem,4vw,2.5rem)">
+  <div class="dossier rv">
+    <span class="dscan" aria-hidden="true"></span>
+    <div class="dmeta">&gt; ARCHIVO: ORIGEN<br>&gt; CLASIFICACIÓN: PERSONAL<br>&gt; AUTOR: JOSUÉ ARIAS</div>
+    <p class="dlead">Si alguna vez sentiste que aprender no era para ti, esta historia es tu evidencia de lo contrario. El éxito académico no define tu capacidad real.</p>
+    <div class="read-time">&gt; LECTURA ESTIMADA: <b>~3 min</b></div>
+  </div>
+</section>
+
+<div class="content">
+
+  <article class="chapter rv">
+    <span class="ch-index">// Capítulo 01</span>
+    <h2>El punto de quiebre</h2>
+    <p>Durante años arrastré la etiqueta de <strong>"desempeño académico mediocre"</strong>. Me convencí de que no era capaz. El sistema lo confirmaba con notas, con caras decepcionadas, con silencios.</p><p>Pero ese rechazo fue, en realidad, el <span class="hl">catalizador necesario</span>: entendí que el problema no era mi capacidad, sino el molde en el que intentaban encajarme.</p><p>Fue entonces cuando dejé de seguir el camino marcado para empezar a construir el mío, convirtiendo la frustración en el <span class="hl-m">primer pilar de este laboratorio</span>.</p>
+  </article>
+  <blockquote class="pull-q rv">El problema nunca fue mi capacidad. Era el molde en el que intentaban encajarme.</blockquote>
+  <hr class="glow-rule">
+  <article class="chapter rv">
+    <span class="ch-index">// Capítulo 02</span>
+    <h2>El primer experimento real</h2>
+    <p>Mi primer experimento no fue buscar un título, sino <strong>hackear mi propio proceso de aprendizaje</strong>. Decidí convertirme en el ingeniero de mi propia formación.</p><p>Implementé rutinas diarias propias, seleccioné mis propios recursos y cuestioné cada método tradicional que había dado por válido.</p><p>Descubrí que la clave no está en memorizar, sino en la <span class="hl">práctica deliberada</span>: enfrentarse al problema real, fallar, registrar el error y ajustar.</p>
+  </article>
+  <hr class="glow-rule">
+  <article class="chapter rv">
+    <span class="ch-index">// Capítulo 03</span>
+    <h2>Lo que aprendí que nadie enseña</h2>
+    <p>Aprender cosas nuevas puede ser un proceso <strong>genuinamente disfrutable</strong>. Eso no lo enseña ningún sistema educativo porque no lo necesita: prefiere la obediencia a la curiosidad.</p><p>Cuando tú diseñas tu sistema, el aprendizaje deja de ser una obligación y se convierte en una <span class="hl">herramienta de construcción</span> personal.</p>
+  </article>
+  <blockquote class="pull-q rv">Cuando diseñas tu propio sistema de aprendizaje, la frustración desaparece y la maestría se vuelve inevitable.</blockquote>
+  <hr class="glow-rule">
+  <article class="chapter rv">
+    <span class="ch-index">// Capítulo 04</span>
+    <h2>Mi objetivo</h2>
+    <p><strong>Mi objetivo</strong> es demostrar que cualquier persona, sin importar su historial académico, puede dominar habilidades complejas. Solo necesita <span class="hl">reconfigurar su sistema de aprendizaje</span>.</p><p>Si yo pude hacerlo para aprender inglés, oficios técnicos y otras habilidades desde cero, <span class="hl-m">tú también puedes</span>.</p>
+  </article>
+
+<div class="takeaways rv">
+  <div class="tw-hdr">Lo que te llevas de aquí</div>
+  <ol class="tw-list"><li>El sistema académico mide conformidad, no capacidad real.</li>
+<li>La frustración, bien dirigida, se convierte en combustible. No en evidencia de tus límites.</li>
+<li>La práctica deliberada supera a la memorización en cualquier escenario y para cualquier persona.</li>
+<li>Cualquier persona puede reconfigurar su proceso de aprendizaje, sin importar su historial.</li></ol>
+</div>
+</div>
+
+<section style="padding:0 var(--pad) clamp(3rem,6vw,5rem)">
+  <div class="closing rv">
+    <p class="pulse">Tu pasado no decide tu futuro.<br>Aprender <span class="ac">sí es para ti</span>.</p>
+    <p>El archivo está abierto. Cada protocolo es una pieza del sistema que ya fue probado. Empieza por el primero.</p>
+    <div class="cta-row">
+      <a href="index.html#archivo" class="btn btn-fill">Acceder al archivo</a>
+      <a href="index.html" class="btn btn-line">&larr; Volver al inicio</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="foot-inner">
+    <div class="foot-mark">ARIASMIND</div>
+    <div class="socials">
+      <a href="https://youtube.com/@ariasmind" target="_blank" class="social-btn" style="--sc:#ff3030;--sr:255,48,48" aria-label="YouTube">
+        <span class="s-ico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31.4 31.4 0 0 0 0 12a31.4 31.4 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31.4 31.4 0 0 0 24 12a31.4 31.4 0 0 0-.5-5.8zM9.7 15.5V8.5l6.3 3.5-6.3 3.5z"/></svg></span>
+        <span class="s-lbl">YouTube</span>
+      </a>
+      <a href="https://tiktok.com/@ariasmind.oficial" target="_blank" class="social-btn" style="--sc:#00f2ea;--sr:0,242,234" aria-label="TikTok">
+        <span class="s-ico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.6 3a5.6 5.6 0 0 1-3.5-1.3A5.6 5.6 0 0 1 14.4 0h-3.7v15.7a2.6 2.6 0 0 1-2.6 2.3 2.6 2.6 0 0 1-2.6-2.6 2.6 2.6 0 0 1 2.6-2.6c.3 0 .5 0 .7.1V9.1a6.4 6.4 0 0 0-.7 0 6.3 6.3 0 0 0-6.3 6.3A6.3 6.3 0 0 0 8.1 21.6a6.3 6.3 0 0 0 6.3-6.3V8.1a9.2 9.2 0 0 0 5.2 1.6V6.1A5.6 5.6 0 0 1 19.6 3z"/></svg></span>
+        <span class="s-lbl">TikTok</span>
+      </a>
+      <a href="https://www.instagram.com/arias.mind" target="_blank" class="social-btn" style="--sc:#ff2d78;--sr:255,45,120" aria-label="Instagram">
+        <span class="s-ico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.2c3.2 0 3.6 0 4.9.1 3.3.1 4.8 1.7 4.9 4.9.1 1.3.1 1.6.1 4.8 0 3.2 0 3.6-.1 4.8-.1 3.2-1.7 4.8-4.9 4.9-1.3.1-1.6.1-4.9.1-3.2 0-3.6 0-4.8-.1-3.3-.1-4.8-1.7-4.9-4.9C2.2 15.6 2.2 15.2 2.2 12c0-3.2 0-3.6.1-4.8C2.4 3.9 4 2.3 7.2 2.2c1.2-.1 1.6-.1 4.8-.1zm0-2.2C8.7 0 8.3 0 7.1.1 2.7.3.3 2.7.1 7.1.0 8.3 0 8.7 0 12c0 3.3 0 3.7.1 4.9C.3 21.3 2.7 23.7 7.1 23.9c1.2.1 1.6.1 4.9.1 3.3 0 3.7 0 4.9-.1 4.4-.2 6.8-2.6 7-7 .1-1.2.1-1.6.1-4.9 0-3.3 0-3.7-.1-4.9C23.7 2.7 21.3.3 16.9.1 15.7 0 15.3 0 12 0zm0 5.8a6.2 6.2 0 1 0 0 12.4A6.2 6.2 0 0 0 12 5.8zm0 10.2a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.4-11.8a1.4 1.4 0 1 0 0 2.8 1.4 1.4 0 0 0 0-2.8z"/></svg></span>
+        <span class="s-lbl">Instagram</span>
+      </a>
+      <a href="https://open.spotify.com/show/3nUcoMN8dW7m1lV95yKejh" target="_blank" class="social-btn" style="--sc:#1df56a;--sr:29,245,106" aria-label="Spotify">
+        <span class="s-ico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.7 0 12 0zm5.5 17.3c-.2.4-.7.5-1.1.2-3-1.8-6.7-2.2-11.1-1.2-.4.1-.9-.2-1-.6-.1-.4.2-.9.6-1 4.8-1.1 8.9-.6 12.2 1.4.5.3.6.8.4 1.2zm1.5-3.3c-.3.5-.9.6-1.4.3-3.4-2.1-8.5-2.7-12.5-1.5-.5.2-1.1-.1-1.3-.6s.1-1.1.6-1.3c4.5-1.4 10.1-.7 14 1.7.5.3.6.9.6 1.4zm.1-3.4C15.5 8.1 9 7.9 5.4 9c-.6.2-1.2-.2-1.4-.7-.2-.6.2-1.2.7-1.4 4.2-1.3 11.2-1 15.6 1.5.5.3.7 1 .4 1.5-.3.5-1 .7-1.6.4v-.4z"/></svg></span>
+        <span class="s-lbl">Spotify</span>
+      </a>
+      <a href="https://www.facebook.com/share/16iB9dUkoB/" target="_blank" class="social-btn" style="--sc:#4a8eff;--sr:74,142,255" aria-label="Facebook">
+        <span class="s-ico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.1C24 5.4 18.6 0 12 0S0 5.4 0 12.1C0 18.1 4.4 23.1 10.1 24v-8.4H7.1v-3.5h3V9.4c0-3 1.8-4.7 4.5-4.7 1.3 0 2.7.2 2.7.2v3h-1.5c-1.5 0-2 .9-2 1.9v2.2h3.3l-.5 3.5h-2.8V24C19.6 23.1 24 18.1 24 12.1z"/></svg></span>
+        <span class="s-lbl">Facebook</span>
+      </a>
+    </div>
+    <div class="foot-status">ARIASMIND &copy; 2026 &middot; SISTEMA OPERATIVO: ONLINE</div>
+  </div>
+</footer>
+
+</div>
+<script>
+  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.1});
+  document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+  const bar=document.getElementById('progress');
+  window.addEventListener('scroll',()=>{
+    const h=document.documentElement;
+    bar.style.width=(h.scrollTop/(h.scrollHeight-h.clientHeight)*100)+'%';
+  },{passive:true});
+</script>
+</body>
+</html>
