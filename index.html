@@ -196,6 +196,12 @@
     .entry{grid-template-columns:auto 1fr;gap:1rem;padding:1.6rem 0}
     .entry .meta{grid-column:1/-1;text-align:left;padding-left:3.5ch}
   }
+  .entry .meta .art-date{opacity:.85}
+  .badge-new{display:inline-flex;align-items:center;font-family:var(--mono);font-weight:700;
+    font-size:.56rem;letter-spacing:.2em;color:#000;background:var(--verde);
+    padding:.2rem .55rem;border-radius:2px;margin-left:.65rem;vertical-align:middle;
+    animation:newPulse 1.8s ease-in-out infinite;white-space:nowrap}
+  @keyframes newPulse{0%,100%{box-shadow:0 0 6px rgba(57,255,20,.5)}50%{box-shadow:0 0 16px rgba(57,255,20,.9)}}
 
   /* ── PILARES (origen / proyecto) ── */
   .pillars{display:grid;grid-template-columns:1fr;gap:1.5rem}
@@ -295,7 +301,7 @@
 
 <header>
   <div class="nav-in">
-    <div class="logo">ARIASMIND</div>
+    <a class="logo" href="index.html">ARIASMIND</a>
     <nav class="nav-links">
       <a href="#archivo">ARCHIVO</a>
       <a href="PROYECTO.html">PROYECTO</a>
@@ -310,6 +316,7 @@
 <!-- MENÚ MÓVIL -->
 <nav class="mobile-menu" id="mobileMenu" aria-hidden="true">
   <button class="mm-close" id="menuClose" aria-label="Cerrar menú">✕</button>
+  <a href="index.html" data-mm>INICIO</a>
   <a href="PROYECTO.html" data-mm>PROYECTO</a>
   <a href="#archivo" data-mm>BIBLIOTECA</a>
   <a href="ORIGEN.html" data-mm>ORIGEN</a>
@@ -365,8 +372,8 @@
   <div class="sec-head rv">
     <span class="eyebrow">// Biblioteca &middot; secuencia de aprendizaje</span>
     <h2>El <span class="ac">archivo</span>.</h2>
-    <p style="color:var(--gris);font-weight:500;margin-top:1rem;font-size:1.05rem;max-width:54ch">Seis guías para leerse en orden. Cada una destruye un mito que te ha frenado y te deja algo concreto que puedes aplicar hoy.</p>
-    <p class="hero-status" style="margin-top:2rem">&gt; [ESTADO]: BIBLIOTECA ACTIVA &middot; <b>6 PROTOCOLOS COMPILADOS</b></p>
+    <p style="color:var(--gris);font-weight:500;margin-top:1rem;font-size:1.05rem;max-width:54ch">Siete guías para leerse en orden. Cada una destruye un mito que te ha frenado y te deja algo concreto que puedes aplicar hoy.</p>
+    <p class="hero-status" style="margin-top:2rem">&gt; [ESTADO]: BIBLIOTECA ACTIVA &middot; <b>7 PROTOCOLOS COMPILADOS</b> &middot; ÚLTIMA ACTUALIZACIÓN: JUL 2026</p>
   </div>
 
   <div class="archive">
@@ -376,7 +383,7 @@
         <h3>La verdad sobre ser autodidacta</h3>
         <p>¿Crees que ser autodidacta es para genios solitarios? Esa imagen es falsa. Qué significa de verdad dirigir tu propio aprendizaje, y cómo cualquiera puede entrenarse para lograrlo.</p>
       </div>
-      <span class="meta">ART_001<span class="arr">&#8599;</span></span>
+      <span class="meta">ART_001 <span class="art-date">&middot; JUN 2026</span><span class="arr">&#8599;</span></span>
     </a>
 
     <a class="entry magenta rv" href="articulo-002-mito-estilos-aprendizaje.html">
@@ -385,7 +392,7 @@
         <h3>Adiós al mito de los "estilos de aprendizaje"</h3>
         <p>¿Crees que aprendes mejor solo viendo, escuchando o haciendo? Por qué esa idea limita tu potencial, y cómo entrenar tu cerebro para dominar cualquier habilidad.</p>
       </div>
-      <span class="meta">ART_002<span class="arr">&#8599;</span></span>
+      <span class="meta">ART_002 <span class="art-date">&middot; JUN 2026</span><span class="arr">&#8599;</span></span>
     </a>
 
     <a class="entry verde rv" href="articulo-003-como-aprender-de-verdad.html">
@@ -394,7 +401,7 @@
         <h3>Cómo aprender de verdad: el arte de entrenar tu cerebro</h3>
         <p>¿Estudias horas pero no recuerdas nada? No es tu memoria. Deja de repetir mecánicamente y usa la recuperación activa para grabar el conocimiento de forma permanente.</p>
       </div>
-      <span class="meta">ART_003<span class="arr">&#8599;</span></span>
+      <span class="meta">ART_003 <span class="art-date">&middot; JUN 2026</span><span class="arr">&#8599;</span></span>
     </a>
 
     <a class="entry amarillo rv" href="articulo-004-estres-para-aprender.html">
@@ -403,7 +410,7 @@
         <h3>El estrés no siempre es tu enemigo</h3>
         <p>¿Y si el estrés moderado fuera el combustible que tu cerebro necesita para aprender más rápido? La diferencia entre el que te destruye y el que te potencia.</p>
       </div>
-      <span class="meta">ART_004<span class="arr">&#8599;</span></span>
+      <span class="meta">ART_004 <span class="art-date">&middot; JUN 2026</span><span class="arr">&#8599;</span></span>
     </a>
 
     <a class="entry cian rv" href="articulo-005-motivacion-te-falla.html">
@@ -412,7 +419,7 @@
         <h3>Por qué la motivación te falla siempre</h3>
         <p>La motivación es volátil y no aparece cuando la necesitas. Por qué depender de ella es el error más costoso, y cómo construir un sistema que funcione en tus peores días.</p>
       </div>
-      <span class="meta">ART_005<span class="arr">&#8599;</span></span>
+      <span class="meta">ART_005 <span class="art-date">&middot; JUN 2026</span><span class="arr">&#8599;</span></span>
     </a>
 
     <a class="entry magenta rv" href="articulo-006-mito-academia.html">
@@ -421,7 +428,16 @@
         <h3>El mito de la academia</h3>
         <p>¿Crees que solo no lograrías la disciplina? Qué compras de verdad cuando te inscribes, por qué la mayoría nunca termina, y cómo construir tu propia academia personal sin gastar un peso.</p>
       </div>
-      <span class="meta">ART_006<span class="arr">&#8599;</span></span>
+      <span class="meta">ART_006 <span class="art-date">&middot; JUN 2026</span><span class="arr">&#8599;</span></span>
+    </a>
+
+    <a class="entry verde rv" href="articulo-007-mito-nunca-olvidar.html">
+      <span class="num">07</span>
+      <div class="body">
+        <h3>El mito de nunca olvidar <span class="badge-new">NUEVO</span></h3>
+        <p>"Lo que bien se aprende, nunca se olvida", dicen. Pero si no recuerdas ni la mitad de lo que leíste el mes pasado, el problema no es tu memoria. Por qué olvidar es una función de tu cerebro, no un fallo, y cómo lograr que el conocimiento sí se quede.</p>
+      </div>
+      <span class="meta">ART_007 <span class="art-date">&middot; JUL 2026</span><span class="arr">&#8599;</span></span>
     </a>
   </div>
 </section>
