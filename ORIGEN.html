@@ -1,6 +1,14 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-T03CTB4X9K"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-T03CTB4X9K');
+</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Sobre el origen | ARIASMIND</title>
@@ -13,7 +21,7 @@
   :root{
     --ac:#00f3ff;--ac-rgb:0,243,255;
     --cian:#00f3ff;--magenta:#bc13fe;--verde:#39ff14;--amarillo:#fffb00;
-    --fondo:#050505;--panel:#0b0c0e;--gris:#8a8a90;
+    --fondo:#1a1a1a;--panel:#0b0c0e;--gris:#8a8a90;
     --linea:rgba(0,243,255,.18);
     --display:'Orbitron',sans-serif;--body:'Rajdhani',sans-serif;
     --mono:'Space Mono',ui-monospace,monospace;
@@ -148,6 +156,9 @@
   .social-btn:hover .s-ico svg,.social-btn:active .s-ico svg{filter:drop-shadow(0 0 9px var(--sc))}
   .s-lbl{font-family:var(--mono);font-size:.52rem;color:var(--sc);letter-spacing:1.8px;text-transform:uppercase}
   .foot-status{font-family:var(--mono);font-size:.66rem;color:#3a3d42;letter-spacing:2px}
+  .foot-links{margin-top:.6rem}
+  .foot-links a{font-family:var(--mono);font-size:.66rem;letter-spacing:1px;color:#5a5d63;text-decoration:underline;text-underline-offset:2px}
+  .foot-links a:hover{color:var(--ac,var(--cian))}
 
   /* ── REVEAL ── */
   .rv{opacity:0;transform:translateY(20px);transition:opacity .8s,transform .8s}
@@ -222,9 +233,9 @@
 <section style="padding:0 var(--pad) clamp(3rem,6vw,5rem)">
   <div class="closing rv">
     <p class="pulse">Tu pasado no decide tu futuro.<br>Aprender <span class="ac">sí es para ti</span>.</p>
-    <p>El archivo está abierto. Cada protocolo es una pieza del sistema que ya fue probado. Empieza por el primero.</p>
+    <p>El archivo está abierto. Cada artículo es una pieza del sistema que ya fue probado. Empieza por el primero.</p>
     <div class="cta-row">
-      <a href="index.html#archivo" class="btn btn-fill">Acceder al archivo</a>
+      <a href="index.html#archivo-lista" class="btn btn-fill">Acceder al archivo</a>
       <a href="index.html" class="btn btn-line">&larr; Volver al inicio</a>
     </div>
   </div>
@@ -256,6 +267,7 @@
       </a>
     </div>
     <div class="foot-status">ARIASMIND &copy; 2026 &middot; SISTEMA OPERATIVO: ONLINE</div>
+    <div class="foot-links"><a href="Privacidad.html">Política de Privacidad</a></div>
   </div>
 </footer>
 

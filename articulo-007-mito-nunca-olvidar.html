@@ -1,6 +1,14 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-T03CTB4X9K"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-T03CTB4X9K');
+</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>El mito de nunca olvidar | ARIASMIND</title>
@@ -11,10 +19,10 @@
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&family=Rajdhani:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 <style>
   :root{
-    --cian:#00f3ff;--magenta:#bc13fe;--verde:#39ff14;--amarillo:#fffb00;
-    --fondo:#050505;--panel:#0b0c0e;--gris:#8a8a90;
-    --linea:rgba(57,255,20,.18);
-    --ac:#39ff14;--ac-rgb:57,255,20;
+    --cian:#00f3ff;--magenta:#bc13fe;--verde:#c026d3;--amarillo:#fffb00;
+    --fondo:#1a1a1a;--panel:#0b0c0e;--gris:#8a8a90;
+    --linea:rgba(192,38,211,.18);
+    --ac:#c026d3;--ac-rgb:192,38,211;
     --display:'Orbitron',sans-serif;--body:'Rajdhani',sans-serif;--mono:'Space Mono',ui-monospace,monospace;
     --pad:clamp(1.25rem,5vw,5rem);
   }
@@ -22,7 +30,7 @@
   html{scroll-behavior:smooth}
   body{background:var(--fondo);color:#fff;font-family:var(--body);line-height:1.5;overflow-x:hidden;-webkit-font-smoothing:antialiased;-webkit-tap-highlight-color:transparent}
   body::before{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;
-    background-image:linear-gradient(rgba(57,255,20,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(57,255,20,.025) 1px,transparent 1px);
+    background-image:linear-gradient(rgba(192,38,211,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(192,38,211,.025) 1px,transparent 1px);
     background-size:32px 32px}
   a{color:inherit;text-decoration:none}
   ::selection{background:var(--ac);color:#000}
@@ -36,7 +44,8 @@
   .back-link{font-family:var(--display);font-weight:700;font-size:.62rem;letter-spacing:1.5px;color:var(--ac);
     border:1px solid var(--ac);padding:.5rem .95rem;text-transform:uppercase;transition:.25s;
     clip-path:polygon(8% 0,100% 0,92% 100%,0 100%)}
-  .back-link:hover,.back-link:active{background:var(--ac);color:#000;box-shadow:0 0 18px rgba(57,255,20,.5)}
+  .back-link:hover,.back-link:active{background:var(--ac);color:#000;box-shadow:0 0 18px rgba(192,38,211,.5)}
+  @media(max-width:700px){ .back-link{margin-right:72px} }
 
   /* ── PROGRESS BAR NEÓN LÍQUIDO ── */
   .prog-track{position:fixed;top:0;left:0;right:0;height:6px;background:rgba(255,255,255,.04);z-index:199;pointer-events:none}
@@ -51,6 +60,10 @@
     box-shadow:0 0 8px var(--ac),0 0 18px rgba(var(--ac-rgb),.45),0 0 32px rgba(var(--ac-rgb),.2);
     transition:width .08s linear;
   }
+  .prog-pct{position:fixed;top:12px;right:14px;z-index:200;font-family:var(--mono);
+    font-size:.68rem;letter-spacing:.05em;color:var(--ac);background:rgba(5,5,5,.65);
+    padding:.25rem .55rem;border:1px solid var(--ac);border-radius:2px;pointer-events:none;
+    backdrop-filter:blur(4px);transition:color .2s,border-color .2s}
   .progress::after{
     content:"";position:absolute;right:-5px;top:50%;
     transform:translateY(-50%);
@@ -65,20 +78,20 @@
   /* ── HERO ── */
   .article-hero{position:relative;padding:clamp(3rem,7vw,5rem) var(--pad) clamp(1.5rem,3vw,2.5rem);overflow:hidden}
   .article-hero::after{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;
-    background:radial-gradient(70% 60% at 80% 0%,rgba(57,255,20,.14),transparent 60%),
-               radial-gradient(60% 50% at 0% 110%,rgba(57,255,20,.08),transparent 55%)}
+    background:radial-gradient(70% 60% at 80% 0%,rgba(192,38,211,.14),transparent 60%),
+               radial-gradient(60% 50% at 0% 110%,rgba(192,38,211,.08),transparent 55%)}
   .article-hero .inner{position:relative;z-index:2;max-width:880px;margin:0 auto}
   .eyebrow{font-family:var(--mono);font-size:.7rem;letter-spacing:.28em;color:var(--ac);text-transform:uppercase}
   .article-hero h1{font-family:var(--display);font-weight:900;line-height:.95;letter-spacing:-.01em;
     font-size:clamp(2.2rem,7vw,4.8rem);margin-top:1.2rem;color:var(--ac);
-    text-shadow:0 0 28px rgba(57,255,20,.45);text-transform:uppercase}
+    text-shadow:0 0 28px rgba(192,38,211,.45);text-transform:uppercase}
   .article-hero .sub{font-family:var(--mono);color:var(--gris);letter-spacing:.18em;margin-top:1.2rem;font-size:.78rem;text-transform:uppercase;max-width:54ch}
 
   /* ── DOSSIER ── */
   .dossier{position:relative;max-width:880px;margin:0 auto;border-left:3px solid var(--ac);
-    background:linear-gradient(90deg,rgba(57,255,20,.05),transparent 70%);padding:2rem clamp(1.2rem,4vw,3rem);overflow:hidden}
+    background:linear-gradient(90deg,rgba(192,38,211,.05),transparent 70%);padding:2rem clamp(1.2rem,4vw,3rem);overflow:hidden}
   .dossier .dscan{position:absolute;left:0;right:0;top:0;height:60px;pointer-events:none;
-    background:linear-gradient(to bottom,rgba(57,255,20,.14),transparent);animation:dScan 6s linear infinite}
+    background:linear-gradient(to bottom,rgba(192,38,211,.14),transparent);animation:dScan 6s linear infinite}
   @keyframes dScan{0%{transform:translateY(-60px)}100%{transform:translateY(700px)}}
   .dossier .dmeta{position:relative;font-family:var(--mono);color:var(--ac);font-size:.78rem;line-height:2}
 
@@ -88,14 +101,14 @@
   .article-body p strong{color:#fff;font-weight:700}
   .article-body p em{color:var(--ac)}
   .ch-title{font-family:var(--display);font-weight:700;font-size:clamp(1.1rem,3.5vw,1.6rem);line-height:1.1;
-    letter-spacing:-.005em;color:var(--ac);text-shadow:0 0 14px rgba(57,255,20,.4);
+    letter-spacing:-.005em;color:var(--ac);text-shadow:0 0 14px rgba(192,38,211,.4);
     margin:clamp(2rem,5vw,3.5rem) 0 1rem;border-left:3px solid var(--ac);padding-left:1rem}
 
   .glow-rule{height:1px;border:0;background:linear-gradient(90deg,transparent,rgba(var(--ac-rgb),.38),transparent);margin:2.2rem 0}
 
   /* ── REFS ── */
   .refs-block{max-width:760px;margin:0 auto clamp(2rem,5vw,3.5rem);padding:2rem clamp(1.2rem,4vw,2.4rem);
-    border:1px solid var(--linea);background:rgba(57,255,20,.03)}
+    border:1px solid var(--linea);background:rgba(192,38,211,.03)}
   .refs-block .refs-inner{margin-top:1.2rem;font-family:var(--mono);font-size:.74rem;color:var(--gris);line-height:1.9}
   .refs-block .refs-inner h2{display:none}
   .refs-block .refs-inner ul{list-style:none;padding:0}
@@ -106,9 +119,9 @@
   .btn{font-family:var(--display);font-weight:700;font-size:.68rem;letter-spacing:1.5px;text-transform:uppercase;
     padding:.9rem 1.5rem;cursor:pointer;transition:.25s;clip-path:polygon(6% 0,100% 0,94% 100%,0 100%)}
   .btn-fill{background:var(--ac);color:#000;border:1px solid var(--ac)}
-  .btn-fill:hover,.btn-fill:active{box-shadow:0 0 22px rgba(57,255,20,.6);transform:translateY(-2px)}
+  .btn-fill:hover,.btn-fill:active{box-shadow:0 0 22px rgba(192,38,211,.6);transform:translateY(-2px)}
   .btn-line{border:1px solid var(--ac);color:var(--ac)}
-  .btn-line:hover,.btn-line:active{background:var(--ac);color:#000;box-shadow:0 0 20px rgba(57,255,20,.5);transform:translateY(-2px)}
+  .btn-line:hover,.btn-line:active{background:var(--ac);color:#000;box-shadow:0 0 20px rgba(192,38,211,.5);transform:translateY(-2px)}
 
   /* ── FOOTER ── */
   footer{padding:3rem var(--pad) 2.5rem;border-top:1px solid var(--linea);position:relative;z-index:1}
@@ -125,6 +138,9 @@
   .social-btn:hover .s-ico svg,.social-btn:active .s-ico svg{filter:drop-shadow(0 0 10px var(--sc))}
   .s-lbl{font-family:var(--mono);font-size:.56rem;color:var(--sc);letter-spacing:2px;text-transform:uppercase}
   .foot-status{font-family:var(--mono);font-size:.66rem;color:#3a3d42;letter-spacing:2px;margin-top:.5rem}
+  .foot-links{margin-top:.6rem}
+  .foot-links a{font-family:var(--mono);font-size:.66rem;letter-spacing:1px;color:#5a5d63;text-decoration:underline;text-underline-offset:2px}
+  .foot-links a:hover{color:var(--ac,var(--cian))}
 
   /* ── REVEAL ── */
   .rv{opacity:0;transform:translateY(20px);transition:opacity .8s,transform .8s}
@@ -243,11 +259,12 @@
 <body>
 <div class="prog-track"></div>
 <div class="progress" id="progress"></div>
+<div class="prog-pct" id="progPct">0%</div>
 <div class="wrap">
 
 <div class="topbar">
   <a class="logo" href="index.html">ARIASMIND</a>
-  <a href="index.html#archivo" class="back-link">&larr; El archivo</a>
+  <a href="index.html#archivo-lista" class="back-link">&larr; El archivo</a>
 </div>
 
 <header class="article-hero">
@@ -370,7 +387,7 @@
 </div>
 
 <nav class="art-nav rv">
-  <a href="index.html#archivo" class="btn btn-fill">&larr; Volver al archivo</a>
+  <a href="index.html#archivo-lista" class="btn btn-fill">&larr; Volver al archivo</a>
   <a href="articulo-006-mito-academia.html" class="btn btn-line">← ART_006</a>
   
 </nav>
@@ -400,6 +417,7 @@
         <span class="s-lbl">Facebook</span>
       </a></div>
     <div class="foot-status">ARIASMIND &copy; 2026 &middot; SISTEMA OPERATIVO: ONLINE</div>
+    <div class="foot-links"><a href="Privacidad.html">Política de Privacidad</a></div>
   </div>
 </footer>
 
@@ -408,10 +426,25 @@
   const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:0,rootMargin:"0px 0px -40px 0px"});
   document.querySelectorAll('.rv').forEach(el=>io.observe(el));
   const bar=document.getElementById('progress');
-  window.addEventListener('scroll',()=>{
+  const pctEl=document.getElementById('progPct');
+  const ARTICLE_NUM=7;
+  function updateReadProgress(){
     const h=document.documentElement;
-    bar.style.width=(h.scrollTop/(h.scrollHeight-h.clientHeight)*100)+'%';
-  },{passive:true});
+    const scrollable=h.scrollHeight-h.clientHeight;
+    const pct=scrollable>0 ? Math.min(100,Math.round((h.scrollTop/scrollable)*100)) : 100;
+    bar.style.width=pct+'%';
+    if(pctEl) pctEl.textContent=pct+'%';
+    try{
+      const data=JSON.parse(localStorage.getItem('ariasmind_progress')||'{}');
+      const prev=data[ARTICLE_NUM]||0;
+      if(pct>prev){
+        data[ARTICLE_NUM]=pct;
+        localStorage.setItem('ariasmind_progress',JSON.stringify(data));
+      }
+    }catch(e){}
+  }
+  window.addEventListener('scroll',updateReadProgress,{passive:true});
+  updateReadProgress();
 
   // ── MUSIC PLAYER ────────────────────────────────────────────────
   (function(){

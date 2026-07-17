@@ -11,8 +11,8 @@
 </script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ARIASMIND | Laboratorio de aprendizaje real</title>
-<meta name="description" content="AriasMind. El laboratorio donde destruimos mitos de aprendizaje, auditamos métodos de estudio y documentamos el proceso real de la autoeducación.">
+<title>El archivo completo | ARIASMIND</title>
+<meta name="description" content="Los 7 protocolos del archivo de ARIASMIND, en orden. Mitos de aprendizaje destruidos, uno por uno.">
 <meta name="author" content="Josué Arias">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -159,13 +159,39 @@
   .sec-head h2{font-family:var(--display);font-weight:900;font-size:clamp(1.8rem,5vw,3.4rem);
     line-height:1.02;margin-top:1.1rem;letter-spacing:-.01em}
   .sec-head h2 .ac{color:var(--cian);text-shadow:0 0 18px rgba(0,243,255,.5)}
-  #archivo-lista{scroll-margin-top:90px}
-  #archivo .sec-head{position:relative;overflow:hidden}
-  #archivo .sec-head::before{content:"";position:absolute;top:0;bottom:0;left:0;width:80px;pointer-events:none;
-    background:linear-gradient(to right,transparent,rgba(0,243,255,.13),transparent);
-    animation:scanLR 5s linear 2.5s infinite}
   .divider{height:1px;background:var(--linea);width:100%;margin:0}
 
+  /* ── CABECERA DEL ARCHIVO (con lucita horizontal ampliada) ── */
+  .archive-header{position:relative;overflow:hidden;margin-bottom:clamp(2rem,4vw,3rem)}
+  .archive-header::before{content:"";position:absolute;top:0;bottom:0;left:0;width:80px;pointer-events:none;z-index:2;
+    background:linear-gradient(to right,transparent,rgba(0,243,255,.13),transparent);
+    animation:scanLR 5s linear 2.5s infinite}
+
+  /* ── Eyebrow "cristal esmerilado" (solo para Biblioteca) ── */
+  .eyebrow.glass{font-size:.8rem;letter-spacing:.26em;display:inline-block;padding:.45rem .95rem;
+    background:rgba(57,255,20,.07);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);
+    border:1px solid rgba(57,255,20,.35);border-radius:6px;font-weight:700;
+    text-shadow:0 0 12px rgba(57,255,20,.75),0 0 24px rgba(57,255,20,.3);
+    box-shadow:0 0 20px rgba(57,255,20,.15),inset 0 1px 0 rgba(57,255,20,.15),inset 0 0 16px rgba(57,255,20,.05)}
+
+  /* ── Botón "Ver todo el archivo" tipo cristal-hielo pulsante ── */
+  .btn-ice{font-family:var(--display);font-weight:700;font-size:.72rem;letter-spacing:1.5px;text-transform:uppercase;
+    padding:1rem 1.7rem;cursor:pointer;transition:.25s;clip-path:polygon(6% 0,100% 0,94% 100%,0 100%);
+    border:1px solid #cdfbff;color:#cdfbff;display:inline-block;
+    background:rgba(205,251,255,.06);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);
+    animation:btnPulse 2.2s ease-in-out infinite}
+  @keyframes btnPulse{
+    0%,100%{box-shadow:0 0 18px rgba(205,251,255,.25),inset 0 0 14px rgba(205,251,255,.08);text-shadow:0 0 10px rgba(205,251,255,.7)}
+    50%{box-shadow:0 0 34px rgba(205,251,255,.6),inset 0 0 20px rgba(205,251,255,.16);text-shadow:0 0 18px rgba(205,251,255,1)}
+  }
+  .btn-ice:hover,.btn-ice:active{background:rgba(205,251,255,.85);color:#000;text-shadow:none;
+    box-shadow:0 0 30px rgba(205,251,255,.85);animation-play-state:paused}
+  .archive-cta{margin-top:2.2rem;display:flex;justify-content:center}
+
+  /* ── Insignia "en progreso" para la tarjeta 2 de la vista previa ── */
+  .badge-progress{display:inline-flex;align-items:center;font-family:var(--mono);font-weight:700;
+    font-size:.56rem;letter-spacing:.15em;color:var(--c,var(--cian));border:1px solid var(--c,var(--cian));
+    padding:.2rem .55rem;border-radius:2px;margin-left:.65rem;vertical-align:middle;white-space:nowrap}
   /* ── MANIFIESTO ── */
   .manifesto{position:relative;overflow:hidden;display:grid;grid-template-columns:1fr;gap:2rem}
   .manifesto::before{content:"";position:absolute;top:0;bottom:0;left:0;width:80px;pointer-events:none;
@@ -355,12 +381,12 @@
   <div class="nav-in">
     <a class="logo" href="index.html">ARIASMIND</a>
     <nav class="nav-links">
-      <a href="#archivo-lista">ARCHIVO</a>
-      <a href="PROYECTO.html">PROYECTO</a>
-      <a href="ORIGEN.html">ORIGEN</a>
-      <a href="#sugerencias">SUGIERE</a>
-      <a href="#senal">PODCAST</a>
-      <a href="#archivo-lista" class="nav-cta">ENTRAR</a>
+      <a href="Archivo.html" data-track="nav_archivo">ARCHIVO</a>
+      <a href="PROYECTO.html" data-track="nav_proyecto">PROYECTO</a>
+      <a href="ORIGEN.html" data-track="nav_origen">ORIGEN</a>
+      <a href="index.html#sugerencias" data-track="nav_sugiere">SUGIERE</a>
+      <a href="index.html#senal" data-track="nav_podcast">PODCAST</a>
+      <a href="index.html" class="nav-cta" data-track="nav_inicio">INICIO</a>
     </nav>
     <button class="menu-btn" id="menuBtn" aria-label="Abrir menú" aria-expanded="false">MENÚ</button>
   </div>
@@ -369,75 +395,30 @@
 <!-- MENÚ MÓVIL -->
 <nav class="mobile-menu" id="mobileMenu" aria-hidden="true">
   <button class="mm-close" id="menuClose" aria-label="Cerrar menú">✕</button>
-  <a href="index.html" data-mm>INICIO</a>
-  <a href="PROYECTO.html" data-mm>PROYECTO</a>
-  <a href="#archivo-lista" data-mm>BIBLIOTECA</a>
-  <a href="ORIGEN.html" data-mm>ORIGEN</a>
-  <a href="#sugerencias" data-mm>SUGIERE</a>
-  <a href="#senal" data-mm>PODCAST</a>
-  <a href="#archivo-lista" class="mm-cta" data-mm>ENTRAR</a>
+  <a href="index.html" data-mm data-track="mmenu_inicio">INICIO</a>
+  <a href="PROYECTO.html" data-mm data-track="mmenu_proyecto">PROYECTO</a>
+  <a href="Archivo.html" data-mm data-track="mmenu_biblioteca">BIBLIOTECA</a>
+  <a href="ORIGEN.html" data-mm data-track="mmenu_origen">ORIGEN</a>
+  <a href="index.html#sugerencias" data-mm data-track="mmenu_sugiere">SUGIERE</a>
+  <a href="index.html#senal" data-mm data-track="mmenu_podcast">PODCAST</a>
 </nav>
 
-<!-- HERO -->
-<div class="hero">
-  <div class="hero-in">
-    <div class="hero-copy rv in">
-      <span class="hscan" aria-hidden="true"></span>
-      <span class="eyebrow">// Laboratorio de aprendizaje real</span>
-      <h1>Esto no es una academia,<br>es un espacio de <span class="glow">experimentación</span>.</h1>
-      <p class="lead"><b>Documentación.</b> Experimentos reales. Prueba de métodos. Aceleración del aprendizaje. Funcionalidad del cerebro.</p>
-      <div class="hero-cta">
-        <a href="#archivo-lista" class="btn btn-fill">Acceder al archivo</a>
-        <a href="#manifiesto" class="btn btn-line">Qué es esto &rarr;</a>
-      </div>
-    </div>
-
-    <figure class="portrait rv in">
-      <div class="frame">
-        <span class="corner c1"></span><span class="corner c2"></span>
-        <span class="corner c3"></span><span class="corner c4"></span>
-        <span class="pscan" aria-hidden="true"></span>
-        <img src="josue-arias.webp" alt="Josué Arias, fundador de AriasMind" width="860" height="1088" loading="lazy" decoding="async">
-      </div>
-      <figcaption class="cap">// JOSUÉ ARIAS <span>FUNDADOR DEL PROYECTO</span></figcaption>
-    </figure>
-  </div>
-</div>
-
-<!-- DATA STREAM -->
-<div class="stream" aria-hidden="true">
-  <div class="stream-track">
-    <b>Documentación</b><span class="sep">//</span><b>Experimentos reales</b><span class="sep">//</span><b>Prueba de métodos</b><span class="sep">//</span><b>Aceleración del aprendizaje</b><span class="sep">//</span><b>Funcionalidad del cerebro</b><span class="sep">//</span>
-    <b>Documentación</b><span class="sep">//</span><b>Experimentos reales</b><span class="sep">//</span><b>Prueba de métodos</b><span class="sep">//</span><b>Aceleración del aprendizaje</b><span class="sep">//</span><b>Funcionalidad del cerebro</b><span class="sep">//</span>
-  </div>
-</div>
-
-<!-- MANIFIESTO -->
-<section id="manifiesto">
-  <div class="sec-head rv"><span class="eyebrow m">// El proyecto</span></div>
-  <div class="manifesto rv">
-    <blockquote>AriasMind no es una academia. Es un <span class="ac">espacio de validación</span>.</blockquote>
-    <p class="note">Probamos métodos reales para aprender más y mejor. Lo que funciona, lo documentamos. Lo que no, también. Sin teoría complicada ni frases de coach: solo lo que un autodidacta descubrió aplicándolo de verdad.</p>
-  </div>
-</section>
-
-<!-- ARCHIVO -->
-<section id="archivo">
-  <div class="sec-head rv">
-    <span class="eyebrow">// Biblioteca &middot; secuencia de aprendizaje</span>
-    <h2>El <span class="ac">archivo</span>.</h2>
+<section id="archivo" style="padding-top:clamp(2.5rem,6vw,4.5rem)">
+  <div class="archive-header rv in">
+    <span class="eyebrow g glass">// Biblioteca</span>
+    <h2>El <span class="ac">archivo</span> completo.</h2>
     <p style="color:var(--gris);font-weight:500;margin-top:1rem;font-size:1.05rem;max-width:54ch">Siete guías para leerse en orden. Cada una destruye un mito que te ha frenado y te deja algo concreto que puedes aplicar hoy.</p>
     <p class="hero-status" style="margin-top:2rem">&gt; [ESTADO]: BIBLIOTECA ACTIVA &middot; <b>7 ARTÍCULOS COMPILADOS</b> &middot; ÚLTIMA ACTUALIZACIÓN: JUL 2026</p>
     <p class="hero-status" id="countdown" style="margin-top:.6rem">&gt; PRÓXIMO ARTÍCULO: calculando...</p>
 
-    <div class="progress-block rv">
+    <div class="progress-block rv in">
       <div class="progress-label"><span>TU PROGRESO EN EL ARCHIVO</span><span id="progressText">0 / 7 COMPLETOS &middot; 0%</span></div>
       <div class="progress-track"><div class="progress-segments"></div><div class="progress-mask" id="progressFill"></div></div>
     </div>
   </div>
 
-  <div class="archive" id="archivo-lista">
-    <a class="entry hielo rv" href="articulo-001-verdad-autodidacta.html" data-art="1">
+  <div class="archive">
+    <a class="entry hielo rv in" href="articulo-001-verdad-autodidacta.html" data-art="1" data-track="archivo_full_art_1">
       <span class="num">01</span>
       <div class="body">
         <h3>La verdad sobre ser autodidacta</h3>
@@ -446,7 +427,7 @@
       <span class="meta">ART_001 <span class="art-date">&middot; JUN 2026</span><span class="arr">&#8599;</span></span>
     </a>
 
-    <a class="entry cian rv" href="articulo-002-mito-estilos-aprendizaje.html" data-art="2">
+    <a class="entry cian rv in" href="articulo-002-mito-estilos-aprendizaje.html" data-art="2" data-track="archivo_full_art_2">
       <span class="num">02</span>
       <div class="body">
         <h3>Adiós al mito de los "estilos de aprendizaje"</h3>
@@ -455,7 +436,7 @@
       <span class="meta">ART_002 <span class="art-date">&middot; JUN 2026</span><span class="arr">&#8599;</span></span>
     </a>
 
-    <a class="entry verde rv" href="articulo-003-como-aprender-de-verdad.html" data-art="3">
+    <a class="entry verde rv in" href="articulo-003-como-aprender-de-verdad.html" data-art="3" data-track="archivo_full_art_3">
       <span class="num">03</span>
       <div class="body">
         <h3>Cómo aprender de verdad: el arte de entrenar tu cerebro</h3>
@@ -464,7 +445,7 @@
       <span class="meta">ART_003 <span class="art-date">&middot; JUN 2026</span><span class="arr">&#8599;</span></span>
     </a>
 
-    <a class="entry lima rv" href="articulo-004-estres-para-aprender.html" data-art="4">
+    <a class="entry lima rv in" href="articulo-004-estres-para-aprender.html" data-art="4" data-track="archivo_full_art_4">
       <span class="num">04</span>
       <div class="body">
         <h3>El estrés no siempre es tu enemigo</h3>
@@ -473,7 +454,7 @@
       <span class="meta">ART_004 <span class="art-date">&middot; JUN 2026</span><span class="arr">&#8599;</span></span>
     </a>
 
-    <a class="entry ambar rv" href="articulo-005-motivacion-te-falla.html" data-art="5">
+    <a class="entry ambar rv in" href="articulo-005-motivacion-te-falla.html" data-art="5" data-track="archivo_full_art_5">
       <span class="num">05</span>
       <div class="body">
         <h3>Por qué la motivación te falla siempre</h3>
@@ -482,7 +463,7 @@
       <span class="meta">ART_005 <span class="art-date">&middot; JUN 2026</span><span class="arr">&#8599;</span></span>
     </a>
 
-    <a class="entry milenial rv" href="articulo-006-mito-academia.html" data-art="6">
+    <a class="entry milenial rv in" href="articulo-006-mito-academia.html" data-art="6" data-track="archivo_full_art_6">
       <span class="num">06</span>
       <div class="body">
         <h3>El mito de la academia</h3>
@@ -491,7 +472,7 @@
       <span class="meta">ART_006 <span class="art-date">&middot; JUN 2026</span><span class="arr">&#8599;</span></span>
     </a>
 
-    <a class="entry ciruela rv" href="articulo-007-mito-nunca-olvidar.html" data-art="7">
+    <a class="entry ciruela rv in" href="articulo-007-mito-nunca-olvidar.html" data-art="7" data-track="archivo_full_art_7">
       <span class="num">07</span>
       <div class="body">
         <h3>El mito de nunca olvidar <span class="badge-new">NUEVO</span></h3>
@@ -502,56 +483,7 @@
   </div>
 </section>
 
-<!-- SUGERENCIAS -->
-<section id="sugerencias">
-  <div class="sec-head rv">
-    <span class="eyebrow g">// Laboratorio abierto</span>
-    <h2>Esto también es <span class="ac">tuyo</span>.</h2>
-    <p style="color:var(--gris);font-weight:500;margin-top:1rem;font-size:1.05rem;max-width:54ch">¿Qué te pareció algún artículo? ¿Qué tema te gustaría que cubriera, o qué método quieres que ponga a prueba? También estoy armando el primer reto público, donde voy a aprender algo nuevo en vivo — si tienes una idea para eso, o un dato curioso sobre el aprendizaje que quieras compartir, aquí también tiene espacio.</p>
-  </div>
-  <div class="suggest rv">
-    <form class="suggest-form" id="suggestForm" action="https://formspree.io/f/xrenpqbw" method="POST">
-      <input type="email" name="email" placeholder="Tu correo (opcional, por si quiero avisarte)">
-      <textarea name="message" placeholder="Tu opinión, sugerencia, idea para un reto, o lo que se te ocurra..." required></textarea>
-      <button type="submit" class="btn btn-fill">Enviar sugerencia</button>
-    </form>
-    <p class="suggest-msg" id="suggestMsg"></p>
-    <p class="suggest-notice">Tu correo (si lo dejas) se usa solo para responderte, nunca se comparte con terceros. <a href="Privacidad.html">Ver política de privacidad</a>.</p>
-  </div>
-</section>
-
-<!-- PILARES -->
-<section id="origen">
-  <div class="sec-head rv"><span class="eyebrow">// Detrás del laboratorio</span></div>
-  <div class="pillars">
-    <div class="pillar cian rv">
-      <span class="tag">[ ARCHIVO: ORIGEN ]</span>
-      <h3>Sobre el origen</h3>
-      <p>Reprobé materias. Me dijeron que no era lo suficientemente inteligente. Resultó que nadie me había enseñado cómo aprender de verdad. Esta es esa historia, y lo que cambió todo.</p>
-      <a class="go" href="ORIGEN.html">&#10231; LEER LA HISTORIA</a>
-    </div>
-    <div class="pillar rosa rv">
-      <span class="tag">[ ARCHIVO: PROYECTO ]</span>
-      <h3>A quién va dirigido</h3>
-      <p>¿Sientes que aprender es difícil para ti? Yo también lo creía. No necesitas un título ni talento especial. Solo un sistema que funcione. Esto es para quien está cansado de intentarlo sin ver resultados.</p>
-      <a class="go" href="PROYECTO.html">&#10231; CONOCER EL PROYECTO</a>
-    </div>
-  </div>
-</section>
-
-<!-- SEÑAL / PODCAST -->
-<section id="senal">
-  <div class="signal rv">
-    <span class="eyebrow g">// Transmisión</span>
-    <h2 style="margin-top:1rem">Sintoniza la frecuencia del <span class="ac">autodesarrollo</span>.</h2>
-    <p>Conversaciones crudas, directas y sin anestesia sobre cómo aprende la gente en el resto del mundo. Combustible diario para tu cerebro, analizado de tú a tú.</p>
-    <a class="btn-g" href="https://open.spotify.com/show/3nUcoMN8dW7m1lV95yKejh" target="_blank">&#128266; Reproducir tráiler</a>
-    <div class="console">&gt; STATUS: ONLINE &middot; Transmisión del laboratorio establecida con éxito.</div>
-  </div>
-</section>
-
-<!-- FOOTER -->
-<footer>
+<footer id="pie">
   <div class="foot-grid">
     <div>
       <div class="foot-mark">ARIASMIND</div>
@@ -588,6 +520,32 @@
 <script>
   // Reveal on scroll
   const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12});
+
+  // ── ANALYTICS: qué secciones del home se llegan a ver ──
+  (function(){
+    if(typeof gtag !== 'function') return;
+    var vistas = {};
+    var zonas = document.querySelectorAll('#hero, #manifiesto, #archivo, #sugerencias, #origen, #senal, #pie');
+    var sectionObserver = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(entry.isIntersecting && !vistas[entry.target.id]){
+          vistas[entry.target.id] = true;
+          gtag('event','section_view',{section_name:entry.target.id, page_path:location.pathname});
+          sectionObserver.unobserve(entry.target);
+        }
+      });
+    },{threshold:.35});
+    zonas.forEach(function(z){ sectionObserver.observe(z); });
+  })();
+
+  // ── ANALYTICS: en qué botón o enlace da clic la gente ──
+  document.addEventListener('click', function(e){
+    var el = e.target.closest('[data-track]');
+    if(el && typeof gtag === 'function'){
+      gtag('event','element_click',{element_name:el.dataset.track, page_path:location.pathname});
+    }
+  });
+
   document.querySelectorAll('.rv').forEach(el=>io.observe(el));
 
   // Iluminación automática al centro de la pantalla (sólo dispositivos táctiles)
@@ -652,7 +610,71 @@
     });
   })();
 
-  // ── CONTADOR: PRÓXIMO ARTÍCULO (cada 15 de mes) ──
+  // ── VISTA PREVIA CORTA DEL ARCHIVO (2 tarjetas: la más nueva + la que tienes a medias) ──
+  (function(){
+    var ARTICULOS = [
+      {n:1, cls:'hielo',    c:'#cdfbff', art:'ART_001', fecha:'JUN 2026', href:'articulo-001-verdad-autodidacta.html',
+       titulo:'La verdad sobre ser autodidacta',
+       hook:'No naciste autodidacta. Te conviertes en uno cuando empiezas a practicar la habilidad de dirigirte a ti mismo.'},
+      {n:2, cls:'cian',     c:'#00f3ff', art:'ART_002', fecha:'JUN 2026', href:'articulo-002-mito-estilos-aprendizaje.html',
+       titulo:'Adiós al mito de los "estilos de aprendizaje"',
+       hook:'No "somos" visuales ni auditivos. La herramienta correcta la define lo que aprendes, no quién crees ser.'},
+      {n:3, cls:'verde',    c:'#39ff14', art:'ART_003', fecha:'JUN 2026', href:'articulo-003-como-aprender-de-verdad.html',
+       titulo:'Cómo aprender de verdad: el arte de entrenar tu cerebro',
+       hook:'La repetición mecánica es cancelación de ruido. La recuperación activa es entrenamiento real.'},
+      {n:4, cls:'lima',     c:'#baff29', art:'ART_004', fecha:'JUN 2026', href:'articulo-004-estres-para-aprender.html',
+       titulo:'El estrés no siempre es tu enemigo',
+       hook:'El estrés moderado le dice a tu cerebro: esto importa, no lo olvides.'},
+      {n:5, cls:'ambar',    c:'#ffb300', art:'ART_005', fecha:'JUN 2026', href:'articulo-005-motivacion-te-falla.html',
+       titulo:'Por qué la motivación te falla siempre',
+       hook:'La motivación es una emoción. Los sistemas son arquitectura. Solo uno funciona cuando no tienes ganas.'},
+      {n:6, cls:'milenial', c:'#ff6ec7', art:'ART_006', fecha:'JUN 2026', href:'articulo-006-mito-academia.html',
+       titulo:'El mito de la academia',
+       hook:'El 70% de quienes pagan un curso nunca lo empiezan. El problema nunca fue el precio.'},
+      {n:7, cls:'ciruela',  c:'#c026d3', art:'ART_007', fecha:'JUL 2026', href:'articulo-007-mito-nunca-olvidar.html',
+       titulo:'El mito de nunca olvidar',
+       hook:'El olvido no es un fallo de tu sistema. Es lo que evita que colapse.'}
+    ];
+
+    function getProgress(){
+      try{ return JSON.parse(localStorage.getItem('ariasmind_progress')||'{}'); }catch(e){ return {}; }
+    }
+    var progress = getProgress();
+    var wrap = document.getElementById('archivoPreview');
+    if(!wrap) return;
+
+    // Tarjeta 1: siempre el artículo más reciente (el último de la lista)
+    var reciente = ARTICULOS[ARTICULOS.length-1];
+
+    // Tarjeta 2: el artículo con más progreso (entre 1% y 89%), sin repetir el de la tarjeta 1
+    var enProgreso = null, mejorPct = 0;
+    ARTICULOS.forEach(function(a){
+      if(a.n === reciente.n) return;
+      var p = progress[a.n] || 0;
+      if(p > 0 && p < 90 && p >= mejorPct){ mejorPct = p; enProgreso = a; }
+    });
+    // Si nadie tiene progreso a medias, mostramos el primer artículo como punto de entrada
+    var segunda = enProgreso || ARTICULOS[0];
+    var segundaPct = enProgreso ? mejorPct : 0;
+
+    function tarjetaHTML(a, badgeHTML){
+      return '<a class="entry '+a.cls+' rv in" href="'+a.href+'" data-art="'+a.n+'" data-track="preview_art_'+a.n+'">'+
+        '<span class="num">'+String(a.n).padStart(2,'0')+'</span>'+
+        '<div class="body">'+
+          '<h3>'+a.titulo+badgeHTML+'</h3>'+
+          '<p style="font-style:italic">&ldquo;'+a.hook+'&rdquo;</p>'+
+        '</div>'+
+        '<span class="meta">'+a.art+' <span class="art-date">&middot; '+a.fecha+'</span><span class="arr">&#8599;</span></span>'+
+      '</a>';
+    }
+
+    var badge1 = '<span class="badge-new">NUEVO</span>';
+    var badge2 = enProgreso
+      ? '<span class="badge-progress" style="--c:'+segunda.c+'">EN PROGRESO &middot; '+segundaPct+'%</span>'
+      : '<span class="badge-progress" style="--c:'+segunda.c+'">EMPIEZA AQUÍ</span>';
+
+    wrap.innerHTML = tarjetaHTML(reciente, badge1) + tarjetaHTML(segunda, badge2);
+  })();
   (function(){
     var el = document.getElementById('countdown');
     if(!el) return;
@@ -687,6 +709,7 @@
         if(res.ok){
           msg.textContent = '¡Gracias! Recibimos tu sugerencia.';
           msg.className = 'suggest-msg show ok';
+          if(typeof gtag === 'function') gtag('event','suggestion_submit_success');
           form.reset();
         } else {
           msg.textContent = 'No se pudo enviar. Intenta de nuevo en un momento.';
