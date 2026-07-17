@@ -221,6 +221,25 @@
     animation:newPulse 1.8s ease-in-out infinite;white-space:nowrap}
   @keyframes newPulse{0%,100%{box-shadow:0 0 6px rgba(57,255,20,.5)}50%{box-shadow:0 0 16px rgba(57,255,20,.9)}}
 
+  /* ── Insignia "en progreso" para la tarjeta 2 de la vista previa del archivo ── */
+  .badge-progress{display:inline-flex;align-items:center;font-family:var(--mono);font-weight:700;
+    font-size:.56rem;letter-spacing:.15em;color:var(--c,var(--cian));border:1px solid var(--c,var(--cian));
+    padding:.2rem .55rem;border-radius:2px;margin-left:.65rem;vertical-align:middle;white-space:nowrap}
+
+  /* ── Botón "Ver todo el archivo" tipo cristal-hielo pulsante ── */
+  .btn-ice{font-family:var(--display);font-weight:700;font-size:.72rem;letter-spacing:1.5px;text-transform:uppercase;
+    padding:1rem 1.7rem;cursor:pointer;transition:.25s;clip-path:polygon(6% 0,100% 0,94% 100%,0 100%);
+    border:1px solid #cdfbff;color:#cdfbff;display:inline-block;
+    background:rgba(205,251,255,.06);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);
+    animation:btnPulse 2.2s ease-in-out infinite}
+  @keyframes btnPulse{
+    0%,100%{box-shadow:0 0 18px rgba(205,251,255,.25),inset 0 0 14px rgba(205,251,255,.08);text-shadow:0 0 10px rgba(205,251,255,.7)}
+    50%{box-shadow:0 0 34px rgba(205,251,255,.6),inset 0 0 20px rgba(205,251,255,.16);text-shadow:0 0 18px rgba(205,251,255,1)}
+  }
+  .btn-ice:hover,.btn-ice:active{background:rgba(205,251,255,.85);color:#000;text-shadow:none;
+    box-shadow:0 0 30px rgba(205,251,255,.85);animation-play-state:paused}
+  .archive-cta{margin-top:2.2rem;display:flex;justify-content:center}
+
   /* ── PILARES (origen / proyecto) ── */
   .pillars{display:grid;grid-template-columns:1fr;gap:1.5rem}
   @media(min-width:780px){.pillars{grid-template-columns:1fr 1fr}}
@@ -355,12 +374,12 @@
   <div class="nav-in">
     <a class="logo" href="index.html">ARIASMIND</a>
     <nav class="nav-links">
-      <a href="#archivo-lista">ARCHIVO</a>
+      <a href="Archivo.html">ARCHIVO</a>
       <a href="PROYECTO.html">PROYECTO</a>
       <a href="ORIGEN.html">ORIGEN</a>
       <a href="#sugerencias">SUGIERE</a>
       <a href="#senal">PODCAST</a>
-      <a href="#archivo-lista" class="nav-cta">ENTRAR</a>
+      <a href="Archivo.html" class="nav-cta">ENTRAR</a>
     </nav>
     <button class="menu-btn" id="menuBtn" aria-label="Abrir menú" aria-expanded="false">MENÚ</button>
   </div>
@@ -371,11 +390,11 @@
   <button class="mm-close" id="menuClose" aria-label="Cerrar menú">✕</button>
   <a href="index.html" data-mm>INICIO</a>
   <a href="PROYECTO.html" data-mm>PROYECTO</a>
-  <a href="#archivo-lista" data-mm>BIBLIOTECA</a>
+  <a href="Archivo.html" data-mm>BIBLIOTECA</a>
   <a href="ORIGEN.html" data-mm>ORIGEN</a>
   <a href="#sugerencias" data-mm>SUGIERE</a>
   <a href="#senal" data-mm>PODCAST</a>
-  <a href="#archivo-lista" class="mm-cta" data-mm>ENTRAR</a>
+  <a href="Archivo.html" class="mm-cta" data-mm>ENTRAR</a>
 </nav>
 
 <!-- HERO -->
@@ -387,7 +406,7 @@
       <h1>Esto no es una academia,<br>es un espacio de <span class="glow">experimentación</span>.</h1>
       <p class="lead"><b>Documentación.</b> Experimentos reales. Prueba de métodos. Aceleración del aprendizaje. Funcionalidad del cerebro.</p>
       <div class="hero-cta">
-        <a href="#archivo-lista" class="btn btn-fill">Acceder al archivo</a>
+        <a href="Archivo.html" class="btn btn-fill">Acceder al archivo</a>
         <a href="#manifiesto" class="btn btn-line">Qué es esto &rarr;</a>
       </div>
     </div>
@@ -436,69 +455,10 @@
     </div>
   </div>
 
-  <div class="archive" id="archivo-lista">
-    <a class="entry hielo rv" href="articulo-001-verdad-autodidacta.html" data-art="1">
-      <span class="num">01</span>
-      <div class="body">
-        <h3>La verdad sobre ser autodidacta</h3>
-        <p>¿Crees que ser autodidacta es para genios solitarios? Esa imagen es falsa. Qué significa de verdad dirigir tu propio aprendizaje, y cómo cualquiera puede entrenarse para lograrlo.</p>
-      </div>
-      <span class="meta">ART_001 <span class="art-date">&middot; JUN 2026</span><span class="arr">&#8599;</span></span>
-    </a>
+  <div class="archive" id="archivo-lista"></div>
 
-    <a class="entry cian rv" href="articulo-002-mito-estilos-aprendizaje.html" data-art="2">
-      <span class="num">02</span>
-      <div class="body">
-        <h3>Adiós al mito de los "estilos de aprendizaje"</h3>
-        <p>¿Crees que aprendes mejor solo viendo, escuchando o haciendo? Por qué esa idea limita tu potencial, y cómo entrenar tu cerebro para dominar cualquier habilidad.</p>
-      </div>
-      <span class="meta">ART_002 <span class="art-date">&middot; JUN 2026</span><span class="arr">&#8599;</span></span>
-    </a>
-
-    <a class="entry verde rv" href="articulo-003-como-aprender-de-verdad.html" data-art="3">
-      <span class="num">03</span>
-      <div class="body">
-        <h3>Cómo aprender de verdad: el arte de entrenar tu cerebro</h3>
-        <p>¿Estudias horas pero no recuerdas nada? No es tu memoria. Deja de repetir mecánicamente y usa la recuperación activa para grabar el conocimiento de forma permanente.</p>
-      </div>
-      <span class="meta">ART_003 <span class="art-date">&middot; JUN 2026</span><span class="arr">&#8599;</span></span>
-    </a>
-
-    <a class="entry lima rv" href="articulo-004-estres-para-aprender.html" data-art="4">
-      <span class="num">04</span>
-      <div class="body">
-        <h3>El estrés no siempre es tu enemigo</h3>
-        <p>¿Y si el estrés moderado fuera el combustible que tu cerebro necesita para aprender más rápido? La diferencia entre el que te destruye y el que te potencia.</p>
-      </div>
-      <span class="meta">ART_004 <span class="art-date">&middot; JUN 2026</span><span class="arr">&#8599;</span></span>
-    </a>
-
-    <a class="entry ambar rv" href="articulo-005-motivacion-te-falla.html" data-art="5">
-      <span class="num">05</span>
-      <div class="body">
-        <h3>Por qué la motivación te falla siempre</h3>
-        <p>La motivación es volátil y no aparece cuando la necesitas. Por qué depender de ella es el error más costoso, y cómo construir un sistema que funcione en tus peores días.</p>
-      </div>
-      <span class="meta">ART_005 <span class="art-date">&middot; JUN 2026</span><span class="arr">&#8599;</span></span>
-    </a>
-
-    <a class="entry milenial rv" href="articulo-006-mito-academia.html" data-art="6">
-      <span class="num">06</span>
-      <div class="body">
-        <h3>El mito de la academia</h3>
-        <p>¿Crees que solo no lograrías la disciplina? Qué compras de verdad cuando te inscribes, por qué la mayoría nunca termina, y cómo construir tu propia academia personal sin gastar un peso.</p>
-      </div>
-      <span class="meta">ART_006 <span class="art-date">&middot; JUN 2026</span><span class="arr">&#8599;</span></span>
-    </a>
-
-    <a class="entry ciruela rv" href="articulo-007-mito-nunca-olvidar.html" data-art="7">
-      <span class="num">07</span>
-      <div class="body">
-        <h3>El mito de nunca olvidar <span class="badge-new">NUEVO</span></h3>
-        <p>"Lo que bien se aprende, nunca se olvida", dicen. Pero si no recuerdas ni la mitad de lo que leíste el mes pasado, el problema no es tu memoria. Por qué olvidar es una función de tu cerebro, no un fallo, y cómo lograr que el conocimiento sí se quede.</p>
-      </div>
-      <span class="meta">ART_007 <span class="art-date">&middot; JUL 2026</span><span class="arr">&#8599;</span></span>
-    </a>
+  <div class="archive-cta rv">
+    <a href="Archivo.html" class="btn-ice">Ver todo el archivo (7) &rarr;</a>
   </div>
 </section>
 
@@ -650,6 +610,72 @@
         meta.insertAdjacentHTML('afterbegin','<span class="progress-badge">EN PROGRESO &middot; '+p+'%</span>');
       }
     });
+  })();
+
+  // ── VISTA PREVIA CORTA DEL ARCHIVO (2 tarjetas: la más nueva + la que tienes a medias) ──
+  (function(){
+    var ARTICULOS = [
+      {n:1, cls:'hielo',    c:'#cdfbff', art:'ART_001', fecha:'JUN 2026', href:'articulo-001-verdad-autodidacta.html',
+       titulo:'La verdad sobre ser autodidacta',
+       hook:'No naciste autodidacta. Te conviertes en uno cuando empiezas a practicar la habilidad de dirigirte a ti mismo.'},
+      {n:2, cls:'cian',     c:'#00f3ff', art:'ART_002', fecha:'JUN 2026', href:'articulo-002-mito-estilos-aprendizaje.html',
+       titulo:'Adiós al mito de los "estilos de aprendizaje"',
+       hook:'No "somos" visuales ni auditivos. La herramienta correcta la define lo que aprendes, no quién crees ser.'},
+      {n:3, cls:'verde',    c:'#39ff14', art:'ART_003', fecha:'JUN 2026', href:'articulo-003-como-aprender-de-verdad.html',
+       titulo:'Cómo aprender de verdad: el arte de entrenar tu cerebro',
+       hook:'La repetición mecánica es cancelación de ruido. La recuperación activa es entrenamiento real.'},
+      {n:4, cls:'lima',     c:'#baff29', art:'ART_004', fecha:'JUN 2026', href:'articulo-004-estres-para-aprender.html',
+       titulo:'El estrés no siempre es tu enemigo',
+       hook:'El estrés moderado le dice a tu cerebro: esto importa, no lo olvides.'},
+      {n:5, cls:'ambar',    c:'#ffb300', art:'ART_005', fecha:'JUN 2026', href:'articulo-005-motivacion-te-falla.html',
+       titulo:'Por qué la motivación te falla siempre',
+       hook:'La motivación es una emoción. Los sistemas son arquitectura. Solo uno funciona cuando no tienes ganas.'},
+      {n:6, cls:'milenial', c:'#ff6ec7', art:'ART_006', fecha:'JUN 2026', href:'articulo-006-mito-academia.html',
+       titulo:'El mito de la academia',
+       hook:'El 70% de quienes pagan un curso nunca lo empiezan. El problema nunca fue el precio.'},
+      {n:7, cls:'ciruela',  c:'#c026d3', art:'ART_007', fecha:'JUL 2026', href:'articulo-007-mito-nunca-olvidar.html',
+       titulo:'El mito de nunca olvidar',
+       hook:'El olvido no es un fallo de tu sistema. Es lo que evita que colapse.'}
+    ];
+
+    function getProgress(){
+      try{ return JSON.parse(localStorage.getItem('ariasmind_progress')||'{}'); }catch(e){ return {}; }
+    }
+    var progress = getProgress();
+    var wrap = document.getElementById('archivo-lista');
+    if(!wrap) return;
+
+    // Tarjeta 1: siempre el artículo más reciente (el último de la lista)
+    var reciente = ARTICULOS[ARTICULOS.length-1];
+
+    // Tarjeta 2: el artículo con más progreso (entre 1% y 89%), sin repetir el de la tarjeta 1
+    var enProgreso = null, mejorPct = 0;
+    ARTICULOS.forEach(function(a){
+      if(a.n === reciente.n) return;
+      var p = progress[a.n] || 0;
+      if(p > 0 && p < 90 && p >= mejorPct){ mejorPct = p; enProgreso = a; }
+    });
+    // Si nadie tiene progreso a medias, mostramos el primer artículo como punto de entrada
+    var segunda = enProgreso || ARTICULOS[0];
+    var segundaPct = enProgreso ? mejorPct : 0;
+
+    function tarjetaHTML(a, badgeHTML){
+      return '<a class="entry '+a.cls+' rv in" href="'+a.href+'" data-art="'+a.n+'">'+
+        '<span class="num">'+String(a.n).padStart(2,'0')+'</span>'+
+        '<div class="body">'+
+          '<h3>'+a.titulo+badgeHTML+'</h3>'+
+          '<p style="font-style:italic">&ldquo;'+a.hook+'&rdquo;</p>'+
+        '</div>'+
+        '<span class="meta">'+a.art+' <span class="art-date">&middot; '+a.fecha+'</span><span class="arr">&#8599;</span></span>'+
+      '</a>';
+    }
+
+    var badge1 = '<span class="badge-new">NUEVO</span>';
+    var badge2 = enProgreso
+      ? '<span class="badge-progress" style="--c:'+segunda.c+'">EN PROGRESO &middot; '+segundaPct+'%</span>'
+      : '<span class="badge-progress" style="--c:'+segunda.c+'">EMPIEZA AQUÍ</span>';
+
+    wrap.innerHTML = tarjetaHTML(reciente, badge1) + tarjetaHTML(segunda, badge2);
   })();
 
   // ── CONTADOR: PRÓXIMO ARTÍCULO (cada 15 de mes) ──
