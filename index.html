@@ -12,7 +12,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ARIASMIND | Laboratorio de aprendizaje real</title>
-<meta name="description" content="AriasMind. El laboratorio donde destruimos mitos de aprendizaje, auditamos métodos de estudio y documentamos el proceso real de la autoeducación.">
+<meta name="description" content="AriasMind. El laboratorio donde auditamos métodos de estudio ya probados y abrimos temas todavía en exploración sobre lo que de verdad afecta cómo aprendemos.">
 <meta name="author" content="Josué Arias">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -209,7 +209,7 @@
   .entry.in-center .meta{color:var(--c,var(--cian))}
   .entry.in-center .meta .arr{transform:translate(4px,-4px)}
   .entry.cian{--c:var(--cian)}.entry.magenta{--c:var(--magenta)}.entry.verde{--c:var(--verde)}.entry.amarillo{--c:var(--amarillo)}
-  .entry.hielo{--c:#cdfbff}.entry.ambar{--c:#ffb300}.entry.milenial{--c:#ff6ec7}.entry.ciruela{--c:#c026d3}.entry.lima{--c:#baff29}
+  .entry.hielo{--c:#cdfbff}.entry.ambar{--c:#ffb300}.entry.milenial{--c:#ff6ec7}.entry.ciruela{--c:#c026d3}.entry.lima{--c:#baff29}.entry.indigo{--c:#8b7cf6}
   @media(max-width:680px){
     .entry{grid-template-columns:auto 1fr;gap:1rem;padding:1.6rem 0}
     .entry .meta{grid-column:1/-1;text-align:left;padding-left:3.5ch}
@@ -225,6 +225,13 @@
   .badge-progress{display:inline-flex;align-items:center;font-family:var(--mono);font-weight:700;
     font-size:.56rem;letter-spacing:.15em;color:var(--c,var(--cian));border:1px solid var(--c,var(--cian));
     padding:.2rem .55rem;border-radius:2px;margin-left:.65rem;vertical-align:middle;white-space:nowrap}
+
+  /* ── Insignia de tipo de contenido: protocolo probado vs tema en exploración ── */
+  .badge-tipo{display:inline-flex;align-items:center;font-family:var(--mono);font-weight:700;
+    font-size:.56rem;letter-spacing:.14em;padding:.2rem .55rem;border-radius:2px;
+    margin-bottom:.55rem;white-space:nowrap}
+  .badge-tipo.protocolo{color:#000;background:var(--verde)}
+  .badge-tipo.exploracion{color:var(--amarillo);border:1px dashed var(--amarillo);background:rgba(255,251,0,.06)}
 
   /* ── Botón "Ver todo el archivo" tipo cristal-hielo pulsante ── */
   .btn-ice{font-family:var(--display);font-weight:700;font-size:.72rem;letter-spacing:1.5px;text-transform:uppercase;
@@ -404,7 +411,7 @@
       <span class="hscan" aria-hidden="true"></span>
       <span class="eyebrow">// Laboratorio de aprendizaje real</span>
       <h1>Esto no es una academia,<br>es un espacio de <span class="glow">experimentación</span>.</h1>
-      <p class="lead"><b>Documentación.</b> Experimentos reales. Prueba de métodos. Aceleración del aprendizaje. Funcionalidad del cerebro.</p>
+      <p class="lead"><b>Documentación.</b> Métodos ya probados. Temas todavía en exploración. Aceleración del aprendizaje. Funcionalidad del cerebro.</p>
       <div class="hero-cta">
         <a href="Archivo.html" class="btn btn-fill">Acceder al archivo</a>
         <a href="#manifiesto" class="btn btn-line">Qué es esto &rarr;</a>
@@ -426,8 +433,8 @@
 <!-- DATA STREAM -->
 <div class="stream" aria-hidden="true">
   <div class="stream-track">
-    <b>Documentación</b><span class="sep">//</span><b>Experimentos reales</b><span class="sep">//</span><b>Prueba de métodos</b><span class="sep">//</span><b>Aceleración del aprendizaje</b><span class="sep">//</span><b>Funcionalidad del cerebro</b><span class="sep">//</span>
-    <b>Documentación</b><span class="sep">//</span><b>Experimentos reales</b><span class="sep">//</span><b>Prueba de métodos</b><span class="sep">//</span><b>Aceleración del aprendizaje</b><span class="sep">//</span><b>Funcionalidad del cerebro</b><span class="sep">//</span>
+    <b>Documentación</b><span class="sep">//</span><b>Prueba de métodos</b><span class="sep">//</span><b>Temas en exploración</b><span class="sep">//</span><b>Aceleración del aprendizaje</b><span class="sep">//</span><b>Funcionalidad del cerebro</b><span class="sep">//</span>
+    <b>Documentación</b><span class="sep">//</span><b>Prueba de métodos</b><span class="sep">//</span><b>Temas en exploración</b><span class="sep">//</span><b>Aceleración del aprendizaje</b><span class="sep">//</span><b>Funcionalidad del cerebro</b><span class="sep">//</span>
   </div>
 </div>
 
@@ -436,21 +443,21 @@
   <div class="sec-head rv"><span class="eyebrow m">// El proyecto</span></div>
   <div class="manifesto rv">
     <blockquote>AriasMind no es una academia. Es un <span class="ac">espacio de validación</span>.</blockquote>
-    <p class="note">Probamos métodos reales para aprender más y mejor. Lo que funciona, lo documentamos. Lo que no, también. Sin teoría complicada ni frases de coach: solo lo que un autodidacta descubrió aplicándolo de verdad.</p>
+    <p class="note">Probamos métodos reales para aprender más y mejor, y documentamos todo — lo que funciona y lo que no. Unos artículos son <b style="color:var(--verde)">protocolos</b>: cosas que ya probé y me funcionaron. Otros son <b style="color:var(--amarillo)">temas en exploración</b>: preguntas que todavía estoy pensando, como la procrastinación, la vergüenza o el peso del pasado y su relación con el aprendizaje. Sin teoría complicada ni fórmulas cerradas.</p>
   </div>
 </section>
 
 <!-- ARCHIVO -->
 <section id="archivo">
   <div class="sec-head rv">
-    <span class="eyebrow">// Biblioteca &middot; secuencia de aprendizaje</span>
+    <span class="eyebrow">// Biblioteca &middot; protocolos y temas en exploración</span>
     <h2>El <span class="ac">archivo</span>.</h2>
-    <p style="color:var(--gris);font-weight:500;margin-top:1rem;font-size:1.05rem;max-width:54ch">Siete guías para leerse en orden. Cada una destruye un mito que te ha frenado y te deja algo concreto que puedes aplicar hoy.</p>
-    <p class="hero-status" style="margin-top:2rem">&gt; [ESTADO]: BIBLIOTECA ACTIVA &middot; <b>7 ARTÍCULOS COMPILADOS</b> &middot; ÚLTIMA ACTUALIZACIÓN: JUL 2026</p>
+    <p style="color:var(--gris);font-weight:500;margin-top:1rem;font-size:1.05rem;max-width:54ch">Guías para leerse en orden. Algunas destruyen un mito con un método ya probado. Otras abren un tema que aún estoy explorando. Cada tarjeta te dice cuál es cuál antes de que entres.</p>
+    <p class="hero-status" style="margin-top:2rem">&gt; [ESTADO]: BIBLIOTECA ACTIVA &middot; <b>8 ARTÍCULOS COMPILADOS</b> &middot; ÚLTIMA ACTUALIZACIÓN: AGO 2026</p>
     <p class="hero-status" id="countdown" style="margin-top:.6rem">&gt; PRÓXIMO ARTÍCULO: calculando...</p>
 
     <div class="progress-block rv">
-      <div class="progress-label"><span>TU PROGRESO EN EL ARCHIVO</span><span id="progressText">0 / 7 COMPLETOS &middot; 0%</span></div>
+      <div class="progress-label"><span>TU PROGRESO EN EL ARCHIVO</span><span id="progressText">0 / 8 COMPLETOS &middot; 0%</span></div>
       <div class="progress-track"><div class="progress-segments"></div><div class="progress-mask" id="progressFill"></div></div>
     </div>
   </div>
@@ -581,7 +588,7 @@
       try{ return JSON.parse(localStorage.getItem('ariasmind_progress')||'{}'); }catch(e){ return {}; }
     }
     var progress = getProgress();
-    var total = 7;
+    var total = 8;
     var fill = document.getElementById('progressFill');
     var text = document.getElementById('progressText');
 
@@ -615,27 +622,30 @@
   // ── VISTA PREVIA CORTA DEL ARCHIVO (2 tarjetas: la más nueva + la que tienes a medias) ──
   (function(){
     var ARTICULOS = [
-      {n:1, cls:'hielo',    c:'#cdfbff', art:'ART_001', fecha:'JUN 2026', href:'articulo-001-verdad-autodidacta.html',
+      {n:1, cls:'hielo',    c:'#cdfbff', art:'ART_001', fecha:'JUN 2026', href:'articulo-001-verdad-autodidacta.html', tipo:'protocolo',
        titulo:'La verdad sobre ser autodidacta',
        hook:'No naciste autodidacta. Te conviertes en uno cuando empiezas a practicar la habilidad de dirigirte a ti mismo.'},
-      {n:2, cls:'cian',     c:'#00f3ff', art:'ART_002', fecha:'JUN 2026', href:'articulo-002-mito-estilos-aprendizaje.html',
+      {n:2, cls:'cian',     c:'#00f3ff', art:'ART_002', fecha:'JUN 2026', href:'articulo-002-mito-estilos-aprendizaje.html', tipo:'protocolo',
        titulo:'Adiós al mito de los "estilos de aprendizaje"',
        hook:'No "somos" visuales ni auditivos. La herramienta correcta la define lo que aprendes, no quién crees ser.'},
-      {n:3, cls:'verde',    c:'#39ff14', art:'ART_003', fecha:'JUN 2026', href:'articulo-003-como-aprender-de-verdad.html',
+      {n:3, cls:'verde',    c:'#39ff14', art:'ART_003', fecha:'JUN 2026', href:'articulo-003-como-aprender-de-verdad.html', tipo:'protocolo',
        titulo:'Cómo aprender de verdad: el arte de entrenar tu cerebro',
        hook:'La repetición mecánica es cancelación de ruido. La recuperación activa es entrenamiento real.'},
-      {n:4, cls:'lima',     c:'#baff29', art:'ART_004', fecha:'JUN 2026', href:'articulo-004-estres-para-aprender.html',
+      {n:4, cls:'lima',     c:'#baff29', art:'ART_004', fecha:'JUN 2026', href:'articulo-004-estres-para-aprender.html', tipo:'protocolo',
        titulo:'El estrés no siempre es tu enemigo',
        hook:'El estrés moderado le dice a tu cerebro: esto importa, no lo olvides.'},
-      {n:5, cls:'ambar',    c:'#ffb300', art:'ART_005', fecha:'JUN 2026', href:'articulo-005-motivacion-te-falla.html',
+      {n:5, cls:'ambar',    c:'#ffb300', art:'ART_005', fecha:'JUN 2026', href:'articulo-005-motivacion-te-falla.html', tipo:'protocolo',
        titulo:'Por qué la motivación te falla siempre',
        hook:'La motivación es una emoción. Los sistemas son arquitectura. Solo uno funciona cuando no tienes ganas.'},
-      {n:6, cls:'milenial', c:'#ff6ec7', art:'ART_006', fecha:'JUN 2026', href:'articulo-006-mito-academia.html',
+      {n:6, cls:'milenial', c:'#ff6ec7', art:'ART_006', fecha:'JUN 2026', href:'articulo-006-mito-academia.html', tipo:'protocolo',
        titulo:'El mito de la academia',
        hook:'El 70% de quienes pagan un curso nunca lo empiezan. El problema nunca fue el precio.'},
-      {n:7, cls:'ciruela',  c:'#c026d3', art:'ART_007', fecha:'JUL 2026', href:'articulo-007-mito-nunca-olvidar.html',
+      {n:7, cls:'ciruela',  c:'#c026d3', art:'ART_007', fecha:'JUL 2026', href:'articulo-007-mito-nunca-olvidar.html', tipo:'protocolo',
        titulo:'El mito de nunca olvidar',
-       hook:'El olvido no es un fallo de tu sistema. Es lo que evita que colapse.'}
+       hook:'El olvido no es un fallo de tu sistema. Es lo que evita que colapse.'},
+      {n:8, cls:'indigo',   c:'#8b7cf6', art:'ART_008', fecha:'AGO 2026', href:'articulo-008-verguenza-autoestima-trauma.html', tipo:'exploracion',
+       titulo:'La voz en tu cabeza que no te deja aprender',
+       hook:'Quizás no eres flojo. Quizás alguien, hace muchos años, te convenció de que no eras capaz — y esa voz nunca se fue.'}
     ];
 
     function getProgress(){
@@ -660,9 +670,13 @@
     var segundaPct = enProgreso ? mejorPct : 0;
 
     function tarjetaHTML(a, badgeHTML){
+      var tipoHTML = a.tipo === 'exploracion'
+        ? '<span class="badge-tipo exploracion">// EN EXPLORACIÓN</span><br>'
+        : '<span class="badge-tipo protocolo">// PROTOCOLO PROBADO</span><br>';
       return '<a class="entry '+a.cls+' rv in" href="'+a.href+'" data-art="'+a.n+'">'+
         '<span class="num">'+String(a.n).padStart(2,'0')+'</span>'+
         '<div class="body">'+
+          tipoHTML+
           '<h3>'+a.titulo+badgeHTML+'</h3>'+
           '<p style="font-style:italic">&ldquo;'+a.hook+'&rdquo;</p>'+
         '</div>'+

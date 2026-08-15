@@ -12,7 +12,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>El archivo completo | ARIASMIND</title>
-<meta name="description" content="Los 7 protocolos del archivo de ARIASMIND, en orden. Mitos de aprendizaje destruidos, uno por uno.">
+<meta name="description" content="El archivo de ARIASMIND: protocolos de aprendizaje ya probados y temas todavía en exploración, en orden.">
 <meta name="author" content="Josué Arias">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -217,7 +217,7 @@
   .entry.in-center .meta{color:var(--c,var(--cian))}
   .entry.in-center .meta .arr{transform:translate(4px,-4px)}
   .entry.cian{--c:var(--cian)}.entry.magenta{--c:var(--magenta)}.entry.verde{--c:var(--verde)}.entry.amarillo{--c:var(--amarillo)}
-  .entry.hielo{--c:#cdfbff}.entry.ambar{--c:#ffb300}.entry.milenial{--c:#ff6ec7}.entry.ciruela{--c:#c026d3}.entry.lima{--c:#baff29}
+  .entry.hielo{--c:#cdfbff}.entry.ambar{--c:#ffb300}.entry.milenial{--c:#ff6ec7}.entry.ciruela{--c:#c026d3}.entry.lima{--c:#baff29}.entry.indigo{--c:#8b7cf6}
   @media(max-width:680px){
     .entry{grid-template-columns:auto 1fr;gap:1rem;padding:1.6rem 0}
     .entry .meta{grid-column:1/-1;text-align:left;padding-left:3.5ch}
@@ -228,6 +228,13 @@
     padding:.2rem .55rem;border-radius:2px;margin-left:.65rem;vertical-align:middle;
     animation:newPulse 1.8s ease-in-out infinite;white-space:nowrap}
   @keyframes newPulse{0%,100%{box-shadow:0 0 6px rgba(57,255,20,.5)}50%{box-shadow:0 0 16px rgba(57,255,20,.9)}}
+
+  /* ── Insignia de tipo de contenido: protocolo probado vs tema en exploración ── */
+  .badge-tipo{display:inline-flex;align-items:center;font-family:var(--mono);font-weight:700;
+    font-size:.56rem;letter-spacing:.14em;padding:.2rem .55rem;border-radius:2px;
+    margin-bottom:.55rem;white-space:nowrap}
+  .badge-tipo.protocolo{color:#000;background:var(--verde)}
+  .badge-tipo.exploracion{color:var(--amarillo);border:1px dashed var(--amarillo);background:rgba(255,251,0,.06)}
 
   /* ── PILARES (origen / proyecto) ── */
   .pillars{display:grid;grid-template-columns:1fr;gap:1.5rem}
@@ -389,12 +396,12 @@
   <div class="archive-header rv in">
     <span class="eyebrow g glass">// Biblioteca</span>
     <h2>El <span class="ac">archivo</span> completo.</h2>
-    <p style="color:var(--gris);font-weight:500;margin-top:1rem;font-size:1.05rem;max-width:54ch">Siete guías para leerse en orden. Cada una destruye un mito que te ha frenado y te deja algo concreto que puedes aplicar hoy.</p>
-    <p class="hero-status" style="margin-top:2rem">&gt; [ESTADO]: BIBLIOTECA ACTIVA &middot; <b>7 ARTÍCULOS COMPILADOS</b> &middot; ÚLTIMA ACTUALIZACIÓN: JUL 2026</p>
+    <p style="color:var(--gris);font-weight:500;margin-top:1rem;font-size:1.05rem;max-width:54ch">Guías para leerse en orden. Los marcados <b style="color:var(--verde)">PROTOCOLO</b> destruyen un mito con un método que ya probé y documenté. Los marcados <b style="color:var(--amarillo)">EN EXPLORACIÓN</b> abren un tema real que todavía estoy pensando en voz alta, con investigación pero sin fórmula cerrada.</p>
+    <p class="hero-status" style="margin-top:2rem">&gt; [ESTADO]: BIBLIOTECA ACTIVA &middot; <b>8 ARTÍCULOS COMPILADOS</b> &middot; ÚLTIMA ACTUALIZACIÓN: AGO 2026</p>
     <p class="hero-status" id="countdown" style="margin-top:.6rem">&gt; PRÓXIMO ARTÍCULO: calculando...</p>
 
     <div class="progress-block rv in">
-      <div class="progress-label"><span>TU PROGRESO EN EL ARCHIVO</span><span id="progressText">0 / 7 COMPLETOS &middot; 0%</span></div>
+      <div class="progress-label"><span>TU PROGRESO EN EL ARCHIVO</span><span id="progressText">0 / 8 COMPLETOS &middot; 0%</span></div>
       <div class="progress-track"><div class="progress-segments"></div><div class="progress-mask" id="progressFill"></div></div>
     </div>
   </div>
@@ -403,6 +410,7 @@
     <a class="entry hielo rv in" href="articulo-001-verdad-autodidacta.html" data-art="1" data-track="archivo_full_art_1">
       <span class="num">01</span>
       <div class="body">
+        <span class="badge-tipo protocolo">// PROTOCOLO PROBADO</span>
         <h3>La verdad sobre ser autodidacta</h3>
         <p>¿Crees que ser autodidacta es para genios solitarios? Esa imagen es falsa. Qué significa de verdad dirigir tu propio aprendizaje, y cómo cualquiera puede entrenarse para lograrlo.</p>
       </div>
@@ -412,6 +420,7 @@
     <a class="entry cian rv in" href="articulo-002-mito-estilos-aprendizaje.html" data-art="2" data-track="archivo_full_art_2">
       <span class="num">02</span>
       <div class="body">
+        <span class="badge-tipo protocolo">// PROTOCOLO PROBADO</span>
         <h3>Adiós al mito de los "estilos de aprendizaje"</h3>
         <p>¿Crees que aprendes mejor solo viendo, escuchando o haciendo? Por qué esa idea limita tu potencial, y cómo entrenar tu cerebro para dominar cualquier habilidad.</p>
       </div>
@@ -421,6 +430,7 @@
     <a class="entry verde rv in" href="articulo-003-como-aprender-de-verdad.html" data-art="3" data-track="archivo_full_art_3">
       <span class="num">03</span>
       <div class="body">
+        <span class="badge-tipo protocolo">// PROTOCOLO PROBADO</span>
         <h3>Cómo aprender de verdad: el arte de entrenar tu cerebro</h3>
         <p>¿Estudias horas pero no recuerdas nada? No es tu memoria. Deja de repetir mecánicamente y usa la recuperación activa para grabar el conocimiento de forma permanente.</p>
       </div>
@@ -430,6 +440,7 @@
     <a class="entry lima rv in" href="articulo-004-estres-para-aprender.html" data-art="4" data-track="archivo_full_art_4">
       <span class="num">04</span>
       <div class="body">
+        <span class="badge-tipo protocolo">// PROTOCOLO PROBADO</span>
         <h3>El estrés no siempre es tu enemigo</h3>
         <p>¿Y si el estrés moderado fuera el combustible que tu cerebro necesita para aprender más rápido? La diferencia entre el que te destruye y el que te potencia.</p>
       </div>
@@ -439,6 +450,7 @@
     <a class="entry ambar rv in" href="articulo-005-motivacion-te-falla.html" data-art="5" data-track="archivo_full_art_5">
       <span class="num">05</span>
       <div class="body">
+        <span class="badge-tipo protocolo">// PROTOCOLO PROBADO</span>
         <h3>Por qué la motivación te falla siempre</h3>
         <p>La motivación es volátil y no aparece cuando la necesitas. Por qué depender de ella es el error más costoso, y cómo construir un sistema que funcione en tus peores días.</p>
       </div>
@@ -448,6 +460,7 @@
     <a class="entry milenial rv in" href="articulo-006-mito-academia.html" data-art="6" data-track="archivo_full_art_6">
       <span class="num">06</span>
       <div class="body">
+        <span class="badge-tipo protocolo">// PROTOCOLO PROBADO</span>
         <h3>El mito de la academia</h3>
         <p>¿Crees que solo no lograrías la disciplina? Qué compras de verdad cuando te inscribes, por qué la mayoría nunca termina, y cómo construir tu propia academia personal sin gastar un peso.</p>
       </div>
@@ -457,10 +470,21 @@
     <a class="entry ciruela rv in" href="articulo-007-mito-nunca-olvidar.html" data-art="7" data-track="archivo_full_art_7">
       <span class="num">07</span>
       <div class="body">
-        <h3>El mito de nunca olvidar <span class="badge-new">NUEVO</span></h3>
+        <span class="badge-tipo protocolo">// PROTOCOLO PROBADO</span>
+        <h3>El mito de nunca olvidar</h3>
         <p>"Lo que bien se aprende, nunca se olvida", dicen. Pero si no recuerdas ni la mitad de lo que leíste el mes pasado, el problema no es tu memoria. Por qué olvidar es una función de tu cerebro, no un fallo, y cómo lograr que el conocimiento sí se quede.</p>
       </div>
       <span class="meta">ART_007 <span class="art-date">&middot; JUL 2026</span><span class="arr">&#8599;</span></span>
+    </a>
+
+    <a class="entry indigo rv in" href="articulo-008-verguenza-autoestima-trauma.html" data-art="8" data-track="archivo_full_art_8">
+      <span class="num">08</span>
+      <div class="body">
+        <span class="badge-tipo exploracion">// EN EXPLORACIÓN</span>
+        <h3>La voz en tu cabeza que no te deja aprender <span class="badge-new">NUEVO</span></h3>
+        <p>Quizás no eres flojo. Quizás alguien, hace muchos años, te convenció de que no eras capaz, y esa voz nunca se fue. Un tema que abro, no un protocolo cerrado.</p>
+      </div>
+      <span class="meta">ART_008 <span class="art-date">&middot; AGO 2026</span><span class="arr">&#8599;</span></span>
     </a>
   </div>
 </section>
@@ -561,7 +585,7 @@
       try{ return JSON.parse(localStorage.getItem('ariasmind_progress')||'{}'); }catch(e){ return {}; }
     }
     var progress = getProgress();
-    var total = 7;
+    var total = 8;
     var fill = document.getElementById('progressFill');
     var text = document.getElementById('progressText');
 

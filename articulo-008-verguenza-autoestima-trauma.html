@@ -11,18 +11,18 @@
 </script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>El mito de nunca olvidar | ARIASMIND</title>
-<meta name="description" content="Por qué olvidar no es un fallo de tu cerebro sino una función, y cómo hacer que lo que aprendes de verdad se quede contigo.">
+<title>La voz en tu cabeza que no te deja aprender | ARIASMIND</title>
+<meta name="description" content="Un tema en exploración, explicado simple: cómo la vergüenza, la inseguridad y las palabras que escuchaste de niño pueden frenarte para aprender hoy.">
 <meta name="author" content="Josué Arias">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&family=Rajdhani:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 <style>
   :root{
-    --cian:#00f3ff;--magenta:#bc13fe;--verde:#c026d3;--amarillo:#fffb00;
+    --cian:#00f3ff;--magenta:#bc13fe;--verde:#39ff14;--amarillo:#fffb00;
     --fondo:#1a1a1a;--panel:#0b0c0e;--gris:#8a8a90;
-    --linea:rgba(192,38,211,.18);
-    --ac:#c026d3;--ac-rgb:192,38,211;
+    --linea:rgba(139,124,246,.18);
+    --ac:#8b7cf6;--ac-rgb:139,124,246;
     --display:'Orbitron',sans-serif;--body:'Rajdhani',sans-serif;--mono:'Space Mono',ui-monospace,monospace;
     --pad:clamp(1.25rem,5vw,5rem);
   }
@@ -30,7 +30,7 @@
   html{scroll-behavior:smooth}
   body{background:var(--fondo);color:#fff;font-family:var(--body);line-height:1.5;overflow-x:hidden;-webkit-font-smoothing:antialiased;-webkit-tap-highlight-color:transparent}
   body::before{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;
-    background-image:linear-gradient(rgba(192,38,211,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(192,38,211,.025) 1px,transparent 1px);
+    background-image:linear-gradient(rgba(139,124,246,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(139,124,246,.025) 1px,transparent 1px);
     background-size:32px 32px}
   a{color:inherit;text-decoration:none}
   ::selection{background:var(--ac);color:#000}
@@ -44,10 +44,10 @@
   .back-link{font-family:var(--display);font-weight:700;font-size:.62rem;letter-spacing:1.5px;color:var(--ac);
     border:1px solid var(--ac);padding:.5rem .95rem;text-transform:uppercase;transition:.25s;
     clip-path:polygon(8% 0,100% 0,92% 100%,0 100%)}
-  .back-link:hover,.back-link:active{background:var(--ac);color:#000;box-shadow:0 0 18px rgba(192,38,211,.5)}
+  .back-link:hover,.back-link:active{background:var(--ac);color:#000;box-shadow:0 0 18px rgba(139,124,246,.5)}
   @media(max-width:700px){ .back-link{margin-right:72px} }
 
-  /* ── PROGRESS BAR NEÓN LÍQUIDO ── */
+  /* ── PROGRESS BAR ── */
   .prog-track{position:fixed;top:0;left:0;right:0;height:6px;background:rgba(255,255,255,.04);z-index:199;pointer-events:none}
   .progress{
     position:fixed;top:0;left:0;height:6px;width:0;z-index:200;pointer-events:none;
@@ -78,22 +78,32 @@
   /* ── HERO ── */
   .article-hero{position:relative;padding:clamp(3rem,7vw,5rem) var(--pad) clamp(1.5rem,3vw,2.5rem);overflow:hidden}
   .article-hero::after{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;
-    background:radial-gradient(70% 60% at 80% 0%,rgba(192,38,211,.14),transparent 60%),
-               radial-gradient(60% 50% at 0% 110%,rgba(192,38,211,.08),transparent 55%)}
+    background:radial-gradient(70% 60% at 80% 0%,rgba(139,124,246,.14),transparent 60%),
+               radial-gradient(60% 50% at 0% 110%,rgba(139,124,246,.08),transparent 55%)}
   .article-hero .inner{position:relative;z-index:2;max-width:880px;margin:0 auto}
   .eyebrow{font-family:var(--mono);font-size:.7rem;letter-spacing:.28em;color:var(--ac);text-transform:uppercase}
-  .article-hero h1{font-family:var(--display);font-weight:900;line-height:.95;letter-spacing:-.01em;
-    font-size:clamp(2.2rem,7vw,4.8rem);margin-top:1.2rem;color:var(--ac);
-    text-shadow:0 0 28px rgba(192,38,211,.45);text-transform:uppercase}
-  .article-hero .sub{font-family:var(--mono);color:var(--gris);letter-spacing:.18em;margin-top:1.2rem;font-size:.78rem;text-transform:uppercase;max-width:54ch}
+  .tag-explora{display:inline-flex;align-items:center;gap:.5rem;font-family:var(--mono);font-weight:700;
+    font-size:.62rem;letter-spacing:.18em;color:var(--amarillo);border:1px dashed var(--amarillo);
+    background:rgba(255,251,0,.05);padding:.35rem .8rem;margin-top:1.1rem;text-transform:uppercase}
+  .article-hero h1{font-family:var(--display);font-weight:900;line-height:.98;letter-spacing:-.01em;
+    font-size:clamp(2rem,6.5vw,4.2rem);margin-top:1.2rem;color:var(--ac);
+    text-shadow:0 0 28px rgba(139,124,246,.45)}
+  .article-hero .sub{font-family:var(--mono);color:var(--gris);letter-spacing:.18em;margin-top:1.2rem;font-size:.78rem;text-transform:uppercase;max-width:56ch}
 
   /* ── DOSSIER ── */
   .dossier{position:relative;max-width:880px;margin:0 auto;border-left:3px solid var(--ac);
-    background:linear-gradient(90deg,rgba(192,38,211,.05),transparent 70%);padding:2rem clamp(1.2rem,4vw,3rem);overflow:hidden}
+    background:linear-gradient(90deg,rgba(139,124,246,.05),transparent 70%);padding:2rem clamp(1.2rem,4vw,3rem);overflow:hidden}
   .dossier .dscan{position:absolute;left:0;right:0;top:0;height:60px;pointer-events:none;
-    background:linear-gradient(to bottom,rgba(192,38,211,.14),transparent);animation:dScan 6s linear infinite}
+    background:linear-gradient(to bottom,rgba(139,124,246,.14),transparent);animation:dScan 6s linear infinite}
   @keyframes dScan{0%{transform:translateY(-60px)}100%{transform:translateY(700px)}}
   .dossier .dmeta{position:relative;font-family:var(--mono);color:var(--ac);font-size:.78rem;line-height:2}
+
+  /* ── NOTA DE ENCUADRE ── */
+  .frame-note{max-width:760px;margin:0 auto clamp(1.5rem,4vw,2rem);padding:1.4rem clamp(1.2rem,4vw,2rem);
+    border:1px dashed rgba(255,251,0,.4);background:rgba(255,251,0,.04)}
+  .frame-note p{font-size:.98rem!important;color:#d7d7da!important;line-height:1.7!important;max-width:none!important;margin:0!important}
+  .frame-note .fn-tag{font-family:var(--mono);font-size:.6rem;letter-spacing:.24em;color:var(--amarillo);
+    text-transform:uppercase;display:block;margin-bottom:.7rem}
 
   /* ── CONTENIDO ── */
   .content{max-width:760px;margin:0 auto;padding:clamp(2.5rem,6vw,4.5rem) var(--pad) clamp(3rem,6vw,5rem)}
@@ -101,14 +111,14 @@
   .article-body p strong{color:#fff;font-weight:700}
   .article-body p em{color:var(--ac)}
   .ch-title{font-family:var(--display);font-weight:700;font-size:clamp(1.1rem,3.5vw,1.6rem);line-height:1.1;
-    letter-spacing:-.005em;color:var(--ac);text-shadow:0 0 14px rgba(192,38,211,.4);
+    letter-spacing:-.005em;color:var(--ac);text-shadow:0 0 14px rgba(139,124,246,.4);
     margin:clamp(2rem,5vw,3.5rem) 0 1rem;border-left:3px solid var(--ac);padding-left:1rem}
 
   .glow-rule{height:1px;border:0;background:linear-gradient(90deg,transparent,rgba(var(--ac-rgb),.38),transparent);margin:2.2rem 0}
 
   /* ── REFS ── */
   .refs-block{max-width:760px;margin:0 auto clamp(2rem,5vw,3.5rem);padding:2rem clamp(1.2rem,4vw,2.4rem);
-    border:1px solid var(--linea);background:rgba(192,38,211,.03)}
+    border:1px solid var(--linea);background:rgba(139,124,246,.03)}
   .refs-block .refs-inner{margin-top:1.2rem;font-family:var(--mono);font-size:.74rem;color:var(--gris);line-height:1.9}
   .refs-block .refs-inner h2{display:none}
   .refs-block .refs-inner ul{list-style:none;padding:0}
@@ -119,9 +129,9 @@
   .btn{font-family:var(--display);font-weight:700;font-size:.68rem;letter-spacing:1.5px;text-transform:uppercase;
     padding:.9rem 1.5rem;cursor:pointer;transition:.25s;clip-path:polygon(6% 0,100% 0,94% 100%,0 100%)}
   .btn-fill{background:var(--ac);color:#000;border:1px solid var(--ac)}
-  .btn-fill:hover,.btn-fill:active{box-shadow:0 0 22px rgba(192,38,211,.6);transform:translateY(-2px)}
+  .btn-fill:hover,.btn-fill:active{box-shadow:0 0 22px rgba(139,124,246,.6);transform:translateY(-2px)}
   .btn-line{border:1px solid var(--ac);color:var(--ac)}
-  .btn-line:hover,.btn-line:active{background:var(--ac);color:#000;box-shadow:0 0 20px rgba(192,38,211,.5);transform:translateY(-2px)}
+  .btn-line:hover,.btn-line:active{background:var(--ac);color:#000;box-shadow:0 0 20px rgba(139,124,246,.5);transform:translateY(-2px)}
 
   /* ── FOOTER ── */
   footer{padding:3rem var(--pad) 2.5rem;border-top:1px solid var(--linea);position:relative;z-index:1}
@@ -167,8 +177,8 @@
     background:rgba(var(--ac-rgb),.03);padding:1.3rem 1.5rem 1.3rem 1.8rem;margin:1.8rem 0;
   }
   .apply-box::before{
-    content:"// CÓMO APLICARLO";font-family:var(--mono);font-size:.58rem;color:var(--ac);
-    letter-spacing:.26em;display:block;margin-bottom:.65rem;opacity:.8;
+    content:"// UN CAMINO POSIBLE";font-family:var(--mono);font-size:.58rem;color:var(--ac);
+    letter-spacing:.2em;display:block;margin-bottom:.65rem;opacity:.8;
   }
   .apply-box p{margin-bottom:.4rem!important;font-size:1.02rem!important;max-width:none!important}
   .apply-box p:last-child{margin-bottom:0!important}
@@ -269,9 +279,10 @@
 
 <header class="article-hero">
   <div class="inner rv in">
-    <span class="eyebrow">// Archivo &middot; ART_007 &middot; EL MITO QUE TE HACE SENTIR QUE TIENES MALA MEMORIA</span>
-    <h1>El Mito de Nunca Olvidar</h1>
-    <p class="sub">Olvidar no te falla. Te protege. Esto es lo que de verdad hace que el conocimiento se quede.</p>
+    <span class="eyebrow">// Archivo &middot; ART_008 &middot; UN TEMA QUE APENAS ESTOY EXPLORANDO</span><br>
+    <span class="tag-explora">// EN EXPLORACIÓN — NO ES UN PROTOCOLO CERRADO</span>
+    <h1>La voz en tu cabeza que no te deja aprender</h1>
+    <p class="sub">Quizás no eres flojo. Quizás alguien, hace muchos años, te convenció de que no eras capaz — y esa voz nunca se fue.</p>
   <div class="music-wrap">
     <button class="music-btn" id="musicBtn" aria-label="Reproducir música de fondo">
       <svg class="m-play" id="playIco" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
@@ -288,72 +299,81 @@
   <div class="dossier rv">
     <span class="dscan" aria-hidden="true"></span>
     <div class="dmeta">
-      &gt; ARCHIVO: ART_007<br>
-      &gt; CLASIFICACIÓN: EL MITO QUE TE HACE SENTIR QUE TIENES MALA MEMORIA<br>
-      &gt; AUTOR: JOSUÉ ARIAS &middot; JULIO 2026
+      &gt; ARCHIVO: ART_008<br>
+      &gt; CLASIFICACIÓN: TEMA EN EXPLORACIÓN &middot; VERGÜENZA, INSEGURIDAD Y AUTOESTIMA<br>
+      &gt; AUTOR: JOSUÉ ARIAS &middot; AGOSTO 2026
       <div class="read-time">&gt; LECTURA ESTIMADA: <b>~8 min</b></div>
     </div>
   </div>
 </section>
 
+<div class="frame-note rv">
+  <span class="fn-tag">// Antes de empezar</span>
+  <p>Este no es un artículo con la fórmula ya resuelta, como los otros del archivo. Es una pregunta que estoy pensando en voz alta: ¿puede lo que sentiste de niño frenarte hoy para aprender algo nuevo? Voy a explicarlo con palabras simples. Y si al leerlo sientes que esto te toca muy de cerca, más que un mal hábito, la mejor ayuda no está en un artículo: está en hablar con alguien preparado para eso, como un psicólogo.</p>
+</div>
+
 <div class="content">
   <div class="article-body">
-    <p>Seguro has escuchado esa frase: <strong>"Lo que bien se aprende, nunca se olvida."</strong> Suena alentadora, ¿verdad? Pero sé honesto: si intentas recordar hoy algo que estudiaste hace apenas unas semanas —una clase, un libro entero— es muy probable que te quedes en blanco. Y la conclusión automática es siempre la misma: <strong>"tengo mala memoria"</strong>.</p>
-    <p>Esa frase, es la conclusión equivocada de una observación correcta. Tu cerebro nunca fue diseñado para funcionar como una grabadora que guarda todo intacto para siempre. Está diseñado para olvidar, y ese <strong>"defecto"</strong> que tanto te frustra es, en realidad, uno de los mecanismos más inteligentes que tienes. Entender cómo funciona de verdad tu memoria es lo que te va a permitir dejar de estudiar horas sin resultados, y empezar a construir conocimiento que sí se queda.</p>
 
-    <h2 class="ch-title">1. Tu cerebro no es una grabadora</h2>
-    <p>Entonces, ¿qué hace tu cerebro con todo lo que aprendes, si no es grabarlo tal cual? Imagina un clóset que se reorganiza solo cada noche, sin pedirte permiso: la ropa que usas sigue a la mano, y la que llevas meses sin tocar termina donada. Así trabaja tu memoria. Si después no recuerdas algo, sientes que <strong>algo falló</strong>, pero la neurociencia dice otra cosa: ese vaciado constante no es un descuido, es una función activa que te protege de la saturación.</p>
-    <div class="ex-box"><p><strong>En 1885</strong>, Hermann Ebbinghaus se memorizaba listas de sílabas sin sentido y medía cuánto recordaba días después. Descubrió lo que hoy se conoce como <strong>la curva del olvido</strong>: perdemos la mayor parte de la información nueva en las primeras 24 horas si no la repasamos. Sin uso, no hay permanencia.</p></div>
-    <p>Piénsalo así: un cerebro que recordara literalmente todo —cada conversación, cada rostro, cada número que escuchaste una sola vez— no sería un superpoder. Sería una condena.</p>
+    <p>Imagina esto. Un niño levanta la mano en clase y se equivoca al responder. Alguien se ríe. El maestro dice "otra vez no sabías". El niño no piensa "me equivoqué en esa pregunta". Piensa algo mucho más grave y mucho más peligroso: <em>"soy tonto"</em>. Y esa idea, si se repite suficientes veces, se le queda pegada para toda la vida.</p>
 
-    <blockquote class="pull-q">El olvido no es un fallo de tu sistema. Es lo que evita que colapse.</blockquote>
-<hr class="glow-rule"><h2 class="ch-title">2. Cuando no olvidar se convierte en una condena real</h2>
-    <p>Para comprobar esto no hace falta imaginarlo: existe, documentado. En el año 2000, Jill Price le escribió una carta a un neurocientífico de la Universidad de California en Irvine contándole que tenía <strong>"un problema"</strong> con su memoria. El equipo confirmó algo nunca antes documentado: ella podía recordar, con precisión casi cinematográfica, prácticamente cualquier día de su vida desde que tenía 14 años. Le pusieron nombre: hipertimesia, o Memoria Autobiográfica Altamente Superior.</p>
-    <p>Aquí está lo revelador: Price nunca lo llamó un don. Lo describió como algo parecido a una película que nunca se apaga. Los recuerdos aparecían solos, con la misma carga emocional del día en que ocurrieron, sin importar si habían pasado décadas. Un momento vergonzoso, una pérdida, una discusión dolorosa: todo volvía con la intensidad del primer día, sin tregua.</p>
-    <div class="ex-box"><p><strong>En 2008</strong>, Price contó su historia en el libro <em>The Woman Who Can't Forget</em>, donde explica lo agotador que resulta vivir sin el filtro protector que la mayoría de nosotros tenemos.</p></div>
-    <p>Este es, quizás, el mejor argumento a favor del olvido que existe: olvidar algunas cosas te permite vivir en el presente, en lugar de quedar atrapado para siempre dentro de tu propio pasado.</p>
+    <p>Muchos años después, ese niño ya es un adulto. Quiere aprender algo nuevo —un idioma, un oficio, a usar una computadora— y no puede empezar. No es flojera. No es falta de tiempo. Es que, sin darse cuenta, una voz muy vieja adentro de él le dice: "para qué intentas, si tú no sirves para esto".</p>
 
-    <hr class="glow-rule"><h2 class="ch-title">3. Piloto automático: el premio por repetir algo mil veces</h2>
-    <p>Piensa en la primera vez que manejaste un auto. Todo exigía atención: el volante, los espejos, el freno, la velocidad. Agotador, ¿verdad? Eso pasa porque, al inicio, cada acción nueva pasa por la parte más consciente de tu cerebro, la que analiza todo paso a paso.</p>
+    <h2 class="ch-title">La diferencia entre "me equivoqué" y "soy un error"</h2>
 
-<p>Pero repite esa acción una y otra vez, y algo cambia. Tu cerebro empieza a <b>empaquetar</b> ese conocimiento, como si lo metiera en una carpeta comprimida, y lo envía a una zona especializada en hábitos automáticos. A partir de ahí, <span style="color:#39FF14; text-shadow: 0 0 8px #39FF14;">ya no piensas: simplemente actúas</span>.</p>
+    <p>Hay dos formas de sentirse mal después de una falla, y no son lo mismo. Una es pensar: <em>"hice algo mal"</em>. Esa se puede arreglar: la próxima vez lo haces distinto. La otra es pensar: <em>"yo soy lo que está mal"</em>. Esa no se arregla con nada, porque el problema, según esa idea, no es lo que hiciste — eres tú, completo.</p>
 
-<p>Por eso, con el tiempo, terminas manejando sin pensar en el volante, los espejos o el freno como al principio — incluso puedes ir platicando con alguien mientras conduces, sin que la conversación te distraiga del camino. Ya no estás procesando cada decisión de forma consciente. Estás ejecutando un programa que tu cerebro instaló hace tiempo, y que sigue ahí, esperando ser usado.</p>
+    <p>La primera se llama culpa. La segunda se llama vergüenza. Y cuando alguien evita aprender algo nuevo, casi nunca es porque le dé pereza. Es porque, en el fondo, tiene miedo de sentir otra vez esa vergüenza tan fea de "no soy capaz".</p>
 
-    <div class="ex-box"><p><strong>Imagina</strong> la diferencia entre manejar sobre un camino lleno de baches, y hacerlo sobre una autopista recién asfaltada. Eso es, casi literalmente, lo que sucede dentro de tu cerebro. La <span style="color:#39FF14; text-shadow: 0 0 8px #39FF14;">mielina</span> es una sustancia que reviste las conexiones neuronales que más utilizas, como si envolviera un cable pelado con aislante nuevo. Cada vez que repites una acción, se acumula un poco más de <span style="color:#39FF14; text-shadow: 0 0 8px #39FF14;">mielina</span> sobre esa misma conexión, y la señal viaja más rápido y con menos esfuerzo. Con suficiente repetición, esa información queda tan bien pavimentada que tu cerebro puede recorrerla sin pensar: la tienes disponible al instante, sin que te cueste esfuerzo acceder a ella.</p></div>
+    <div class="pull-q">No es que no quieras aprender. Es que aprender significa arriesgarte a equivocarte — y para ti, equivocarte nunca fue seguro.</div>
 
-    <hr class="glow-rule"><h2 class="ch-title">4. Lo que decide qué se queda, sin pedirte permiso</h2>
-    <p>Aquí hay algo que mucha gente ignora: <strong>el aprendizaje no termina cuando cierras el libro. Termina cuando duermes.</strong> Durante ciertas fases del sueño, tu cerebro repite los patrones de lo que aprendiste ese día y decide qué guardar. Por eso trasnochar para memorizar antes de un examen es de las peores estrategias posibles: le quitas al cerebro el tiempo que necesita para archivar lo aprendido. Este es el primero de dos procesos que deciden por ti qué información conservas, sin pedirte permiso.</p>
-    <p>Lo segundo es la emoción. Una estructura llamada <strong>amígdala</strong> actúa como alarma: cuando algo te genera miedo, alegría o sorpresa, le dice al resto del cerebro <em>"esto es importante, guárdalo con prioridad"</em>, sin que tú se lo pidas. Por eso memorizar fechas frías es tan difícil, pero recordar una película que te hizo llorar es automático.</p>
+    <h2 class="ch-title">Las palabras que se quedan para siempre</h2>
 
-    <blockquote class="pull-q">Dormir no es una pausa del aprendizaje. Es su última fase, la que decide qué se queda.</blockquote>
-<hr class="glow-rule"><h2 class="ch-title">5. Olvidar no es fracasar</h2>
-    <p>Esta es una de las trampas mentales más comunes de todo lector: creer que si no puedes recordar cada dato, cada cifra o cada frase de un libro, entonces no aprendiste nada. Esa <strong>"mala memoria"</strong> que tanto frustra en realidad no es el problema. El verdadero aprendizaje casi nunca se mide por lo que puedes repetir de memoria, sino por cómo ese contenido te va cambiando, aunque no sepas señalar exactamente qué parte lo hizo</p>
-    <p>Hay una vieja historia que resume esto mejor que cualquier estudio. Un joven discípulo se sentía frustrado: leía y leía, pero sentía que no retenía nada, y esa "mala memoria" —pensaba él— era el obstáculo para volverse tan sabio como su maestro. Un día le contó su angustia al anciano, quien lo llevó hasta un río turbio, sacó un colador viejo y sucio de entre las piedras, y le entregó también una cubeta vacía, colocada lejos de la orilla.</p>
-    <p><strong>"Llena esta cubeta"</strong>, le dijo, <strong>"usando solo este colador"</strong>. El joven corrió horas cargando agua que se le escapaba antes de llegar. Agotado, se rindió: <strong>"Perdóname, maestro. Es imposible"</strong>. El anciano sonrió y le pidió mirar el colador que sostenía. El objeto, cubierto de barro horas antes, ahora brillaba, limpio, como nuevo.</p>
-    <div class="ex-box"><p><strong>"No has fallado"</strong>, le dijo. "El agua no se quedó en el colador, pero al pasar por él lo fue limpiando. Eso hacen los libros con tu mente. No vas a retener cada palabra que lees, igual que el colador nunca pudo retener el agua. Pero cada libro que pasa por ti te va cambiando, aunque no sepas nombrarlo. Ya no eres el mismo que empezó a leer."</p></div>
-    <p>No se trata de almacenar cada gota de información. Se trata de dejar que esa agua, al pasar, te transforme.</p>
+    <p>En muchas familias —y esto pasa muchísimo en las familias latinas— a los niños los mandan a la escuela sin explicarles por qué, sin motivarlos, casi como un castigo. Y cuando algo no les sale bien, en vez de ayudarlos, los papás repiten lo mismo que a ellos les dijeron de niños, porque es lo único que conocen.</p>
 
-    <hr class="glow-rule"><h2 class="ch-title">6. Cómo hacer que el conocimiento sí se quede</h2>
-    <p>Con todo lo anterior en mente, aquí está la parte práctica: qué hacer para que lo que lees o estudias hoy no se te olvide en una semana.</p>
-    <div class="apply-box">
-      <p><strong>Cómo aplicarlo:</strong></p>
-      <p><strong>1.</strong> Nombra en voz alta lo que haces mientras lo haces.</p>
-      <p><strong>2.</strong> Usa la técnica Feynman: explica el concepto como si se lo enseñaras a un niño; si te trabas, ahí está lo que no entendiste.</p>
-      <p><strong>3.</strong> Repasa espaciado: no es un solo repaso, es una secuencia. Repasa hoy mismo (antes de que la curva de 24h te lo borre), otra vez a los 3 días, y otra vez a la semana. Cada repaso, más espaciado que el anterior, en vez de una maratón de última hora.</p>
-      <p><strong>4.</strong> Practica recuperación activa: cierra el libro e intenta recordar desde cero.</p>
-      <p><strong>5.</strong> Duerme después de estudiar, siempre.</p>
-      <p><strong>6.</strong> Conecta el dato nuevo con una emoción o una historia personal.</p>
+    <p>Frases como estas, aunque duelan escucharlas, las conoce casi todo el mundo:</p>
+
+    <div class="ex-box">
+      <p>"Sos un pasmado."<br>
+      "Animal, ¿no entendés nada?"<br>
+      "Burro, igual de bruto que tu papá."<br>
+      "Vos no vas a ser nadie en la vida."<br>
+      "Somos pobres, esos sueños de ir a la universidad no son para nosotros."</p>
     </div>
-    <p>Ninguna de estas técnicas te va a dar una memoria perfecta, y como vimos con Jill Price, tampoco es algo que deberías querer. Lo que sí te van a dar es lo único que de verdad importa: que lo que hoy aprendiste, siga contigo dentro de un año.</p>
 
-    <hr class="glow-rule"><h2 class="ch-title">RESUMEN:</h2>
-    <p><strong>1. Olvidar es una función, no un fallo:</strong> tu cerebro limpia lo que no usas para no saturarse; es mantenimiento, no un error.</p>
-    <p><strong>2. Recordarlo todo no es un superpoder:</strong> el caso real de Jill Price muestra que una memoria que nunca se apaga es agotadora, no un don.</p>
-    <p><strong>3. Repetir algo lo vuelve automático:</strong> con suficiente práctica, tu cerebro deja de "pensar" cada paso y lo convierte en un programa que se ejecuta solo, como manejar sin darte cuenta de cada movimiento que haces.</p>
-    <p><strong>4. El sueño y las emociones deciden qué se queda:</strong> mientras duermes, tu cerebro repasa y archiva lo aprendido ese día, y lo que te genera una emoción fuerte se guarda con prioridad.</p>
-    <p><strong>5. Olvidar no es fracasar:</strong> creer que no recordar cada dato significa que no aprendiste nada es una trampa mental muy común; lo que de verdad importa es cómo el contenido te transforma, no cuánto puedes repetir de memoria.</p>
-    <p><strong>6. Sí hay técnicas que funcionan:</strong> nombrar en voz alta lo que haces, explicarlo como a un niño, repasar espaciado, practicar recuperación activa, dormir después de estudiar y conectar lo nuevo con una emoción.</p>
+    <p>Un niño no tiene forma de discutir eso. No sabe que su papá o su mamá también lo escucharon de niños, y que solo está repitiendo lo que le hicieron a él. El niño simplemente lo cree. Y esa creencia —"no sirvo", "no soy capaz", "esto no es para mí"— se convierte en la voz que, treinta años después, todavía le dice que no lo intente.</p>
+
+    <p>Ahora imagina la otra cara de la moneda. Hay familias donde pasa justo lo contrario: al niño le dan espacio para explorar, para preguntar, para equivocarse sin que nadie lo humille por eso. Cuando algo le sale mal, no lo insultan — lo ayudan a intentarlo de nuevo. Y le repiten otras frases, muy distintas:</p>
+
+    <div class="apply-box">
+      <p>"Tú puedes."<br>
+      "Eres capaz."<br>
+      "Si te esfuerzas, lo vas a lograr."<br>
+      "Está bien equivocarse, así se aprende."</p>
+    </div>
+
+    <p>Ese niño también se convierte en adulto. Y cuando algo nuevo se le complica, su voz interna no le dice "no sirves". Le dice "todavía no me sale, pero voy a intentarlo otra vez". La diferencia entre los dos adultos no fue el talento. Fueron las palabras que escucharon de pequeños, repetidas una y otra vez, hasta que se volvieron su propia voz.</p>
+
+    <h2 class="ch-title">Por qué cuesta tanto aprender cuando tienes miedo por dentro</h2>
+
+    <p>Piensa en tu cuerpo como si tuviera una alarma de emergencia. Esa alarma se enciende cuando sientes que algo malo está por pasar — un peligro, una amenaza. El problema es que la vergüenza y el miedo a fallar activan esa misma alarma, aunque no haya ningún peligro real, solo un examen, una clase o un video de YouTube que quieres aprender a seguir.</p>
+
+    <p>Y cuando esa alarma suena, tu cerebro deja de estar en modo "aprender cosas nuevas" y se pone en modo "cuidarme, protegerme". Es muy difícil memorizar, entender o practicar algo cuando una parte de ti está, en el fondo, esperando que la humillen otra vez.</p>
+
+    <p>Esto también pasa con experiencias más fuertes, no solo con frases duras. Un hogar donde había gritos, golpes o mucha inestabilidad de niño puede dejar esa misma alarma más sensible de lo normal, incluso muchos años después. No es debilidad. Es que el cuerpo aprendió a protegerse, y esa protección a veces estorba cuando lo que quieres hacer hoy es aprender algo nuevo, no sobrevivir un peligro.</p>
+
+    <h2 class="ch-title">Qué se puede hacer — sin fórmulas mágicas</h2>
+
+    <p>No tengo una lista de siete pasos para borrar esa voz vieja, y desconfiaría de quien te la venda. Pero hay cosas que ayudan de verdad:</p>
+
+    <div class="apply-box">
+      <p><strong>Háblate como le hablarías a un niño que quieres.</strong> Cuando te equivoques, en vez de decirte "qué tonto eres", intenta decirte lo que le dirías a un hijo o a un sobrino en el mismo error. Suena simple, pero cambia mucho cómo te vuelves a levantar.</p>
+      <p><strong>Cambia "no sirvo para esto" por "todavía no me sale".</strong> Una palabra —"todavía"— hace toda la diferencia. Una dice que estás roto. La otra dice que estás en camino.</p>
+      <p><strong>Reconoce la voz cuando aparezca.</strong> La próxima vez que sientas ganas de posponer algo por miedo a fallar, pregúntate: "¿esto es pereza, o es esa vieja voz otra vez?" Solo con notarlo, ya pierde un poco de fuerza.</p>
+      <p><strong>Si duele mucho, habla con alguien preparado.</strong> Si al leer esto sentiste que te describía a ti mismo, y no solo un poquito, sino de forma profunda, la ayuda más valiosa no está en este artículo. Está en un psicólogo o terapeuta. No hay nada de malo en pedir esa ayuda — al contrario, es de las cosas más valientes que puedes hacer.</p>
+    </div>
+
+    <p>No sé si esto explica del todo por qué a veces "no puedes" aprender algo que sí quieres aprender. Puede que sea solo una parte del rompecabezas. Por eso dejo este tema abierto: si tienes una historia, una experiencia o una manera distinta de verlo, ahí está la sección de sugerencias del sitio, esperando por ti.</p>
 
   </div>
 </div>
@@ -362,34 +382,34 @@
 <div class="takeaways rv">
 <div class="tw-hdr">Lo que te llevas de aquí</div>
 <ol class="tw-list">
-<li>Olvidar no es un error de tu cerebro: es un mecanismo de limpieza que te protege de la sobrecarga.</li>
-<li>La memoria perfecta existe y está documentada, y quien la vive la describe como una carga, no como un don.</li>
-<li>Aprender algo a fondo significa que tu cerebro deja de procesarlo conscientemente y lo convierte en un programa automático, como manejar un auto sin pensar en cada movimiento.</li>
-<li>Dormir después de estudiar no es opcional: es la fase donde tu cerebro decide qué guardar de forma permanente.</li>
-<li>Conectar un dato con una emoción o una historia lo hace muchísimo más difícil de olvidar.</li>
-<li>Creer que "si no recuerdo cada dato, no aprendí nada" es una de las trampas mentales más comunes de todo lector, y es falsa.</li>
-<li>No vas a retener cada palabra que lees, y está bien: cada libro te cambia igual, aunque no puedas citarlo de memoria.</li>
-<li>La recuperación activa y el repaso espaciado superan por completo a la relectura y a la maratón de última hora.</li>
+<li>Hay dos formas de fallar: "me equivoqué" (se puede arreglar) y "soy un error" (eso es vergüenza, y no se arregla solo esforzándose más).</li>
+<li>Muchos adultos que evitan aprender algo nuevo no lo hacen por pereza, sino por miedo a sentir otra vez esa vieja vergüenza de la infancia.</li>
+<li>Frases como "burro" o "no vas a ser nadie" se quedan pegadas en un niño para toda la vida, aunque el que las dijo ya ni se acuerde.</li>
+<li>Frases como "tú puedes" o "está bien equivocarse" también se quedan pegadas — pero construyen, en vez de destruir.</li>
+<li>La vergüenza activa la misma alarma de tu cuerpo que un peligro real, y esa alarma apaga tu capacidad de aprender cosas nuevas.</li>
+<li>Hablarte con la misma amabilidad con la que le hablarías a un niño que quieres es uno de los caminos más simples y más poderosos.</li>
+<li>Si esto te tocó muy de cerca, hablar con un profesional es tan válido como cualquier método de estudio — probablemente más.</li>
 </ol>
 </div>
 
 <div class="refs-block rv">
-  <span class="eyebrow">// Fuentes y referencias</span>
+  <span class="eyebrow">// Para quien quiera profundizar</span>
   <div class="refs-inner"><h2>Fuentes y Referencias</h2>
+                    <p style="margin-bottom:1.2rem;font-size:.8rem">Todo lo que leíste arriba está explicado en palabras simples a propósito. Si eres de los que les gusta ir más a fondo, aquí están los estudios en los que me apoyé:</p>
                     <ul>
-                        <li><strong>Sobre la curva del olvido:</strong><br><em>Ebbinghaus, H. (1885).</em> "Über das Gedächtnis: Untersuchungen zur experimentellen Psychologie". Duncker & Humblot.</li>
-                        <li><strong>Sobre el caso de hipertimesia de Jill Price:</strong><br><em>Parker, E. S., Cahill, L., & McGaugh, J. L. (2006).</em> "A Case of Unusual Autobiographical Remembering". Neurocase.</li>
-                        <li><strong>Sobre el testimonio personal de vivir con memoria autobiográfica superior:</strong><br><em>Price, J., & Davis, B. (2008).</em> "The Woman Who Can't Forget". Free Press.</li>
-                        <li><strong>Sobre el papel del sueño en la consolidación de la memoria:</strong><br><em>Walker, M. (2017).</em> "Why We Sleep: Unlocking the Power of Sleep and Dreams". Scribner.</li>
-                        <li><strong>Sobre los ganglios basales y la automatización de hábitos:</strong><br><em>Graybiel, A. M. (2008).</em> "Habits, Rituals, and the Evaluative Brain". Annual Review of Neuroscience.</li>
-                        <li><strong>Sobre la recuperación activa y el repaso espaciado:</strong><br><em>Roediger, H. L., & Karpicke, J. D. (2006).</em> "Test-Enhanced Learning: Taking Memory Tests Improves Long-Term Retention". Psychological Science.</li>
+                        <li><strong>Sobre la correlación entre vergüenza y autoestima:</strong><br><em>Budiarto, Y., & Helmi, A. F. (2021).</em> "Shame and Self-Esteem: A Meta-Analysis". Europe's Journal of Psychology, 17(2).</li>
+                        <li><strong>Sobre la vergüenza en contextos académicos y su efecto en la motivación:</strong><br><em>Turner, J. E., & Schallert, D. L. (2001).</em> "Expectancy-value relationships of shame reactions and shame resiliency". Journal of Educational Psychology, 93(2).</li>
+                        <li><strong>Sobre las emociones académicas y el fracaso:</strong><br><em>Pekrun, R. (2006).</em> "The Control-Value Theory of Achievement Emotions". Educational Psychologist, 41(2).</li>
+                        <li><strong>Sobre el estudio de referencia de experiencias adversas en la infancia (ACE):</strong><br><em>Felitti, V. J., Anda, R. F., et al. (1998).</em> "Relationship of Childhood Abuse and Household Dysfunction to Many of the Leading Causes of Death in Adults". American Journal of Preventive Medicine, 14(4).</li>
+                        <li><strong>Sobre los cambios en el hipocampo asociados al estrés infantil:</strong><br><em>Dannlowski, U., et al. (2012).</em> "Limbic Scars: Long-Term Consequences of Childhood Maltreatment Revealed by Functional and Structural Magnetic Resonance Imaging". Biological Psychiatry, 71(4).</li>
+                        <li><strong>Sobre la autocompasión y la orientación al aprendizaje:</strong><br><em>Neff, K. D. (2023).</em> "Self-Compassion: Theory, Method, Research, and Intervention". Annual Review of Psychology, 74.</li>
+                        <li><strong>Sobre autocompasión, metas de dominio y motivación intrínseca:</strong><br><em>Neff, K. D., Hsieh, Y., & Dejitterat, K. (2005).</em> "Self-compassion, achievement goals, and coping with academic failure". Self and Identity, 4(3).</li>
                     </ul></div>
 </div>
 
 <nav class="art-nav rv">
   <a href="Archivo.html" class="btn btn-fill">&larr; Volver al archivo</a>
-  <a href="articulo-006-mito-academia.html" class="btn btn-line">← ART_006</a>
-  <a href="articulo-008-verguenza-autoestima-trauma.html" class="btn btn-line">ART_008 →</a>
+  <a href="articulo-007-mito-nunca-olvidar.html" class="btn btn-line">← ART_007</a>
 </nav>
 
 <footer>
@@ -427,7 +447,7 @@
   document.querySelectorAll('.rv').forEach(el=>io.observe(el));
   const bar=document.getElementById('progress');
   const pctEl=document.getElementById('progPct');
-  const ARTICLE_NUM=7;
+  const ARTICLE_NUM=8;
   function updateReadProgress(){
     const h=document.documentElement;
     const scrollable=h.scrollHeight-h.clientHeight;
