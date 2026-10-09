@@ -11,657 +11,124 @@
 </script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>El archivo completo | ARIASMIND</title>
-<meta name="description" content="El archivo de ARIASMIND: protocolos de aprendizaje ya probados y temas todavía en exploración, en orden.">
+<title>Artículos | AriasMind</title>
+<meta name="description" content="Todos los artículos de AriasMind: métodos de aprendizaje que ya probé y temas que todavía estoy explorando.">
 <meta name="author" content="Josué Arias">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&family=Rajdhani:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
-<style>
-  :root{
-    --cian:#00f3ff;
-    --magenta:#bc13fe;
-    --rosa:#ff7aa8;--rosa-rgb:255,122,168;
-    --verde:#39ff14;
-    --amarillo:#fffb00;
-    --fondo:#1a1a1a;
-    --panel:#0b0c0e;
-    --gris:#8a8a90;
-    --linea:rgba(0,243,255,.16);
-    --display:'Orbitron',sans-serif;
-    --body:'Rajdhani',sans-serif;
-    --mono:'Space Mono',ui-monospace,monospace;
-    --pad:clamp(1.25rem,5vw,6rem);
-  }
-  *{margin:0;padding:0;box-sizing:border-box}
-  html{scroll-behavior:smooth}
-  body{
-    background:var(--fondo);color:#fff;font-family:var(--body);
-    line-height:1.5;overflow-x:hidden;-webkit-font-smoothing:antialiased;
-    -webkit-tap-highlight-color:transparent;
-  }
-  /* rejilla de fondo (tu firma) */
-  body::before{
-    content:"";position:fixed;inset:0;z-index:0;pointer-events:none;
-    background-image:linear-gradient(rgba(0,243,255,.025) 1px,transparent 1px),
-                     linear-gradient(90deg,rgba(0,243,255,.025) 1px,transparent 1px);
-    background-size:32px 32px;
-  }
-  a{color:inherit;text-decoration:none}
-  ::selection{background:var(--cian);color:#000}
-  :focus-visible{outline:2px solid var(--amarillo);outline-offset:3px}
-  .wrap{position:relative;z-index:1}
-
-  .eyebrow{font-family:var(--mono);font-size:.72rem;letter-spacing:.28em;color:var(--cian);text-transform:uppercase}
-  .eyebrow.m{color:var(--magenta)}.eyebrow.g{color:var(--verde)}.eyebrow.y{color:var(--amarillo)}
-
-  /* ── NAV ── */
-  header{
-    position:sticky;top:0;z-index:100;background:rgba(5,5,5,.9);
-    backdrop-filter:blur(12px);border-bottom:1px solid var(--linea);
-  }
-  .nav-in{display:flex;align-items:center;justify-content:space-between;padding:1rem var(--pad)}
-  .logo{font-family:var(--display);font-weight:900;font-size:1.15rem;color:var(--cian);text-shadow:0 0 12px rgba(0,243,255,.7);letter-spacing:1px}
-  .nav-links{display:flex;gap:2rem;align-items:center}
-  .nav-links a{font-family:var(--display);font-size:.7rem;letter-spacing:1.5px;color:#fff;transition:.25s}
-  .nav-links a:hover{color:var(--cian);text-shadow:0 0 8px var(--cian)}
-  .nav-cta{border:1px solid var(--cian);color:var(--cian)!important;padding:.55rem 1rem;font-size:.66rem;
-    clip-path:polygon(8% 0,100% 0,92% 100%,0 100%);transition:.25s}
-  .nav-cta:hover{background:var(--cian);color:#000!important;box-shadow:0 0 18px rgba(0,243,255,.5)}
-  .menu-btn{display:none;background:none;border:1px solid var(--linea);color:var(--cian);font-family:var(--mono);font-size:.7rem;padding:.5rem .8rem;cursor:pointer;z-index:120}
-
-  /* ── MENÚ MÓVIL DESPLEGABLE ── */
-  .mobile-menu{
-    position:fixed;inset:0;z-index:110;background:rgba(5,5,5,.97);
-    backdrop-filter:blur(14px);
-    display:flex;flex-direction:column;justify-content:center;align-items:center;gap:1.6rem;
-    opacity:0;visibility:hidden;transform:translateY(-12px);
-    transition:opacity .3s,transform .3s,visibility .3s;
-  }
-  .mobile-menu.open{opacity:1;visibility:visible;transform:none}
-  .mobile-menu a{
-    font-family:var(--display);font-weight:700;font-size:1.4rem;letter-spacing:2px;
-    color:#fff;transition:.25s;text-transform:uppercase;
-  }
-  .mobile-menu a:hover,.mobile-menu a:active{color:var(--cian);text-shadow:0 0 12px var(--cian)}
-  .mobile-menu .mm-cta{
-    border:1px solid var(--cian);color:var(--cian);padding:.7rem 1.8rem;font-size:1rem;margin-top:1rem;
-    clip-path:polygon(8% 0,100% 0,92% 100%,0 100%);
-  }
-  .mobile-menu .mm-close{
-    position:absolute;top:1.4rem;right:var(--pad);
-    font-family:var(--mono);font-size:1.6rem;color:var(--cian);background:none;border:none;cursor:pointer;line-height:1;
-  }
-  body.menu-open{overflow:hidden}
-
-  /* ── HERO split ── */
-  .hero{position:relative;padding:clamp(3rem,7vw,6rem) var(--pad) clamp(3rem,6vw,5rem);overflow:hidden}
-  .hero::after{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;
-    background:radial-gradient(80% 70% at 85% 0%,rgba(0,243,255,.12),transparent 60%),
-               radial-gradient(70% 60% at 0% 110%,rgba(188,19,254,.12),transparent 55%)}
-  .hero-in{position:relative;z-index:2;max-width:1240px;margin:0 auto;display:grid;grid-template-columns:1fr;gap:clamp(2.5rem,5vw,4.5rem);align-items:center}
-  @media(min-width:920px){.hero-in{grid-template-columns:1.08fr .92fr}}
-
-  /* Bloque de texto del hero con efecto scan */
-  .hero-copy{position:relative;overflow:hidden}
-  .hero-copy .hscan{
-    position:absolute;left:-2%;right:-2%;top:0;height:90px;pointer-events:none;z-index:1;
-    background:linear-gradient(to bottom,rgba(0,243,255,.16),transparent);
-    animation:hScan 5.5s linear infinite;
-  }
-  @keyframes hScan{0%{transform:translateY(-90px)}100%{transform:translateY(640px)}}
-  .hero-copy>*{position:relative;z-index:2}
-
-  .hero h1{font-family:var(--display);font-weight:900;line-height:.98;letter-spacing:-.01em;font-size:clamp(2.1rem,5.4vw,4.4rem);margin:1.4rem 0 0}
-  .hero h1 .glow{color:var(--cian);text-shadow:0 0 24px rgba(0,243,255,.65)}
-  .hero h1 .dim{color:transparent;-webkit-text-stroke:1px #2c2f33}
-  .hero .lead{font-family:var(--mono);margin-top:1.6rem;color:var(--gris);font-size:clamp(.74rem,1.4vw,.9rem);letter-spacing:.1em;text-transform:uppercase;max-width:52ch;line-height:1.9}
-  .hero .lead b{color:var(--cian);font-weight:400}
-  .hero-cta{display:flex;gap:1rem;flex-wrap:wrap;margin-top:2.4rem}
-  .btn{font-family:var(--display);font-weight:700;font-size:.72rem;letter-spacing:1.5px;text-transform:uppercase;padding:1rem 1.7rem;cursor:pointer;transition:.25s;clip-path:polygon(6% 0,100% 0,94% 100%,0 100%)}
-  .btn-fill{background:var(--cian);color:#000;border:1px solid var(--cian)}
-  .btn-fill:hover,.btn-fill:active{box-shadow:0 0 24px rgba(0,243,255,.6);transform:translateY(-2px)}
-  .btn-line{border:1px solid var(--magenta);color:var(--magenta)}
-  .btn-line:hover,.btn-line:active{background:var(--magenta);color:#000;box-shadow:0 0 22px rgba(188,19,254,.5);transform:translateY(-2px)}
-  .hero-status{font-family:var(--mono);font-size:.7rem;color:var(--verde);margin-top:2.4rem;letter-spacing:.05em}
-  .hero-status b{color:var(--verde);font-weight:700}
-
-  /* Retrato */
-  .portrait{position:relative;width:100%;max-width:430px;justify-self:center;margin:0}
-  @media(min-width:920px){.portrait{justify-self:end}}
-  .portrait .frame{position:relative;overflow:hidden;background:#000;border:1px solid var(--cian);
-    clip-path:polygon(0 0,93% 0,100% 7%,100% 100%,7% 100%,0 93%);
-    box-shadow:0 0 45px rgba(0,243,255,.22),inset 0 0 28px rgba(188,19,254,.12);animation:pGlow 5.5s ease-in-out infinite}
-  @keyframes pGlow{0%,100%{box-shadow:0 0 38px rgba(0,243,255,.2),inset 0 0 28px rgba(188,19,254,.1)}50%{box-shadow:0 0 64px rgba(188,19,254,.32),inset 0 0 30px rgba(0,243,255,.14)}}
-  .portrait img{display:block;width:100%;height:auto}
-  .portrait .pscan{position:absolute;left:0;right:0;top:0;height:60px;pointer-events:none;background:linear-gradient(to bottom,rgba(0,243,255,.18),transparent);animation:pScan 4.5s linear infinite}
-  @keyframes pScan{0%{transform:translateY(-60px)}100%{transform:translateY(1160px)}}
-  .portrait .corner{position:absolute;width:22px;height:22px;border:2px solid var(--cian);z-index:3}
-  .portrait .c1{top:10px;left:10px;border-right:0;border-bottom:0}
-  .portrait .c2{top:10px;right:10px;border-left:0;border-bottom:0;border-color:var(--magenta)}
-  .portrait .c3{bottom:10px;left:10px;border-right:0;border-top:0;border-color:var(--magenta)}
-  .portrait .c4{bottom:10px;right:10px;border-left:0;border-top:0}
-  .portrait .cap{font-family:var(--mono);font-size:.68rem;letter-spacing:.16em;color:var(--cian);margin-top:1rem;display:flex;justify-content:space-between;gap:1rem}
-  .portrait .cap span{color:var(--gris)}
-
-  /* ── MARQUEE / data-stream ── */
-  .stream{border-top:1px solid var(--linea);border-bottom:1px solid var(--linea);background:var(--panel);
-    overflow:hidden;white-space:nowrap;padding:.85rem 0}
-  .stream-track{display:inline-block;animation:roll 30s linear infinite}
-  .stream b{font-family:var(--display);font-weight:700;font-size:.9rem;letter-spacing:2px;color:#fff;text-transform:uppercase}
-  .stream .sep{color:var(--cian);margin:0 1.4rem;font-family:var(--mono)}
-  @keyframes roll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
-  @keyframes scanLR{0%{transform:translateX(-80px)}100%{transform:translateX(2000px)}}
-
-  /* ── SECCIONES ── */
-  section{padding:clamp(4.5rem,10vw,8rem) var(--pad);position:relative;z-index:1}
-  .sec-head{margin-bottom:clamp(2.5rem,5vw,4rem);max-width:880px}
-  .sec-head h2{font-family:var(--display);font-weight:900;font-size:clamp(1.8rem,5vw,3.4rem);
-    line-height:1.02;margin-top:1.1rem;letter-spacing:-.01em}
-  .sec-head h2 .ac{color:var(--cian);text-shadow:0 0 18px rgba(0,243,255,.5)}
-  .divider{height:1px;background:var(--linea);width:100%;margin:0}
-
-  /* ── CABECERA DEL ARCHIVO (con lucita horizontal ampliada) ── */
-  .archive-header{position:relative;overflow:hidden;margin-bottom:clamp(2rem,4vw,3rem)}
-  .archive-header::before{content:"";position:absolute;top:0;bottom:0;left:0;width:80px;pointer-events:none;z-index:2;
-    background:linear-gradient(to right,transparent,rgba(0,243,255,.13),transparent);
-    animation:scanLR 5s linear 2.5s infinite}
-
-  /* ── Eyebrow "cristal esmerilado" (solo para Biblioteca) ── */
-  .eyebrow.glass{font-size:.8rem;letter-spacing:.26em;display:inline-block;padding:.45rem .95rem;
-    background:rgba(57,255,20,.07);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);
-    border:1px solid rgba(57,255,20,.35);border-radius:6px;font-weight:700;
-    text-shadow:0 0 12px rgba(57,255,20,.75),0 0 24px rgba(57,255,20,.3);
-    box-shadow:0 0 20px rgba(57,255,20,.15),inset 0 1px 0 rgba(57,255,20,.15),inset 0 0 16px rgba(57,255,20,.05)}
-
-  /* ── MANIFIESTO ── */
-  .manifesto{position:relative;overflow:hidden;display:grid;grid-template-columns:1fr;gap:2rem}
-  .manifesto::before{content:"";position:absolute;top:0;bottom:0;left:0;width:80px;pointer-events:none;
-    background:linear-gradient(to right,transparent,rgba(188,19,254,.13),transparent);
-    animation:scanLR 5s linear infinite}
-  .manifesto blockquote{font-family:var(--display);font-weight:700;line-height:1.18;letter-spacing:-.01em;
-    font-size:clamp(1.5rem,4vw,2.9rem);max-width:18ch}
-  .manifesto blockquote .ac{color:var(--magenta);text-shadow:0 0 18px rgba(188,19,254,.5)}
-  .manifesto .note{font-family:var(--body);font-size:1.05rem;color:var(--gris);max-width:48ch;line-height:1.7;font-weight:500}
-  @media(min-width:880px){.manifesto{grid-template-columns:1.2fr 1fr;align-items:end;gap:4rem}}
-
-  /* ── ARCHIVO (secuencia 01–06) ── */
-  .archive{display:flex;flex-direction:column;border-top:1px solid var(--linea)}
-  .entry{position:relative;display:grid;grid-template-columns:auto 1fr auto;gap:1.5rem;align-items:center;
-    padding:2rem 0;border-bottom:1px solid var(--linea);transition:padding .2s,background .2s,transform .2s,box-shadow .2s;cursor:pointer;-webkit-tap-highlight-color:transparent;touch-action:manipulation}
-  .entry .num{font-family:var(--display);font-weight:900;font-size:clamp(1.6rem,4vw,2.6rem);
-    color:transparent;-webkit-text-stroke:1.4px var(--c,var(--cian));min-width:2.5ch;transition:.2s}
-  .entry .body h3{font-family:var(--display);font-weight:700;font-size:clamp(1.05rem,2.4vw,1.5rem);
-    line-height:1.2;letter-spacing:-.005em;margin-bottom:.55rem;transition:.2s}
-  .entry .body p{font-size:.98rem;color:var(--gris);max-width:62ch;line-height:1.55;font-weight:500}
-  .entry .meta{font-family:var(--mono);font-size:.72rem;color:var(--gris);text-align:right;white-space:nowrap;transition:.2s}
-  .entry .meta .arr{display:inline-block;margin-left:.4rem;transition:transform .2s}
-  /* Toque instantáneo en móvil (sin el delay de 300ms del hover simulado) */
-  .entry:active{background:linear-gradient(90deg,rgba(0,243,255,.05),transparent);padding-left:1.2rem;padding-right:1.2rem;transform:translateY(-3px);box-shadow:0 8px 28px rgba(0,243,255,.08)}
-  .entry:active .num{color:var(--c,var(--cian));text-shadow:0 0 20px var(--c,var(--cian))}
-  .entry:active .body h3{color:var(--c,var(--cian))}
-  .entry:active .meta{color:var(--c,var(--cian))}
-  .entry:active .meta .arr{transform:translate(4px,-4px)}
-  /* Hover real sólo en dispositivos con puntero (mouse/trackpad) */
-  @media(hover:hover){
-    .entry:hover{background:linear-gradient(90deg,rgba(0,243,255,.05),transparent);padding-left:1.2rem;padding-right:1.2rem;transform:translateY(-3px);box-shadow:0 8px 28px rgba(0,243,255,.08)}
-    .entry:hover .num{color:var(--c,var(--cian));text-shadow:0 0 20px var(--c,var(--cian))}
-    .entry:hover .body h3{color:var(--c,var(--cian))}
-    .entry:hover .meta{color:var(--c,var(--cian))}
-    .entry:hover .meta .arr{transform:translate(4px,-4px)}
-  }
-  /* Iluminación automática al pasar por el centro de la pantalla (móvil/táctil) */
-  .entry.in-center{background:linear-gradient(90deg,rgba(0,243,255,.05),transparent);padding-left:1.2rem;padding-right:1.2rem;transform:translateY(-3px);box-shadow:0 8px 28px rgba(0,243,255,.08)}
-  .entry.in-center .num{color:var(--c,var(--cian));text-shadow:0 0 20px var(--c,var(--cian))}
-  .entry.in-center .body h3{color:var(--c,var(--cian))}
-  .entry.in-center .meta{color:var(--c,var(--cian))}
-  .entry.in-center .meta .arr{transform:translate(4px,-4px)}
-  .entry.cian{--c:var(--cian)}.entry.magenta{--c:var(--magenta)}.entry.verde{--c:var(--verde)}.entry.amarillo{--c:var(--amarillo)}
-  .entry.hielo{--c:#cdfbff}.entry.ambar{--c:#ffb300}.entry.milenial{--c:#ff6ec7}.entry.ciruela{--c:#c026d3}.entry.lima{--c:#baff29}.entry.indigo{--c:#8b7cf6}
-  @media(max-width:680px){
-    .entry{grid-template-columns:auto 1fr;gap:1rem;padding:1.6rem 0}
-    .entry .meta{grid-column:1/-1;text-align:left;padding-left:3.5ch}
-  }
-  .entry .meta .art-date{opacity:.85}
-  .badge-new{display:inline-flex;align-items:center;font-family:var(--mono);font-weight:700;
-    font-size:.56rem;letter-spacing:.2em;color:#000;background:var(--verde);
-    padding:.2rem .55rem;border-radius:2px;margin-left:.65rem;vertical-align:middle;
-    animation:newPulse 1.8s ease-in-out infinite;white-space:nowrap}
-  @keyframes newPulse{0%,100%{box-shadow:0 0 6px rgba(57,255,20,.5)}50%{box-shadow:0 0 16px rgba(57,255,20,.9)}}
-
-  /* ── Insignia de tipo de contenido: protocolo probado vs tema en exploración ── */
-  .badge-tipo{display:inline-flex;align-items:center;font-family:var(--mono);font-weight:700;
-    font-size:.56rem;letter-spacing:.14em;padding:.2rem .55rem;border-radius:2px;
-    margin-bottom:.55rem;white-space:nowrap}
-  .badge-tipo.protocolo{color:#000;background:var(--verde)}
-  .badge-tipo.exploracion{color:var(--amarillo);border:1px dashed var(--amarillo);background:rgba(255,251,0,.06)}
-
-  /* ── PILARES (origen / proyecto) ── */
-  .pillars{display:grid;grid-template-columns:1fr;gap:1.5rem}
-  @media(min-width:780px){.pillars{grid-template-columns:1fr 1fr}}
-  .pillar{position:relative;background:var(--panel);border:1px solid var(--linea);padding:2.6rem;
-    clip-path:polygon(0 0,94% 0,100% 9%,100% 100%,6% 100%,0 91%);cursor:default;transition:transform .35s,box-shadow .35s,border-color .35s,background .35s}
-  .pillar.cian:hover,.pillar.cian:active{
-    transform:translateY(-7px);
-    border-color:rgba(0,243,255,.55);
-    background:linear-gradient(135deg,rgba(0,243,255,.08) 0%,rgba(0,243,255,.02) 60%,transparent 100%);
-    box-shadow:0 12px 40px rgba(0,243,255,.18),0 0 0 1px rgba(0,243,255,.12),inset 0 1px 0 rgba(0,243,255,.1);
-  }
-  .pillar.rosa:hover,.pillar.rosa:active{
-    transform:translateY(-7px);
-    border-color:rgba(var(--rosa-rgb),.55);
-    background:linear-gradient(135deg,rgba(var(--rosa-rgb),.08) 0%,rgba(var(--rosa-rgb),.02) 60%,transparent 100%);
-    box-shadow:0 12px 40px rgba(var(--rosa-rgb),.18),0 0 0 1px rgba(var(--rosa-rgb),.12),inset 0 1px 0 rgba(var(--rosa-rgb),.1);
-  }
-  .pillar .tag{font-family:var(--mono);font-size:.7rem;letter-spacing:.2em}
-  .pillar.cian .tag{color:var(--cian)}.pillar.rosa .tag{color:var(--rosa)}
-  .pillar h3{font-family:var(--display);font-weight:700;font-size:1.4rem;margin:1.3rem 0 1rem;letter-spacing:-.01em}
-  .pillar p{color:var(--gris);font-size:1rem;line-height:1.65;font-weight:500}
-  .pillar .go{
-    display:inline-block;margin-top:1.6rem;
-    font-family:var(--display);font-weight:700;font-size:.7rem;letter-spacing:1.5px;text-transform:uppercase;
-    padding:.65rem 1.3rem;border:1px solid;
-    clip-path:polygon(6% 0,100% 0,94% 100%,0 100%);
-    cursor:pointer;transition:.25s;text-decoration:none;
-  }
-  .pillar.cian .go{color:var(--cian);border-color:var(--cian)}
-  .pillar.cian .go:hover,.pillar.cian .go:active{background:var(--cian);color:#000;box-shadow:0 0 22px rgba(0,243,255,.7),0 0 44px rgba(0,243,255,.35);transform:translateY(-2px)}
-  .pillar.rosa .go{color:var(--rosa);border-color:var(--rosa)}
-  .pillar.rosa .go:hover,.pillar.rosa .go:active{background:var(--rosa);color:#000;box-shadow:0 0 22px rgba(var(--rosa-rgb),.7),0 0 44px rgba(var(--rosa-rgb),.35);transform:translateY(-2px)}
-
-  /* ── PODCAST / transmisión ── */
-  .signal{border:1px solid var(--linea);background:
-    linear-gradient(135deg,rgba(57,255,20,.06),transparent 60%);padding:clamp(2.4rem,6vw,4.5rem);
-    clip-path:polygon(0 0,97% 0,100% 6%,100% 100%,3% 100%,0 94%);text-align:center;
-    transition:transform .35s,filter .35s,border-color .35s,background .35s;cursor:default}
-  .signal:hover,.signal:active{
-    transform:translateY(-7px);
-    border-color:rgba(57,255,20,.55);
-    background:linear-gradient(135deg,rgba(57,255,20,.1) 0%,rgba(57,255,20,.03) 60%,transparent 100%);
-    filter:drop-shadow(0 12px 28px rgba(57,255,20,.22)) drop-shadow(0 0 8px rgba(57,255,20,.15));
-  }
-  .signal h2{font-family:var(--display);font-weight:900;font-size:clamp(1.6rem,4.5vw,3rem);line-height:1.05}
-  .signal h2 .ac{color:var(--verde);text-shadow:0 0 18px rgba(57,255,20,.5)}
-  .signal p{color:var(--gris);max-width:46ch;margin:1.3rem auto 0;font-size:1.05rem;line-height:1.6;font-weight:500}
-  .signal .btn-g{display:inline-block;margin-top:2.2rem;border:1px solid var(--verde);color:var(--verde);
-    font-family:var(--display);font-weight:700;font-size:.72rem;letter-spacing:1.5px;text-transform:uppercase;
-    padding:1rem 2rem;clip-path:polygon(6% 0,100% 0,94% 100%,0 100%);transition:.25s;cursor:pointer}
-  .signal .btn-g:hover{background:var(--verde);color:#000;box-shadow:0 0 24px rgba(57,255,20,.5)}
-  .signal .console{font-family:var(--mono);font-size:.74rem;color:var(--verde);margin-top:1.8rem;letter-spacing:.04em;opacity:.85}
-
-  /* ── FOOTER ── */
-  footer{padding:4rem var(--pad) 3rem;border-top:1px solid var(--linea)}
-  .foot-grid{display:flex;justify-content:space-between;gap:2rem;flex-wrap:wrap;align-items:flex-start}
-  .foot-mark{font-family:var(--display);font-weight:900;font-size:1.5rem;color:var(--cian);text-shadow:0 0 12px rgba(0,243,255,.5)}
-  .foot-mark+p{color:var(--gris);font-size:.95rem;margin-top:.6rem;max-width:34ch;font-weight:500}
-  .socials a{
-    font-family:var(--mono);font-size:.65rem;letter-spacing:1.2px;text-transform:uppercase;
-    padding:.5rem 1rem;border:1px solid;
-    clip-path:polygon(6% 0,100% 0,94% 100%,0 100%);
-    transition:.25s;text-decoration:none;font-weight:700;
-  }
-  .foot-status{font-family:var(--mono);font-size:.7rem;color:#3a3d42;letter-spacing:2px;margin-top:2.6rem;
-    border-top:1px solid var(--linea);padding-top:1.5rem}
-  .foot-links{margin-top:.6rem}
-  .foot-links a{font-family:var(--mono);font-size:.66rem;letter-spacing:1px;color:#5a5d63;text-decoration:underline;text-underline-offset:2px}
-  .foot-links a:hover{color:var(--ac,var(--cian))}
-
-  /* reveal */
-  .rv{opacity:0;transform:translateY(22px);transition:opacity .8s,transform .8s}
-  .rv.in{opacity:1;transform:none}
-
-  @media(max-width:780px){
-    .nav-links{display:none}.menu-btn{display:block}
-  }
-  @media(prefers-reduced-motion:reduce){
-    *{animation:none!important;scroll-behavior:auto}.rv{opacity:1;transform:none;transition:none}
-  }
-
-  /* ── SOCIALS FOOTER (iconos) ── */
-  .socials{display:flex;gap:.7rem;flex-wrap:wrap;justify-content:flex-start}
-  .social-btn{display:flex;flex-direction:column;align-items:center;gap:.4rem;transition:.25s;cursor:pointer;text-decoration:none}
-  .social-btn:hover,.social-btn:active{transform:translateY(-5px)}
-  .s-ico{width:52px;height:52px;border-radius:12px;border:1.5px solid var(--sc);
-    display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,.5);
-    box-shadow:0 0 10px rgba(var(--sr),.28);transition:.25s;color:var(--sc)}
-  .social-btn:hover .s-ico,.social-btn:active .s-ico{
-    box-shadow:0 0 20px rgba(var(--sr),.65),inset 0 0 10px rgba(var(--sr),.08);
-    background:rgba(var(--sr),.07)}
-  .s-ico svg{width:24px;height:24px;filter:drop-shadow(0 0 4px var(--sc));transition:.25s}
-  .social-btn:hover .s-ico svg,.social-btn:active .s-ico svg{filter:drop-shadow(0 0 9px var(--sc))}
-  .s-lbl{font-family:var(--mono);font-size:.54rem;color:var(--sc);letter-spacing:1.8px;text-transform:uppercase}
-
-  /* ── PROGRESO DE LECTURA ── */
-  .progress-block{margin-top:1.8rem;max-width:560px}
-  .progress-label{font-family:var(--mono);font-size:.72rem;color:var(--cian);letter-spacing:.08em;margin-bottom:.5rem;display:flex;justify-content:space-between;gap:1rem}
-  .progress-track{height:8px;background:var(--panel);border:1px solid var(--linea);position:relative;overflow:hidden}
-  .progress-segments{position:absolute;inset:0;
-    background:linear-gradient(90deg,
-      #cdfbff 0%, #00f3ff 16.667%, #39ff14 33.333%, #baff29 50%,
-      #ffb300 66.667%, #ff6ec7 83.333%, #c026d3 100%);
-    box-shadow:0 0 12px rgba(0,243,255,.35)}
-  .progress-mask{position:absolute;top:0;right:0;height:100%;width:100%;background:var(--panel);transition:width .6s ease}
-  .read-badge{display:inline-flex;align-items:center;font-family:var(--mono);font-weight:700;font-size:.56rem;letter-spacing:.15em;color:#000;background:var(--verde);padding:.18rem .5rem;border-radius:2px;margin-right:.6rem;vertical-align:middle;white-space:nowrap}
-  .progress-badge{display:inline-flex;align-items:center;font-family:var(--mono);font-weight:700;font-size:.56rem;letter-spacing:.1em;color:var(--c,var(--cian));border:1px solid var(--c,var(--cian));padding:.16rem .5rem;border-radius:2px;margin-right:.6rem;vertical-align:middle;white-space:nowrap}
-
-  /* ── SUGERENCIAS ── */
-  .suggest{max-width:640px}
-  .suggest-form{display:flex;flex-direction:column;gap:1rem;margin-top:1.8rem}
-  .suggest-form input,.suggest-form textarea{
-    background:var(--panel);border:1px solid var(--linea);color:#fff;
-    font-family:var(--body);font-size:1rem;padding:.9rem 1rem;resize:vertical;
-  }
-  .suggest-form input::placeholder,.suggest-form textarea::placeholder{color:var(--gris)}
-  .suggest-form input:focus,.suggest-form textarea:focus{outline:none;border-color:var(--cian);box-shadow:0 0 0 1px var(--cian)}
-  .suggest-form textarea{min-height:110px}
-  .suggest-form .btn{align-self:flex-start;border:none}
-  .suggest-msg{font-family:var(--mono);font-size:.78rem;margin-top:1rem;display:none}
-  .suggest-msg.show{display:block}
-  .suggest-msg.ok{color:var(--verde)}
-  .suggest-msg.err{color:#ff5050}
-  .suggest-notice{font-family:var(--mono);font-size:.7rem;color:var(--gris);margin-top:1.2rem;line-height:1.6}
-  .suggest-notice a{color:var(--cian);text-decoration:underline;text-underline-offset:2px}
-</style>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="site.css">
 </head>
 <body>
-<div class="wrap">
-
-<header>
-  <div class="nav-in">
-    <a class="logo" href="index.html">ARIASMIND</a>
-    <nav class="nav-links">
-      <a href="Archivo.html" data-track="nav_archivo">ARCHIVO</a>
-      <a href="PROYECTO.html" data-track="nav_proyecto">PROYECTO</a>
-      <a href="ORIGEN.html" data-track="nav_origen">ORIGEN</a>
-      <a href="index.html#sugerencias" data-track="nav_sugiere">SUGIERE</a>
-      <a href="index.html#senal" data-track="nav_podcast">PODCAST</a>
-      <a href="index.html" class="nav-cta" data-track="nav_inicio">INICIO</a>
-    </nav>
-    <button class="menu-btn" id="menuBtn" aria-label="Abrir menú" aria-expanded="false">MENÚ</button>
+<header class="site-header">
+  <div class="container wide">
+    <a class="brand" href="index.html">Arias<span>Mind</span></a>
+    <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="siteNav">Menú</button>
+    <nav class="site-nav" id="siteNav" aria-label="Principal"><a href="Archivo.html" data-track="nav_archivo" aria-current="page">Artículos</a><a href="PROYECTO.html" data-track="nav_proyecto">El proyecto</a><a href="ORIGEN.html" data-track="nav_origen">Mi historia</a><a href="index.html#sugerencias" data-track="nav_sugiere">Sugerencias</a><a href="index.html#senal" data-track="nav_podcast">Podcast</a><a class="nav-cta" href="Archivo.html" data-track="nav_cta">Leer artículos</a></nav>
   </div>
+  
 </header>
-
-<!-- MENÚ MÓVIL -->
-<nav class="mobile-menu" id="mobileMenu" aria-hidden="true">
-  <button class="mm-close" id="menuClose" aria-label="Cerrar menú">✕</button>
-  <a href="index.html" data-mm data-track="mmenu_inicio">INICIO</a>
-  <a href="PROYECTO.html" data-mm data-track="mmenu_proyecto">PROYECTO</a>
-  <a href="Archivo.html" data-mm data-track="mmenu_biblioteca">BIBLIOTECA</a>
-  <a href="ORIGEN.html" data-mm data-track="mmenu_origen">ORIGEN</a>
-  <a href="index.html#sugerencias" data-mm data-track="mmenu_sugiere">SUGIERE</a>
-  <a href="index.html#senal" data-mm data-track="mmenu_podcast">PODCAST</a>
-</nav>
-
-<section id="archivo" style="padding-top:clamp(2.5rem,6vw,4.5rem)">
-  <div class="archive-header rv in">
-    <span class="eyebrow g glass">// Biblioteca</span>
-    <h2>El <span class="ac">archivo</span> completo.</h2>
-    <p style="color:var(--gris);font-weight:500;margin-top:1rem;font-size:1.05rem;max-width:54ch">Guías para leerse en orden. Los marcados <b style="color:var(--verde)">PROTOCOLO</b> destruyen un mito con un método que ya probé y documenté. Los marcados <b style="color:var(--amarillo)">EN EXPLORACIÓN</b> abren un tema real que todavía estoy pensando en voz alta, con investigación pero sin fórmula cerrada.</p>
-    <p class="hero-status" style="margin-top:2rem">&gt; [ESTADO]: BIBLIOTECA ACTIVA &middot; <b>8 ARTÍCULOS COMPILADOS</b> &middot; ÚLTIMA ACTUALIZACIÓN: AGO 2026</p>
-    <p class="hero-status" id="countdown" style="margin-top:.6rem">&gt; PRÓXIMO ARTÍCULO: calculando...</p>
-
-    <div class="progress-block rv in">
-      <div class="progress-label"><span>TU PROGRESO EN EL ARCHIVO</span><span id="progressText">0 / 8 COMPLETOS &middot; 0%</span></div>
-      <div class="progress-track"><div class="progress-segments"></div><div class="progress-mask" id="progressFill"></div></div>
+<main>
+<section class="page-header" id="archivo">
+  <div class="container">
+    <p class="eyebrow">Artículos</p>
+    <h1>Todos los artículos</h1>
+    <p class="sub">Están pensados para leerse en orden, aunque puedes empezar por el que más te interese. Los marcados <strong>Método probado</strong> explican algo que ya puse en práctica. Los marcados <strong>Tema abierto</strong> plantean una pregunta en la que todavía estoy pensando, con fuentes pero sin una respuesta cerrada.</p>
+    <p class="status-line">8 artículos &middot; Última actualización: agosto de 2026</p>
+    <p class="status-line" id="countdown" style="margin-top:.3rem"></p>
+    <div class="progress-block">
+      <div class="progress-label"><span>Tu progreso</span><span id="progressText">0 de 8 leídos · 0%</span></div>
+      <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
     </div>
-  </div>
-
-  <div class="archive">
-    <a class="entry hielo rv in" href="articulo-001-verdad-autodidacta.html" data-art="1" data-track="archivo_full_art_1">
-      <span class="num">01</span>
-      <div class="body">
-        <span class="badge-tipo protocolo">// PROTOCOLO PROBADO</span>
-        <h3>La verdad sobre ser autodidacta</h3>
-        <p>¿Crees que ser autodidacta es para genios solitarios? Esa imagen es falsa. Qué significa de verdad dirigir tu propio aprendizaje, y cómo cualquiera puede entrenarse para lograrlo.</p>
-      </div>
-      <span class="meta">ART_001 <span class="art-date">&middot; JUN 2026</span><span class="arr">&#8599;</span></span>
-    </a>
-
-    <a class="entry cian rv in" href="articulo-002-mito-estilos-aprendizaje.html" data-art="2" data-track="archivo_full_art_2">
-      <span class="num">02</span>
-      <div class="body">
-        <span class="badge-tipo protocolo">// PROTOCOLO PROBADO</span>
-        <h3>Adiós al mito de los "estilos de aprendizaje"</h3>
-        <p>¿Crees que aprendes mejor solo viendo, escuchando o haciendo? Por qué esa idea limita tu potencial, y cómo entrenar tu cerebro para dominar cualquier habilidad.</p>
-      </div>
-      <span class="meta">ART_002 <span class="art-date">&middot; JUN 2026</span><span class="arr">&#8599;</span></span>
-    </a>
-
-    <a class="entry verde rv in" href="articulo-003-como-aprender-de-verdad.html" data-art="3" data-track="archivo_full_art_3">
-      <span class="num">03</span>
-      <div class="body">
-        <span class="badge-tipo protocolo">// PROTOCOLO PROBADO</span>
-        <h3>Cómo aprender de verdad: el arte de entrenar tu cerebro</h3>
-        <p>¿Estudias horas pero no recuerdas nada? No es tu memoria. Deja de repetir mecánicamente y usa la recuperación activa para grabar el conocimiento de forma permanente.</p>
-      </div>
-      <span class="meta">ART_003 <span class="art-date">&middot; JUN 2026</span><span class="arr">&#8599;</span></span>
-    </a>
-
-    <a class="entry lima rv in" href="articulo-004-estres-para-aprender.html" data-art="4" data-track="archivo_full_art_4">
-      <span class="num">04</span>
-      <div class="body">
-        <span class="badge-tipo protocolo">// PROTOCOLO PROBADO</span>
-        <h3>El estrés no siempre es tu enemigo</h3>
-        <p>¿Y si el estrés moderado fuera el combustible que tu cerebro necesita para aprender más rápido? La diferencia entre el que te destruye y el que te potencia.</p>
-      </div>
-      <span class="meta">ART_004 <span class="art-date">&middot; JUN 2026</span><span class="arr">&#8599;</span></span>
-    </a>
-
-    <a class="entry ambar rv in" href="articulo-005-motivacion-te-falla.html" data-art="5" data-track="archivo_full_art_5">
-      <span class="num">05</span>
-      <div class="body">
-        <span class="badge-tipo protocolo">// PROTOCOLO PROBADO</span>
-        <h3>Por qué la motivación te falla siempre</h3>
-        <p>La motivación es volátil y no aparece cuando la necesitas. Por qué depender de ella es el error más costoso, y cómo construir un sistema que funcione en tus peores días.</p>
-      </div>
-      <span class="meta">ART_005 <span class="art-date">&middot; JUN 2026</span><span class="arr">&#8599;</span></span>
-    </a>
-
-    <a class="entry milenial rv in" href="articulo-006-mito-academia.html" data-art="6" data-track="archivo_full_art_6">
-      <span class="num">06</span>
-      <div class="body">
-        <span class="badge-tipo protocolo">// PROTOCOLO PROBADO</span>
-        <h3>El mito de la academia</h3>
-        <p>¿Crees que solo no lograrías la disciplina? Qué compras de verdad cuando te inscribes, por qué la mayoría nunca termina, y cómo construir tu propia academia personal sin gastar un peso.</p>
-      </div>
-      <span class="meta">ART_006 <span class="art-date">&middot; JUN 2026</span><span class="arr">&#8599;</span></span>
-    </a>
-
-    <a class="entry ciruela rv in" href="articulo-007-mito-nunca-olvidar.html" data-art="7" data-track="archivo_full_art_7">
-      <span class="num">07</span>
-      <div class="body">
-        <span class="badge-tipo protocolo">// PROTOCOLO PROBADO</span>
-        <h3>El mito de nunca olvidar</h3>
-        <p>"Lo que bien se aprende, nunca se olvida", dicen. Pero si no recuerdas ni la mitad de lo que leíste el mes pasado, el problema no es tu memoria. Por qué olvidar es una función de tu cerebro, no un fallo, y cómo lograr que el conocimiento sí se quede.</p>
-      </div>
-      <span class="meta">ART_007 <span class="art-date">&middot; JUL 2026</span><span class="arr">&#8599;</span></span>
-    </a>
-
-    <a class="entry indigo rv in" href="articulo-008-verguenza-autoestima-trauma.html" data-art="8" data-track="archivo_full_art_8">
-      <span class="num">08</span>
-      <div class="body">
-        <span class="badge-tipo exploracion">// EN EXPLORACIÓN</span>
-        <h3>La voz en tu cabeza que no te deja aprender <span class="badge-new">NUEVO</span></h3>
-        <p>Quizás no eres flojo. Quizás alguien, hace muchos años, te convenció de que no eras capaz, y esa voz nunca se fue. Un tema que abro, no un protocolo cerrado.</p>
-      </div>
-      <span class="meta">ART_008 <span class="art-date">&middot; AGO 2026</span><span class="arr">&#8599;</span></span>
-    </a>
   </div>
 </section>
-
-<footer id="pie">
-  <div class="foot-grid">
-    <div>
-      <div class="foot-mark">ARIASMIND</div>
-      <p>El laboratorio del aprendizaje real. Por Josué Arias.</p>
-    </div>
-    <div class="socials">
-      <a href="https://youtube.com/@ariasmind" target="_blank" class="social-btn" style="--sc:#ff3030;--sr:255,48,48" aria-label="YouTube">
-        <span class="s-ico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31.4 31.4 0 0 0 0 12a31.4 31.4 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31.4 31.4 0 0 0 24 12a31.4 31.4 0 0 0-.5-5.8zM9.7 15.5V8.5l6.3 3.5-6.3 3.5z"/></svg></span>
-        <span class="s-lbl">YouTube</span>
-      </a>
-      <a href="https://tiktok.com/@ariasmind.oficial" target="_blank" class="social-btn" style="--sc:#f0f4ff;--sr:220,230,255" aria-label="TikTok">
-        <span class="s-ico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.6 3a5.6 5.6 0 0 1-3.5-1.3A5.6 5.6 0 0 1 14.4 0h-3.7v15.7a2.6 2.6 0 0 1-2.6 2.3 2.6 2.6 0 0 1-2.6-2.6 2.6 2.6 0 0 1 2.6-2.6c.3 0 .5 0 .7.1V9.1a6.4 6.4 0 0 0-.7 0 6.3 6.3 0 0 0-6.3 6.3A6.3 6.3 0 0 0 8.1 21.6a6.3 6.3 0 0 0 6.3-6.3V8.1a9.2 9.2 0 0 0 5.2 1.6V6.1A5.6 5.6 0 0 1 19.6 3z"/></svg></span>
-        <span class="s-lbl">TikTok</span>
-      </a>
-      <a href="https://www.instagram.com/arias.mind" target="_blank" class="social-btn" style="--sc:#ff2d78;--sr:255,45,120" aria-label="Instagram">
-        <span class="s-ico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.2c3.2 0 3.6 0 4.9.1 3.3.1 4.8 1.7 4.9 4.9.1 1.3.1 1.6.1 4.8 0 3.2 0 3.6-.1 4.8-.1 3.2-1.7 4.8-4.9 4.9-1.3.1-1.6.1-4.9.1-3.2 0-3.6 0-4.8-.1-3.3-.1-4.8-1.7-4.9-4.9C2.2 15.6 2.2 15.2 2.2 12c0-3.2 0-3.6.1-4.8C2.4 3.9 4 2.3 7.2 2.2c1.2-.1 1.6-.1 4.8-.1zm0-2.2C8.7 0 8.3 0 7.1.1 2.7.3.3 2.7.1 7.1.0 8.3 0 8.7 0 12c0 3.3 0 3.7.1 4.9C.3 21.3 2.7 23.7 7.1 23.9c1.2.1 1.6.1 4.9.1 3.3 0 3.7 0 4.9-.1 4.4-.2 6.8-2.6 7-7 .1-1.2.1-1.6.1-4.9 0-3.3 0-3.7-.1-4.9C23.7 2.7 21.3.3 16.9.1 15.7 0 15.3 0 12 0zm0 5.8a6.2 6.2 0 1 0 0 12.4A6.2 6.2 0 0 0 12 5.8zm0 10.2a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.4-11.8a1.4 1.4 0 1 0 0 2.8 1.4 1.4 0 0 0 0-2.8z"/></svg></span>
-        <span class="s-lbl">Instagram</span>
-      </a>
-      <a href="https://open.spotify.com/show/3nUcoMN8dW7m1lV95yKejh" target="_blank" class="social-btn" style="--sc:#1df56a;--sr:29,245,106" aria-label="Spotify">
-        <span class="s-ico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.7 0 12 0zm5.5 17.3c-.2.4-.7.5-1.1.2-3-1.8-6.7-2.2-11.1-1.2-.4.1-.9-.2-1-.6-.1-.4.2-.9.6-1 4.8-1.1 8.9-.6 12.2 1.4.5.3.6.8.4 1.2zm1.5-3.3c-.3.5-.9.6-1.4.3-3.4-2.1-8.5-2.7-12.5-1.5-.5.2-1.1-.1-1.3-.6s.1-1.1.6-1.3c4.5-1.4 10.1-.7 14 1.7.5.3.6.9.6 1.4zm.1-3.4C15.5 8.1 9 7.9 5.4 9c-.6.2-1.2-.2-1.4-.7-.2-.6.2-1.2.7-1.4 4.2-1.3 11.2-1 15.6 1.5.5.3.7 1 .4 1.5-.3.5-1 .7-1.6.4v-.4z"/></svg></span>
-        <span class="s-lbl">Spotify</span>
-      </a>
-      <a href="https://www.facebook.com/share/16iB9dUkoB/" target="_blank" class="social-btn" style="--sc:#4a8eff;--sr:74,142,255" aria-label="Facebook">
-        <span class="s-ico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.1C24 5.4 18.6 0 12 0S0 5.4 0 12.1C0 18.1 4.4 23.1 10.1 24v-8.4H7.1v-3.5h3V9.4c0-3 1.8-4.7 4.5-4.7 1.3 0 2.7.2 2.7.2v3h-1.5c-1.5 0-2 .9-2 1.9v2.2h3.3l-.5 3.5h-2.8V24C19.6 23.1 24 18.1 24 12.1z"/></svg></span>
-        <span class="s-lbl">Facebook</span>
-      </a>
-    </div>
+<div class="container">
+  <div class="archive">
+    <a class="entry" href="articulo-001-verdad-autodidacta.html" data-art="1" data-track="archivo_art_1">
+      <span class="num">01</span>
+      <div class="body">
+        <div class="chips"><span class="chip">Autonomía</span><span class="tag tag-probado">Método probado</span></div>
+        <h3>La verdad sobre ser autodidacta</h3>
+        <p>¿Crees que ser autodidacta es para genios solitarios? Esa imagen es falsa. Qué significa dirigir tu propio aprendizaje y cómo cualquiera puede entrenarse para hacerlo.</p>
+      </div>
+      <span class="meta"><span>junio de 2026</span><span>6 min</span></span>
+    </a>
+    <a class="entry" href="articulo-002-mito-estilos-aprendizaje.html" data-art="2" data-track="archivo_art_2">
+      <span class="num">02</span>
+      <div class="body">
+        <div class="chips"><span class="chip">Mitos</span><span class="chip">Método</span><span class="tag tag-probado">Método probado</span></div>
+        <h3>Adiós al mito de los &quot;estilos de aprendizaje&quot;</h3>
+        <p>¿Crees que aprendes mejor solo viendo, escuchando o haciendo? Por qué esa idea limita tu potencial y cómo entrenar tu cerebro para dominar cualquier habilidad.</p>
+      </div>
+      <span class="meta"><span>junio de 2026</span><span>4 min</span></span>
+    </a>
+    <a class="entry" href="articulo-003-como-aprender-de-verdad.html" data-art="3" data-track="archivo_art_3">
+      <span class="num">03</span>
+      <div class="body">
+        <div class="chips"><span class="chip">Memoria</span><span class="chip">Método</span><span class="tag tag-probado">Método probado</span></div>
+        <h3>Cómo aprender de verdad: el arte de entrenar tu cerebro</h3>
+        <p>¿Estudias horas pero no recuerdas nada? No es tu memoria. Deja de repetir mecánicamente y usa la recuperación activa para que el conocimiento se quede.</p>
+      </div>
+      <span class="meta"><span>junio de 2026</span><span>5 min</span></span>
+    </a>
+    <a class="entry" href="articulo-004-estres-para-aprender.html" data-art="4" data-track="archivo_art_4">
+      <span class="num">04</span>
+      <div class="body">
+        <div class="chips"><span class="chip">Cerebro</span><span class="tag tag-probado">Método probado</span></div>
+        <h3>El estrés no siempre es tu enemigo</h3>
+        <p>¿Y si el estrés moderado fuera lo que tu cerebro necesita para aprender más rápido? La diferencia entre el estrés que te daña y el que te ayuda.</p>
+      </div>
+      <span class="meta"><span>junio de 2026</span><span>5 min</span></span>
+    </a>
+    <a class="entry" href="articulo-005-motivacion-te-falla.html" data-art="5" data-track="archivo_art_5">
+      <span class="num">05</span>
+      <div class="body">
+        <div class="chips"><span class="chip">Hábitos</span><span class="tag tag-probado">Método probado</span></div>
+        <h3>Por qué la motivación te falla siempre</h3>
+        <p>La motivación es inestable y no aparece cuando la necesitas. Por qué depender de ella es costoso y cómo construir un sistema que funcione incluso en tus peores días.</p>
+      </div>
+      <span class="meta"><span>junio de 2026</span><span>5 min</span></span>
+    </a>
+    <a class="entry" href="articulo-006-mito-academia.html" data-art="6" data-track="archivo_art_6">
+      <span class="num">06</span>
+      <div class="body">
+        <div class="chips"><span class="chip">Autonomía</span><span class="chip">Mitos</span><span class="tag tag-probado">Método probado</span></div>
+        <h3>El mito de la academia</h3>
+        <p>¿Crees que solo no lograrías la disciplina? Qué compras de verdad cuando te inscribes, por qué la mayoría no termina y cómo armar tu propia academia sin gastar dinero.</p>
+      </div>
+      <span class="meta"><span>junio de 2026</span><span>6 min</span></span>
+    </a>
+    <a class="entry" href="articulo-007-mito-nunca-olvidar.html" data-art="7" data-track="archivo_art_7">
+      <span class="num">07</span>
+      <div class="body">
+        <div class="chips"><span class="chip">Memoria</span><span class="chip">Mitos</span><span class="tag tag-probado">Método probado</span></div>
+        <h3>El mito de nunca olvidar</h3>
+        <p>&quot;Lo que bien se aprende, nunca se olvida&quot;, dicen. Pero si no recuerdas ni la mitad de lo que leíste el mes pasado, el problema no es tu memoria. Por qué olvidar es una función normal del cerebro y cómo lograr que el conocimiento se quede.</p>
+      </div>
+      <span class="meta"><span>julio de 2026</span><span>8 min</span></span>
+    </a>
+    <a class="entry feature" href="articulo-008-verguenza-autoestima-trauma.html" data-art="8" data-track="archivo_art_8">
+      <span class="num">08</span>
+      <div class="body">
+        <div class="chips"><span class="chip">Mente</span><span class="tag tag-abierto">Tema abierto</span></div>
+        <h3>La voz en tu cabeza que no te deja aprender <span class="badge-new">Nuevo</span></h3>
+        <p>Quizás no eres flojo. Quizás alguien, hace muchos años, te convenció de que no eras capaz, y esa voz nunca se fue. Un tema que abro, no una respuesta cerrada.</p>
+      </div>
+      <span class="meta"><span>agosto de 2026</span><span>8 min</span></span>
+    </a>
   </div>
-  <div class="foot-status">ARIASMIND &copy; 2026 &middot; SISTEMA OPERATIVO: ONLINE</div>
-    <div class="foot-links"><a href="Privacidad.html">Política de Privacidad</a></div>
-</footer>
-
+  <div style="height:3rem"></div>
 </div>
-<script>
-  // Reveal on scroll
-  const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12});
-
-  // ── ANALYTICS: qué secciones del home se llegan a ver ──
-  (function(){
-    if(typeof gtag !== 'function') return;
-    var vistas = {};
-    var zonas = document.querySelectorAll('#hero, #manifiesto, #archivo, #sugerencias, #origen, #senal, #pie');
-    var sectionObserver = new IntersectionObserver(function(entries){
-      entries.forEach(function(entry){
-        if(entry.isIntersecting && !vistas[entry.target.id]){
-          vistas[entry.target.id] = true;
-          gtag('event','section_view',{section_name:entry.target.id, page_path:location.pathname});
-          sectionObserver.unobserve(entry.target);
-        }
-      });
-    },{threshold:.35});
-    zonas.forEach(function(z){ sectionObserver.observe(z); });
-  })();
-
-  // ── ANALYTICS: en qué botón o enlace da clic la gente ──
-  document.addEventListener('click', function(e){
-    var el = e.target.closest('[data-track]');
-    if(el && typeof gtag === 'function'){
-      gtag('event','element_click',{element_name:el.dataset.track, page_path:location.pathname});
-    }
-  });
-
-  document.querySelectorAll('.rv').forEach(el=>io.observe(el));
-
-  // Iluminación automática al centro de la pantalla (sólo dispositivos táctiles)
-  if(window.matchMedia('(hover: none)').matches){
-    const entries=document.querySelectorAll('.entry');
-    if(entries.length){
-      // Banda central: activa cuando el artículo cruza el 50% vertical de la pantalla
-      const centerObs=new IntersectionObserver((obs)=>{
-        obs.forEach(o=>{
-          o.target.classList.toggle('in-center',o.isIntersecting);
-        });
-      },{rootMargin:'-45% 0px -45% 0px',threshold:0});
-      entries.forEach(el=>centerObs.observe(el));
-    }
-  }
-
-  // Menú móvil
-  const menuBtn=document.getElementById('menuBtn');
-  const menuClose=document.getElementById('menuClose');
-  const mobileMenu=document.getElementById('mobileMenu');
-  function openMenu(){mobileMenu.classList.add('open');document.body.classList.add('menu-open');menuBtn.setAttribute('aria-expanded','true');mobileMenu.setAttribute('aria-hidden','false');}
-  function closeMenu(){mobileMenu.classList.remove('open');document.body.classList.remove('menu-open');menuBtn.setAttribute('aria-expanded','false');mobileMenu.setAttribute('aria-hidden','true');}
-  menuBtn.addEventListener('click',openMenu);
-  menuClose.addEventListener('click',closeMenu);
-  document.querySelectorAll('[data-mm]').forEach(a=>a.addEventListener('click',closeMenu));
-  document.addEventListener('keydown',e=>{if(e.key==='Escape')closeMenu();});
-
-  // ── PROGRESO DE LECTURA (basado en % real de scroll por artículo) ──
-  (function(){
-    function getProgress(){
-      try{ return JSON.parse(localStorage.getItem('ariasmind_progress')||'{}'); }catch(e){ return {}; }
-    }
-    var progress = getProgress();
-    var total = 8;
-    var fill = document.getElementById('progressFill');
-    var text = document.getElementById('progressText');
-
-    var sum = 0, completos = 0;
-    for(var i=1;i<=total;i++){
-      var p = progress[i] || 0;
-      sum += Math.min(p,100);
-      if(p >= 90) completos++;
-    }
-    var overallPct = Math.round(sum/total);
-
-    if(fill && text){
-      fill.style.width = (100-overallPct)+'%';
-      text.textContent = completos+' / '+total+' COMPLETOS · '+overallPct+'%';
-    }
-
-    document.querySelectorAll('.entry[data-art]').forEach(function(el){
-      var n = parseInt(el.getAttribute('data-art'),10);
-      var p = progress[n] || 0;
-      var meta = el.querySelector('.meta');
-      if(!meta) return;
-      if(meta.querySelector('.read-badge,.progress-badge')) return;
-      if(p >= 90){
-        meta.insertAdjacentHTML('afterbegin','<span class="read-badge">&#10003; LEÍDO</span>');
-      } else if(p > 0){
-        meta.insertAdjacentHTML('afterbegin','<span class="progress-badge">EN PROGRESO &middot; '+p+'%</span>');
-      }
-    });
-  })();
-
-  (function(){
-    var el = document.getElementById('countdown');
-    if(!el) return;
-    var now = new Date();
-    var target = new Date(now.getFullYear(), now.getMonth(), 15);
-    if(now.getDate() >= 15){
-      target = new Date(now.getFullYear(), now.getMonth()+1, 15);
-    }
-    var diffDays = Math.ceil((target - now)/(1000*60*60*24));
-    var meses = ['ENE','FEB','MAR','ABR','MAY','JUN','JUL','AGO','SEP','OCT','NOV','DIC'];
-    var fechaTxt = '15 '+meses[target.getMonth()];
-    if(diffDays<=0){
-      el.innerHTML = '&gt; PRÓXIMO ARTÍCULO: <b>HOY</b>';
-    } else {
-      el.innerHTML = '&gt; PRÓXIMO ARTÍCULO EN: <b>'+diffDays+' DÍA'+(diffDays===1?'':'S')+'</b> &middot; '+fechaTxt;
-    }
-  })();
-
-  // ── FORMULARIO DE SUGERENCIAS (Formspree) ──
-  (function(){
-    var form = document.getElementById('suggestForm');
-    var msg = document.getElementById('suggestMsg');
-    if(!form) return;
-    form.addEventListener('submit', function(e){
-      e.preventDefault();
-      var data = new FormData(form);
-      fetch(form.action, {
-        method:'POST',
-        body:data,
-        headers:{'Accept':'application/json'}
-      }).then(function(res){
-        if(res.ok){
-          msg.textContent = '¡Gracias! Recibimos tu sugerencia.';
-          msg.className = 'suggest-msg show ok';
-          if(typeof gtag === 'function') gtag('event','suggestion_submit_success');
-          form.reset();
-        } else {
-          msg.textContent = 'No se pudo enviar. Intenta de nuevo en un momento.';
-          msg.className = 'suggest-msg show err';
-        }
-      }).catch(function(){
-        msg.textContent = 'No se pudo enviar. Intenta de nuevo en un momento.';
-        msg.className = 'suggest-msg show err';
-      });
-    });
-  })();
-</script>
+</main>
+<footer class="site-footer" id="pie">
+  <div class="container wide">
+    <div class="foot-top">
+      <div><div class="foot-brand">Arias<span>Mind</span></div><p>Artículos sobre cómo aprender mejor. Por Josué Arias.</p></div>
+      <div class="socials"><a class="social" href="https://youtube.com/@ariasmind" target="_blank" rel="noopener" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31.4 31.4 0 0 0 0 12a31.4 31.4 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31.4 31.4 0 0 0 24 12a31.4 31.4 0 0 0-.5-5.8zM9.7 15.5V8.5l6.3 3.5-6.3 3.5z"/></svg><span>YouTube</span></a><a class="social" href="https://tiktok.com/@ariasmind.oficial" target="_blank" rel="noopener" aria-label="TikTok"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19.6 3a5.6 5.6 0 0 1-3.5-1.3A5.6 5.6 0 0 1 14.4 0h-3.7v15.7a2.6 2.6 0 0 1-2.6 2.3 2.6 2.6 0 0 1-2.6-2.6 2.6 2.6 0 0 1 2.6-2.6c.3 0 .5 0 .7.1V9.1a6.4 6.4 0 0 0-.7 0 6.3 6.3 0 0 0-6.3 6.3A6.3 6.3 0 0 0 8.1 21.6a6.3 6.3 0 0 0 6.3-6.3V8.1a9.2 9.2 0 0 0 5.2 1.6V6.1A5.6 5.6 0 0 1 19.6 3z"/></svg><span>TikTok</span></a><a class="social" href="https://www.instagram.com/arias.mind" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.2c3.2 0 3.6 0 4.9.1 3.3.1 4.8 1.7 4.9 4.9.1 1.3.1 1.6.1 4.8 0 3.2 0 3.6-.1 4.8-.1 3.2-1.7 4.8-4.9 4.9-1.3.1-1.6.1-4.9.1-3.2 0-3.6 0-4.8-.1-3.3-.1-4.8-1.7-4.9-4.9C2.2 15.6 2.2 15.2 2.2 12c0-3.2 0-3.6.1-4.8C2.4 3.9 4 2.3 7.2 2.2c1.2-.1 1.6-.1 4.8-.1zm0-2.2C8.7 0 8.3 0 7.1.1 2.7.3.3 2.7.1 7.1.0 8.3 0 8.7 0 12c0 3.3 0 3.7.1 4.9C.3 21.3 2.7 23.7 7.1 23.9c1.2.1 1.6.1 4.9.1 3.3 0 3.7 0 4.9-.1 4.4-.2 6.8-2.6 7-7 .1-1.2.1-1.6.1-4.9 0-3.3 0-3.7-.1-4.9C23.7 2.7 21.3.3 16.9.1 15.7 0 15.3 0 12 0zm0 5.8a6.2 6.2 0 1 0 0 12.4A6.2 6.2 0 0 0 12 5.8zm0 10.2a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.4-11.8a1.4 1.4 0 1 0 0 2.8 1.4 1.4 0 0 0 0-2.8z"/></svg><span>Instagram</span></a><a class="social" href="https://open.spotify.com/show/3nUcoMN8dW7m1lV95yKejh" target="_blank" rel="noopener" aria-label="Spotify"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.7 0 12 0zm5.5 17.3c-.2.4-.7.5-1.1.2-3-1.8-6.7-2.2-11.1-1.2-.4.1-.9-.2-1-.6-.1-.4.2-.9.6-1 4.8-1.1 8.9-.6 12.2 1.4.5.3.6.8.4 1.2zm1.5-3.3c-.3.5-.9.6-1.4.3-3.4-2.1-8.5-2.7-12.5-1.5-.5.2-1.1-.1-1.3-.6s.1-1.1.6-1.3c4.5-1.4 10.1-.7 14 1.7.5.3.6.9.6 1.4zm.1-3.4C15.5 8.1 9 7.9 5.4 9c-.6.2-1.2-.2-1.4-.7-.2-.6.2-1.2.7-1.4 4.2-1.3 11.2-1 15.6 1.5.5.3.7 1 .4 1.5-.3.5-1 .7-1.6.4v-.4z"/></svg><span>Spotify</span></a><a class="social" href="https://www.facebook.com/share/16iB9dUkoB/" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M24 12.1C24 5.4 18.6 0 12 0S0 5.4 0 12.1C0 18.1 4.4 23.1 10.1 24v-8.4H7.1v-3.5h3V9.4c0-3 1.8-4.7 4.5-4.7 1.3 0 2.7.2 2.7.2v3h-1.5c-1.5 0-2 .9-2 1.9v2.2h3.3l-.5 3.5h-2.8V24C19.6 23.1 24 18.1 24 12.1z"/></svg><span>Facebook</span></a></div>
+    </div>
+    <div class="foot-legal"><span>&copy; 2026 AriasMind</span><a href="Privacidad.html">Política de privacidad</a></div>
+  </div>
+</footer>
+<script src="site.js"></script>
 </body>
 </html>
