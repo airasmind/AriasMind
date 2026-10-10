@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+<channel>
+  <title>AriasMind</title>
+  <link>https://ariasmind.com/</link>
+  <description>Artículos sobre cómo funciona el aprendizaje y qué métodos sirven en la práctica. Por Josué Arias.</description>
+  <language>es</language>
+  <lastBuildDate>Tue, 15 Sep 2026 12:00:00 -0600</lastBuildDate>
+  <item>
+    <title>La voz en tu cabeza que no te deja aprender</title>
+    <link>https://ariasmind.com/articulo-008-verguenza-autoestima-trauma.html</link>
+    <guid isPermaLink="true">https://ariasmind.com/articulo-008-verguenza-autoestima-trauma.html</guid>
+    <pubDate>Tue, 15 Sep 2026 12:00:00 -0600</pubDate>
+    <description>Quizás no eres flojo. Quizás alguien, hace muchos años, te convenció de que no eras capaz, y esa voz nunca se fue.</description>
+  </item>
+  <item>
+    <title>El mito de nunca olvidar</title>
+    <link>https://ariasmind.com/articulo-007-mito-nunca-olvidar.html</link>
+    <guid isPermaLink="true">https://ariasmind.com/articulo-007-mito-nunca-olvidar.html</guid>
+    <pubDate>Sat, 15 Aug 2026 12:00:00 -0600</pubDate>
+    <description>El olvido no es un fallo de tu sistema. Es lo que evita que colapse.</description>
+  </item>
+  <item>
+    <title>El mito de la academia</title>
+    <link>https://ariasmind.com/articulo-006-mito-academia.html</link>
+    <guid isPermaLink="true">https://ariasmind.com/articulo-006-mito-academia.html</guid>
+    <pubDate>Wed, 15 Jul 2026 12:00:00 -0600</pubDate>
+    <description>El 70% de quienes pagan un curso nunca lo empiezan. El problema nunca fue el precio.</description>
+  </item>
+  <item>
+    <title>Por qué la motivación te falla siempre</title>
+    <link>https://ariasmind.com/articulo-005-motivacion-te-falla.html</link>
+    <guid isPermaLink="true">https://ariasmind.com/articulo-005-motivacion-te-falla.html</guid>
+    <pubDate>Mon, 15 Jun 2026 12:00:00 -0600</pubDate>
+    <description>La motivación es una emoción. Los sistemas son arquitectura. Solo uno funciona cuando no tienes ganas.</description>
+  </item>
+  <item>
+    <title>El estrés no siempre es tu enemigo</title>
+    <link>https://ariasmind.com/articulo-004-estres-para-aprender.html</link>
+    <guid isPermaLink="true">https://ariasmind.com/articulo-004-estres-para-aprender.html</guid>
+    <pubDate>Mon, 15 Jun 2026 12:00:00 -0600</pubDate>
+    <description>El estrés moderado le dice a tu cerebro: esto importa, no lo olvides.</description>
+  </item>
+  <item>
+    <title>Cómo aprender de verdad: el arte de entrenar tu cerebro</title>
+    <link>https://ariasmind.com/articulo-003-como-aprender-de-verdad.html</link>
+    <guid isPermaLink="true">https://ariasmind.com/articulo-003-como-aprender-de-verdad.html</guid>
+    <pubDate>Mon, 15 Jun 2026 12:00:00 -0600</pubDate>
+    <description>La repetición mecánica es cancelación de ruido. La recuperación activa es entrenamiento real.</description>
+  </item>
+  <item>
+    <title>Adiós al mito de los "estilos de aprendizaje"</title>
+    <link>https://ariasmind.com/articulo-002-mito-estilos-aprendizaje.html</link>
+    <guid isPermaLink="true">https://ariasmind.com/articulo-002-mito-estilos-aprendizaje.html</guid>
+    <pubDate>Mon, 15 Jun 2026 12:00:00 -0600</pubDate>
+    <description>No "somos" visuales ni auditivos. La herramienta correcta la define lo que aprendes, no quién crees ser.</description>
+  </item>
+  <item>
+    <title>La verdad sobre ser autodidacta</title>
+    <link>https://ariasmind.com/articulo-001-verdad-autodidacta.html</link>
+    <guid isPermaLink="true">https://ariasmind.com/articulo-001-verdad-autodidacta.html</guid>
+    <pubDate>Mon, 15 Jun 2026 12:00:00 -0600</pubDate>
+    <description>No naciste autodidacta. Te conviertes en uno cuando empiezas a practicar la habilidad de dirigirte a ti mismo.</description>
+  </item>
+</channel>
+</rss>
