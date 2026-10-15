@@ -99,7 +99,7 @@
           if(pct > (d[num] || 0)){ d[num] = pct; localStorage.setItem('ariasmind_progress', JSON.stringify(d)); }
         }catch(e){}
       }
-      if(pct >= 90 && !enviado){ enviado = true; track('article_read', {article: num}); }
+      if(pct >= 90 && !enviado){ enviado = true; track('article_read', {articulo: num}); }
     };
     window.addEventListener('scroll', actualiza, {passive:true});
     window.addEventListener('resize', actualiza);
@@ -109,7 +109,7 @@
   /* Estadísticas: secciones vistas y clics */
   if(typeof gtag === 'function'){
     var vistas = {};
-    var zonas = document.querySelectorAll('#hero, #manifiesto, #archivo, #sugerencias, #origen, #senal, #pie');
+    var zonas = document.querySelectorAll('#hero, #manifiesto, #archivo, #herramientas, #materiales, #sugerencias, #origen, #senal, #pie');
     if(zonas.length && 'IntersectionObserver' in window){
       var so = new IntersectionObserver(function(entries){
         entries.forEach(function(en){
