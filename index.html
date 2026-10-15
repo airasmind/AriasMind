@@ -41,8 +41,10 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="site.css">
+<link rel="stylesheet" href="herramientas.css">
 </head>
 <body>
+
 <a class="skip-link" href="#contenido">Saltar al contenido</a>
 <header class="site-header">
   <div class="container wide">
@@ -55,7 +57,7 @@
       <button class="menu-btn" id="menuBtn" type="button" aria-expanded="false" aria-controls="siteNav">Menú</button>
     </div>
     
-    <nav class="site-nav" id="siteNav" aria-label="Principal"><a href="archivo.html" data-track="nav_archivo">Artículos</a><a href="proyecto.html" data-track="nav_proyecto">El proyecto</a><a href="origen.html" data-track="nav_origen">Mi historia</a><a href="index.html#sugerencias" data-track="nav_sugiere">Sugerencias</a><a href="index.html#senal" data-track="nav_podcast">Podcast</a><a class="nav-cta" href="archivo.html" data-track="nav_cta">Leer artículos</a></nav>
+    <nav class="site-nav" id="siteNav" aria-label="Principal"><a href="archivo.html" data-track="nav_archivo">Artículos</a><a href="herramientas.html" data-track="nav_herramientas">Herramientas</a><a href="proyecto.html" data-track="nav_proyecto">El proyecto</a><a href="origen.html" data-track="nav_origen">Mi historia</a><a href="index.html#sugerencias" data-track="nav_sugiere">Sugerencias</a><a href="index.html#senal" data-track="nav_podcast">Podcast</a><a class="nav-cta" href="archivo.html" data-track="nav_cta">Leer artículos</a></nav>
   </div>
 </header>
 
@@ -69,9 +71,7 @@
       <p class="lead">Artículos claros sobre cómo funciona el aprendizaje y qué métodos sirven en la práctica, con ejemplos y fuentes científicas. Sin fórmulas mágicas.</p>
       <div class="actions">
         <a href="articulo-001-verdad-autodidacta.html" class="btn btn-primary" data-track="hero_empezar">Empieza a leer</a>
-        <a href="archivo.html" class="btn btn-secondary" data-track="hero_articulos"><span>Ver los <span data-count>9</span> artículos</span></a>
       </div>
-      <ul class="facts"><li><span data-count>9</span> artículos</li><li>Con fuentes científicas</li><li>4 a 8 min de lectura</li><li>Gratis</li></ul>
     </div>
     <figure class="portrait">
       <img src="josue-arias.webp" alt="Josué Arias, autor de AriasMind" width="860" height="1075">
@@ -107,7 +107,16 @@
   </div>
 </section>
 
-<section class="block alt" id="sugerencias">
+<section class="block alt" id="herramientas">
+  <div class="container wide">
+    <h2>Herramientas para practicar</h2>
+    <p class="section-lead">Leer ayuda. Practicar es lo que cambia las cosas. Cada herramienta sale de un artículo. Gratis, sin cuenta.</p>
+    <div class="tools-grid home-tools"><a class="tool-tile feature" href="herramienta-mi-proyecto.html" data-g="organizarme proyecto" data-track="tool_proyecto"><span class="badge">Empieza aquí</span><span class="ic" aria-hidden="true">🚀</span><h3>Mi proyecto de aprendizaje</h3><p>Arma un plan serio para aprender algo desde cero y síguelo día a día. Junta todas las herramientas en un solo plan.</p><span class="from">Del artículo 1, 5, 6</span></a><a class="tool-tile" href="herramienta-calendario-repaso.html" data-g="recordar" data-track="tool_repaso"><span class="ic" aria-hidden="true">🔁</span><h3>Repaso activo</h3><p>Guarda tus temas, repásalos sin mirar y no los olvides.</p><span class="from">Del artículo 3, 7</span></a><a class="tool-tile" href="herramienta-lo-que-si-puedo.html" data-g="confianza" data-track="tool_confianza"><span class="ic" aria-hidden="true">🌱</span><h3>Lo que sí puedo</h3><p>Junta pruebas de que sí puedes aprender.</p><span class="from">Del artículo 8, 9</span></a></div>
+    <div class="cta-row"><a href="herramientas.html" class="btn btn-secondary" data-track="inicio_herramientas"><span>Ver las 7 herramientas &rarr;</span></a></div>
+  </div>
+</section>
+
+<section class="block" id="sugerencias">
   <div class="container wide">
     <h2>Construyamos esto juntos</h2>
     <p class="section-lead">¿Qué quieres aprender? ¿Qué método quieres que ponga a prueba? Cuéntamelo. También preparo un primer reto público: aprender algo nuevo frente a ti.</p>
@@ -123,7 +132,7 @@
   </div>
 </section>
 
-<section class="block" id="origen">
+<section class="block alt" id="origen">
   <div class="container wide">
     <h2>Sobre el sitio</h2>
     <div class="cards">

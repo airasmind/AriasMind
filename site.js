@@ -300,18 +300,53 @@
   if(sb){
     var urlCanon = (document.querySelector('link[rel="canonical"]') || {}).href || location.href;
     var etiqueta = sb.textContent;
+    var titulo = document.title.replace(/\s*\|\s*AriasMind\s*$/, '');
+    var panel = null;
+    function avisar(t){ sb.textContent = t; setTimeout(function(){ sb.textContent = etiqueta; }, 2500); }
+    function abrirPanel(){
+      if(!panel){
+        var u = encodeURIComponent(urlCanon), t = encodeURIComponent(titulo + ' | AriasMind');
+        panel = document.createElement('div');
+        panel.className = 'share-panel';
+        var movil = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent) || (navigator.maxTouchPoints > 1 && /Mac/.test(navigator.platform));
+        panel.innerHTML = '<p class="share-t">Comparte este artículo</p>' +
+          '<div class="share-opts">' +
+          '<a href="https://wa.me/?text=' + t + '%20' + u + '" target="_blank" rel="noopener">WhatsApp</a>' +
+          (movil ? '<a href="fb-messenger://share/?link=' + u + '" target="_blank" rel="noopener">Messenger</a>'
+                 : '<a href="https://www.facebook.com/sharer/sharer.php?u=' + u + '" target="_blank" rel="noopener">Facebook</a>') +
+          '<a href="https://twitter.com/intent/tweet?text=' + t + '&url=' + u + '" target="_blank" rel="noopener">X</a>' +
+          '<button type="button" class="share-copy">Copiar enlace</button></div>' +
+          '<label class="share-l">El enlace:<input class="share-in" type="text" readonly value="' + urlCanon + '"></label>';
+        sb.parentNode.insertAdjacentElement('afterend', panel);
+        panel.querySelectorAll('a').forEach(function(a){ a.addEventListener('click', function(){ track('share_' + a.textContent.toLowerCase()); }); });
+        var inp = panel.querySelector('.share-in');
+        inp.addEventListener('focus', function(){ inp.select(); });
+        var cb = panel.querySelector('.share-copy');
+        cb.addEventListener('click', function(){
+          track('share_copiar');
+          var listo = function(){ cb.textContent = '¡Copiado!'; setTimeout(function(){ cb.textContent = 'Copiar enlace'; }, 2500); };
+          var ok = false;
+          try { inp.focus({preventScroll:true}); inp.select(); inp.setSelectionRange(0, 9999); ok = document.execCommand('copy'); } catch(e){}
+          if(ok) return listo();
+          if(navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(urlCanon).then(listo, function(){ cb.textContent = 'Mantén presionado el enlace para copiarlo'; });
+          else cb.textContent = 'Mantén presionado el enlace para copiarlo';
+        });
+      }
+      panel.hidden = false;
+      var inp2 = panel.querySelector('.share-in');
+      try { inp2.focus({preventScroll:true}); inp2.select(); } catch(e){}
+    }
+    function copiar(){
+      if(navigator.clipboard && navigator.clipboard.writeText){
+        navigator.clipboard.writeText(urlCanon).then(function(){ avisar('Enlace copiado'); abrirPanel(); }, abrirPanel);
+      } else abrirPanel();
+    }
     sb.addEventListener('click', function(){
       track('share_click');
       if(navigator.share){
-        navigator.share({title: document.title, url: urlCanon}).catch(function(){});
-      } else if(navigator.clipboard && navigator.clipboard.writeText){
-        navigator.clipboard.writeText(urlCanon).then(function(){
-          sb.textContent = 'Enlace copiado';
-          setTimeout(function(){ sb.textContent = etiqueta; }, 2500);
-        }).catch(function(){});
-      }
+        navigator.share({title: titulo, url: urlCanon}).catch(function(e){ if(!e || e.name !== 'AbortError') copiar(); });
+      } else copiar();
     });
-    if(!navigator.share && !(navigator.clipboard && navigator.clipboard.writeText)) sb.hidden = true;
   }
 
   /* Formulario de sugerencias */

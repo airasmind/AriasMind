@@ -280,3 +280,48 @@ a.next-card:hover{transform:translateY(-2px);box-shadow:0 10px 36px var(--glow)}
 .rotor-ctl{margin-top:.6rem;background:none;border:0;color:var(--muted);font:inherit;font-size:.85rem;text-decoration:underline;text-underline-offset:.2em;cursor:pointer;padding:.4rem 0;min-height:44px}
 .rotor-ctl:hover{color:var(--fg)}
 @media(prefers-reduced-motion:reduce){.rotor>.entry,.rotor>.entry.is-on{transition:none}}
+
+/* Recuadro "Una mirada desde la fe" */
+.faith-box{background:color-mix(in srgb,var(--orange) 8%,var(--surface));border:1px solid color-mix(in srgb,var(--orange) 34%,var(--line));border-radius:12px;padding:1.1rem 1.3rem;margin:2rem 0}
+.faith-box p{font-size:1.02rem;line-height:1.75;margin:0 0 .6rem}
+.faith-box p:last-child{margin-bottom:0}
+.faith-box p.faith-label{font-size:.78rem;font-weight:800;letter-spacing:.09em;text-transform:uppercase;color:var(--muted);margin:0 0 .6rem}
+
+/* ¿Qué recuerdas? (reemplaza a "Lo que te llevas de aquí") */
+.repaso{background:var(--surface);border:1px solid var(--line);border-top:3px solid var(--cyan);border-radius:14px;padding:1.5rem clamp(1.1rem,3vw,2rem);margin-bottom:2rem}
+.rp-hdr{font-size:1.35rem;margin:0 0 .4rem}
+.rp-lead{margin:0 0 .4rem;color:var(--muted);font-size:.98rem;max-width:60ch}
+.rp-prev{margin:.6rem 0 0;font-size:.9rem;font-weight:600;color:var(--cyan)}
+.rp-list{list-style:none;counter-reset:rp;margin:1rem 0 0;padding:0}
+.rp-q{counter-increment:rp;position:relative;padding:1rem 0 1rem 2.4rem;border-top:1px solid var(--line)}
+.rp-q::before{content:counter(rp);position:absolute;left:0;top:1rem;width:1.6rem;height:1.6rem;border-radius:50%;background:color-mix(in srgb,var(--cyan) 18%,transparent);color:var(--cyan);font-size:.8rem;font-weight:800;display:flex;align-items:center;justify-content:center}
+.rp-q[data-r="2"]::before{content:"✓";background:var(--cyan);color:var(--on-cyan)}
+.rp-q[data-r="1"]::before{content:"~";background:color-mix(in srgb,var(--blue) 30%,transparent);color:var(--fg)}
+.rp-q[data-r="0"]::before{content:"↻";background:color-mix(in srgb,var(--orange) 25%,transparent);color:var(--fg)}
+.rp-p{margin:0 0 .7rem;font-size:1.05rem;font-weight:700;color:var(--fg);line-height:1.5}
+.rp-ver{min-height:42px;padding:.5rem 1rem;font-size:.92rem}
+.rp-a{background:color-mix(in srgb,var(--cyan) 7%,var(--surface));border:1px solid color-mix(in srgb,var(--cyan) 30%,var(--line));border-radius:10px;padding:.9rem 1rem}
+.rp-a>p{margin:0;font-size:1.02rem;line-height:1.65;color:var(--text)}
+.rp-a strong{color:var(--fg)}
+.rp-rate{display:flex;flex-wrap:wrap;align-items:center;gap:.45rem;margin-top:.85rem}
+.rp-rate span{flex-basis:100%;font-size:.85rem;color:var(--muted)}
+.rp-rate button{font:600 .88rem var(--sans);color:var(--fg);background:transparent;border:1px solid var(--line);border-radius:99px;min-height:40px;padding:.35rem .95rem;cursor:pointer}
+.rp-rate button:hover{border-color:var(--cyan)}
+.rp-rate button[aria-pressed="true"]{background:var(--cyan);border-color:var(--cyan);color:var(--on-cyan)}
+.rp-end{border-top:1px solid var(--line);padding-top:1.1rem}
+.rp-score{margin:0 0 1rem;font-size:1.02rem;color:var(--fg);font-weight:600}
+.rp-reto{background:color-mix(in srgb,var(--orange) 8%,var(--surface));border:1px solid color-mix(in srgb,var(--orange) 34%,var(--line));border-radius:12px;padding:1rem 1.2rem}
+.rp-reto p{margin:0;font-size:1.02rem;line-height:1.65}
+.rp-reto .rp-reto-h{font-size:.78rem;font-weight:800;letter-spacing:.09em;text-transform:uppercase;color:var(--fg);margin-bottom:.4rem}
+.rp-end .actions{display:flex;flex-wrap:wrap;gap:.7rem;margin-top:1.1rem}
+.rp-nota{margin:.7rem 0 0;font-size:.85rem;color:var(--muted)}
+
+/* Compartir: opciones cuando el menú del teléfono no está disponible */
+.share-panel{margin-top:1rem;padding:1rem;border:1px solid var(--line);border-radius:14px;background:var(--bg)}
+.share-t{margin:0 0 .6rem;font-weight:700;color:var(--fg)}
+.share-opts{display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:.8rem}
+.share-opts a,.share-copy{flex:1 1 7rem;text-align:center;padding:.6rem .8rem;border:1px solid var(--line);border-radius:10px;font-weight:600;color:var(--fg);text-decoration:none;background:var(--surface)}
+.share-opts a:hover,.share-copy:hover{border-color:var(--cyan)}
+.share-l{display:block;font-size:.85rem;color:var(--muted)}
+.share-in{display:block;width:100%;margin-top:.35rem;padding:.6rem .7rem;border:1px solid var(--line);border-radius:10px;background:var(--surface);color:var(--fg);font:inherit;font-size:.9rem}
+.share-copy{font:inherit;font-weight:600;cursor:pointer}
